@@ -1,0 +1,1009 @@
+{
+  "id": "lesson-1",
+  "number": 1,
+  "title": "All about me",
+  "subtitle": "Prepare Level 4 · Unit 1 · Vocabulary and reading",
+  "status": "published",
+  "vocabularyTopicId": "vocab-lesson-1",
+  "grammarIds": [],
+  "blocks": [
+    {
+      "type": "section-heading",
+      "kicker": "Vocabulary",
+      "title": "Describing people",
+      "subtitle": "Prepare Level 4 · Unit 1"
+    },
+    {
+      "type": "word-select",
+      "title": "1. Find and circle the adjectives for describing people.",
+      "questions": [
+        {
+          "id": "v1-circle-adjectives",
+          "type": "multiple-choice",
+          "question": "Find and circle the adjectives for describing people.",
+          "options": [
+            "weight",
+            "polite",
+            "careless",
+            "town",
+            "funny",
+            "book",
+            "friendly",
+            "miserable",
+            "confident",
+            "buy",
+            "careful",
+            "cheerful",
+            "rude",
+            "car",
+            "serious",
+            "run",
+            "shy",
+            "unfriendly",
+            "friday"
+          ],
+          "correctAnswer": [
+            "polite",
+            "careless",
+            "funny",
+            "friendly",
+            "miserable",
+            "confident",
+            "careful",
+            "cheerful",
+            "rude",
+            "serious",
+            "shy",
+            "unfriendly"
+          ],
+          "scorePerAnswer": true
+        }
+      ]
+    },
+    {
+      "type": "question-group",
+      "title": "2. Write the correct adjective.",
+      "questions": [
+        {
+          "id": "v2-1",
+          "type": "text-input",
+          "question": "1 Mark never knows where things are – he loses most of them. c________",
+          "correctAnswer": "careless"
+        },
+        {
+          "id": "v2-2",
+          "type": "text-input",
+          "question": "2 The woman in the shop said some horrible things. r________",
+          "correctAnswer": "rude"
+        },
+        {
+          "id": "v2-3",
+          "type": "text-input",
+          "question": "3 What a lovely girl! She’s always smiling and so pleasant. c________",
+          "correctAnswer": "cheerful"
+        },
+        {
+          "id": "v2-4",
+          "type": "text-input",
+          "question": "4 Peter’s older brother isn’t very nice to us when we go to his house. u________",
+          "correctAnswer": "unfriendly"
+        },
+        {
+          "id": "v2-5",
+          "type": "text-input",
+          "question": "5 Carly never talks to people she doesn’t know at parties. s________",
+          "correctAnswer": "shy"
+        },
+        {
+          "id": "v2-6",
+          "type": "text-input",
+          "question": "6 Emma feels very unhappy because she doesn’t like her new school. m________",
+          "correctAnswer": "miserable"
+        },
+        {
+          "id": "v2-7",
+          "type": "text-input",
+          "question": "7 Mum likes you because you say ‘please’ and ‘thank you’! p________",
+          "correctAnswer": "polite"
+        },
+        {
+          "id": "v2-8",
+          "type": "text-input",
+          "question": "8 When I study, I concentrate so I don’t make mistakes. c________",
+          "correctAnswer": "careful"
+        }
+      ]
+    },
+    {
+      "type": "question-group",
+      "title": "3. Choose the correct answer in each sentence.",
+      "questions": [
+        {
+          "id": "v3-1",
+          "type": "single-choice",
+          "question": "1 Sarah is always making people laugh. She’s really ________.",
+          "options": [
+            {
+              "value": "a",
+              "label": "a serious"
+            },
+            {
+              "value": "b",
+              "label": "b funny"
+            },
+            {
+              "value": "c",
+              "label": "c unfriendly"
+            }
+          ],
+          "correctAnswer": "b"
+        },
+        {
+          "id": "v3-2",
+          "type": "single-choice",
+          "question": "2 Lots of people like my dad. He is very ________.",
+          "options": [
+            {
+              "value": "a",
+              "label": "a friendly"
+            },
+            {
+              "value": "b",
+              "label": "b shy"
+            },
+            {
+              "value": "c",
+              "label": "c careful"
+            }
+          ],
+          "correctAnswer": "a"
+        },
+        {
+          "id": "v3-3",
+          "type": "single-choice",
+          "question": "3 In class, Louisa is ________. She answers all the questions the teacher asks her.",
+          "options": [
+            {
+              "value": "a",
+              "label": "a rude"
+            },
+            {
+              "value": "b",
+              "label": "b confident"
+            },
+            {
+              "value": "c",
+              "label": "c miserable"
+            }
+          ],
+          "correctAnswer": "b"
+        },
+        {
+          "id": "v3-4",
+          "type": "single-choice",
+          "question": "4 Ben doesn’t like making mistakes. He’s very ________.",
+          "options": [
+            {
+              "value": "a",
+              "label": "a careless"
+            },
+            {
+              "value": "b",
+              "label": "b careful"
+            },
+            {
+              "value": "c",
+              "label": "c polite"
+            }
+          ],
+          "correctAnswer": "b"
+        },
+        {
+          "id": "v3-5",
+          "type": "single-choice",
+          "question": "5 He never smiles. I think he’s a bit too ________.",
+          "options": [
+            {
+              "value": "a",
+              "label": "a shy"
+            },
+            {
+              "value": "b",
+              "label": "b cheerful"
+            },
+            {
+              "value": "c",
+              "label": "c serious"
+            }
+          ],
+          "correctAnswer": "c"
+        }
+      ]
+    },
+    {
+      "type": "picture-description",
+      "title": "4. Look at the pictures and choose the correct word to complete the description. You can only use each word once.",
+      "figure": {
+        "src": "assets/lessons/lesson-1-people.svg",
+        "alt": "Seven people labelled Bobbie, Nicky, Stefanie, Freddie, Anne, John and Sara"
+      },
+      "wordBank": [
+        "attractive",
+        "bald",
+        "blonde",
+        "dark",
+        "curly",
+        "early twenties",
+        "elderly",
+        "fair",
+        "good-looking",
+        "handsome",
+        "late thirties",
+        "middle-aged",
+        "pretty",
+        "straight",
+        "teenage"
+      ],
+      "questions": [
+        {
+          "id": "v4-1",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "attractive",
+            "bald",
+            "blonde",
+            "dark",
+            "curly",
+            "early twenties",
+            "elderly",
+            "fair",
+            "good-looking",
+            "handsome",
+            "late thirties",
+            "middle-aged",
+            "pretty",
+            "straight",
+            "teenage"
+          ],
+          "question": "Sara is in her ...",
+          "correctAnswer": "early twenties"
+        },
+        {
+          "id": "v4-2",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "attractive",
+            "bald",
+            "blonde",
+            "dark",
+            "curly",
+            "early twenties",
+            "elderly",
+            "fair",
+            "good-looking",
+            "handsome",
+            "late thirties",
+            "middle-aged",
+            "pretty",
+            "straight",
+            "teenage"
+          ],
+          "question": "Sara has long dark ... hair",
+          "correctAnswer": "straight"
+        },
+        {
+          "id": "v4-3",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "attractive",
+            "bald",
+            "blonde",
+            "dark",
+            "curly",
+            "early twenties",
+            "elderly",
+            "fair",
+            "good-looking",
+            "handsome",
+            "late thirties",
+            "middle-aged",
+            "pretty",
+            "straight",
+            "teenage"
+          ],
+          "question": "Sara is an ... woman",
+          "correctAnswer": "attractive"
+        },
+        {
+          "id": "v4-4",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "attractive",
+            "bald",
+            "blonde",
+            "dark",
+            "curly",
+            "early twenties",
+            "elderly",
+            "fair",
+            "good-looking",
+            "handsome",
+            "late thirties",
+            "middle-aged",
+            "pretty",
+            "straight",
+            "teenage"
+          ],
+          "question": "John is ...",
+          "correctAnswer": "middle-aged"
+        },
+        {
+          "id": "v4-5",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "attractive",
+            "bald",
+            "blonde",
+            "dark",
+            "curly",
+            "early twenties",
+            "elderly",
+            "fair",
+            "good-looking",
+            "handsome",
+            "late thirties",
+            "middle-aged",
+            "pretty",
+            "straight",
+            "teenage"
+          ],
+          "question": "John is ...",
+          "correctAnswer": "handsome"
+        },
+        {
+          "id": "v4-6",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "attractive",
+            "bald",
+            "blonde",
+            "dark",
+            "curly",
+            "early twenties",
+            "elderly",
+            "fair",
+            "good-looking",
+            "handsome",
+            "late thirties",
+            "middle-aged",
+            "pretty",
+            "straight",
+            "teenage"
+          ],
+          "question": "Anne is ...",
+          "correctAnswer": "elderly"
+        },
+        {
+          "id": "v4-7",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "attractive",
+            "bald",
+            "blonde",
+            "dark",
+            "curly",
+            "early twenties",
+            "elderly",
+            "fair",
+            "good-looking",
+            "handsome",
+            "late thirties",
+            "middle-aged",
+            "pretty",
+            "straight",
+            "teenage"
+          ],
+          "question": "Freddie has got short ... hair",
+          "correctAnswer": "fair"
+        },
+        {
+          "id": "v4-8",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "attractive",
+            "bald",
+            "blonde",
+            "dark",
+            "curly",
+            "early twenties",
+            "elderly",
+            "fair",
+            "good-looking",
+            "handsome",
+            "late thirties",
+            "middle-aged",
+            "pretty",
+            "straight",
+            "teenage"
+          ],
+          "question": "Freddie is ...",
+          "correctAnswer": "good-looking"
+        },
+        {
+          "id": "v4-9",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "attractive",
+            "bald",
+            "blonde",
+            "dark",
+            "curly",
+            "early twenties",
+            "elderly",
+            "fair",
+            "good-looking",
+            "handsome",
+            "late thirties",
+            "middle-aged",
+            "pretty",
+            "straight",
+            "teenage"
+          ],
+          "question": "Stefanie is very ...",
+          "correctAnswer": "pretty"
+        },
+        {
+          "id": "v4-10",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "attractive",
+            "bald",
+            "blonde",
+            "dark",
+            "curly",
+            "early twenties",
+            "elderly",
+            "fair",
+            "good-looking",
+            "handsome",
+            "late thirties",
+            "middle-aged",
+            "pretty",
+            "straight",
+            "teenage"
+          ],
+          "question": "Stefanie has ... hair",
+          "correctAnswer": "blonde"
+        },
+        {
+          "id": "v4-11",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "attractive",
+            "bald",
+            "blonde",
+            "dark",
+            "curly",
+            "early twenties",
+            "elderly",
+            "fair",
+            "good-looking",
+            "handsome",
+            "late thirties",
+            "middle-aged",
+            "pretty",
+            "straight",
+            "teenage"
+          ],
+          "question": "Stefanie is in her ...",
+          "correctAnswer": "late thirties"
+        },
+        {
+          "id": "v4-12",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "attractive",
+            "bald",
+            "blonde",
+            "dark",
+            "curly",
+            "early twenties",
+            "elderly",
+            "fair",
+            "good-looking",
+            "handsome",
+            "late thirties",
+            "middle-aged",
+            "pretty",
+            "straight",
+            "teenage"
+          ],
+          "question": "Nicky is a ... girl",
+          "correctAnswer": "teenage"
+        },
+        {
+          "id": "v4-13",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "attractive",
+            "bald",
+            "blonde",
+            "dark",
+            "curly",
+            "early twenties",
+            "elderly",
+            "fair",
+            "good-looking",
+            "handsome",
+            "late thirties",
+            "middle-aged",
+            "pretty",
+            "straight",
+            "teenage"
+          ],
+          "question": "Nicky has got long ... hair",
+          "correctAnswer": "dark"
+        },
+        {
+          "id": "v4-14",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "attractive",
+            "bald",
+            "blonde",
+            "dark",
+            "curly",
+            "early twenties",
+            "elderly",
+            "fair",
+            "good-looking",
+            "handsome",
+            "late thirties",
+            "middle-aged",
+            "pretty",
+            "straight",
+            "teenage"
+          ],
+          "question": "Nicky’s hair is ...",
+          "correctAnswer": "curly"
+        },
+        {
+          "id": "v4-15",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "attractive",
+            "bald",
+            "blonde",
+            "dark",
+            "curly",
+            "early twenties",
+            "elderly",
+            "fair",
+            "good-looking",
+            "handsome",
+            "late thirties",
+            "middle-aged",
+            "pretty",
+            "straight",
+            "teenage"
+          ],
+          "question": "Bobbie is in his fifties and is ...",
+          "correctAnswer": "bald"
+        }
+      ],
+      "rows": [
+        {
+          "label": "a",
+          "parts": [
+            "Sara is in her ",
+            {
+              "questionId": "v4-1"
+            },
+            ". She has long dark ",
+            {
+              "questionId": "v4-2"
+            },
+            " hair. She’s an ",
+            {
+              "questionId": "v4-3"
+            },
+            " woman."
+          ]
+        },
+        {
+          "label": "b",
+          "parts": [
+            "John has curly hair and is ",
+            {
+              "questionId": "v4-4"
+            },
+            " and ",
+            {
+              "questionId": "v4-5"
+            },
+            "."
+          ]
+        },
+        {
+          "label": "c",
+          "parts": [
+            "Anne is ",
+            {
+              "questionId": "v4-6"
+            },
+            ". She has got short straight hair."
+          ]
+        },
+        {
+          "label": "d",
+          "parts": [
+            "Freddie has got short ",
+            {
+              "questionId": "v4-7"
+            },
+            " hair. He’s ",
+            {
+              "questionId": "v4-8"
+            },
+            "."
+          ]
+        },
+        {
+          "label": "e",
+          "parts": [
+            "Stefanie is very ",
+            {
+              "questionId": "v4-9"
+            },
+            ". She has ",
+            {
+              "questionId": "v4-10"
+            },
+            " hair and is in her ",
+            {
+              "questionId": "v4-11"
+            },
+            "."
+          ]
+        },
+        {
+          "label": "f",
+          "parts": [
+            "Nicky is a ",
+            {
+              "questionId": "v4-12"
+            },
+            " girl. She’s got long ",
+            {
+              "questionId": "v4-13"
+            },
+            " hair, which is ",
+            {
+              "questionId": "v4-14"
+            },
+            "."
+          ]
+        },
+        {
+          "label": "g",
+          "parts": [
+            "Bobbie is in his fifties and is ",
+            {
+              "questionId": "v4-15"
+            },
+            "."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section-heading",
+      "kicker": "Reading",
+      "title": "Birth order",
+      "subtitle": "Reading practice from Unit 1"
+    },
+    {
+      "type": "reading-comprehension",
+      "title": "Birth order",
+      "lead": "Some people believe your position in your family can change the kind of person you are. Which one are you?",
+      "instructions": {
+        "headings": "Read this text about birth order quickly. Complete headings A–D with the words in the box.",
+        "gaps": "Read the text again. For questions 1–6 think of the word which best fits each gap. Use only one word in each gap."
+      },
+      "wordBank": [
+        "Eldest child",
+        "Middle child",
+        "Only child",
+        "Youngest child"
+      ],
+      "figure": {
+        "src": "assets/lessons/lesson-1-birth-order.svg",
+        "alt": "A clean digital family illustration for the birth order reading"
+      },
+      "commentsTitle": "3. Which ‘child’ do you think wrote these comments?",
+      "matchingTitle": "4. Match the highlighted words in the text to their meanings.",
+      "commentQuestionIds": [
+        "r3-1",
+        "r3-2",
+        "r3-3",
+        "r3-4"
+      ],
+      "matchingQuestionId": "r4-match",
+      "questions": [
+        {
+          "id": "r1-A",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "Eldest child",
+            "Middle child",
+            "Only child",
+            "Youngest child"
+          ],
+          "question": "Heading A",
+          "correctAnswer": "Eldest child"
+        },
+        {
+          "id": "r1-B",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "Eldest child",
+            "Middle child",
+            "Only child",
+            "Youngest child"
+          ],
+          "question": "Heading B",
+          "correctAnswer": "Middle child"
+        },
+        {
+          "id": "r1-C",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "Eldest child",
+            "Middle child",
+            "Only child",
+            "Youngest child"
+          ],
+          "question": "Heading C",
+          "correctAnswer": "Youngest child"
+        },
+        {
+          "id": "r1-D",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "Eldest child",
+            "Middle child",
+            "Only child",
+            "Youngest child"
+          ],
+          "question": "Heading D",
+          "correctAnswer": "Only child"
+        },
+        {
+          "id": "r2-1",
+          "type": "text-input",
+          "question": "Gap 1",
+          "correctAnswer": "your"
+        },
+        {
+          "id": "r2-2",
+          "type": "text-input",
+          "question": "Gap 2",
+          "correctAnswer": "don’t",
+          "acceptedAnswers": [
+            "don't",
+            "don’t"
+          ]
+        },
+        {
+          "id": "r2-3",
+          "type": "text-input",
+          "question": "Gap 3",
+          "correctAnswer": "everyone"
+        },
+        {
+          "id": "r2-4",
+          "type": "text-input",
+          "question": "Gap 4",
+          "correctAnswer": "with"
+        },
+        {
+          "id": "r2-5",
+          "type": "text-input",
+          "question": "Gap 5",
+          "correctAnswer": "the"
+        },
+        {
+          "id": "r2-6",
+          "type": "text-input",
+          "question": "Gap 6",
+          "correctAnswer": "at"
+        },
+        {
+          "id": "r3-1",
+          "type": "single-choice",
+          "question": "1 “I’m just like that. I hate birthdays for that reason – you never know if someone is going to suddenly do something that you didn’t know about. I hate that.” Judith, Indonesia",
+          "options": [
+            "Eldest child",
+            "Middle child",
+            "Only child",
+            "Youngest child"
+          ],
+          "correctAnswer": "Eldest child"
+        },
+        {
+          "id": "r3-2",
+          "type": "single-choice",
+          "question": "2 “I don’t know. I mean, I haven’t got any brothers or sisters, but I’ve got a lot of cousins. I don’t think that these things are correct. I don’t think they’re true!” Cim, Turkey",
+          "options": [
+            "Eldest child",
+            "Middle child",
+            "Only child",
+            "Youngest child"
+          ],
+          "correctAnswer": "Only child"
+        },
+        {
+          "id": "r3-3",
+          "type": "single-choice",
+          "question": "3 “This one is sort of right – I mean, I have got a lot of friends, and people laugh with me at my jokes. But I don’t really mind if people are unhappy – you can’t be happy all the time!” Zé Miguel, Portugal",
+          "options": [
+            "Eldest child",
+            "Middle child",
+            "Only child",
+            "Youngest child"
+          ],
+          "correctAnswer": "Middle child"
+        },
+        {
+          "id": "r3-4",
+          "type": "single-choice",
+          "question": "4 “I hate it when they say things like this! It’s just not true! I’m not a baby! Grrrr!” Nini, Peru",
+          "options": [
+            "Eldest child",
+            "Middle child",
+            "Only child",
+            "Youngest child"
+          ],
+          "correctAnswer": "Youngest child"
+        },
+        {
+          "id": "r4-match",
+          "type": "matching",
+          "scorePerPair": true,
+          "question": "Match the highlighted words in the text to their meanings.",
+          "pairs": [
+            {
+              "value": "1",
+              "label": "1 certain or obvious"
+            },
+            {
+              "value": "2",
+              "label": "2 events that you didn’t expect to happen"
+            },
+            {
+              "value": "3",
+              "label": "3 think carefully about something"
+            },
+            {
+              "value": "4",
+              "label": "4 organising something for the future"
+            }
+          ],
+          "options": [
+            "clear",
+            "surprises",
+            "consider",
+            "planning"
+          ],
+          "correctAnswer": {
+            "1": "clear",
+            "2": "surprises",
+            "3": "consider",
+            "4": "planning"
+          }
+        }
+      ],
+      "sections": [
+        {
+          "letter": "A",
+          "headingQuestionId": "r1-A",
+          "paragraphs": [
+            [
+              "You are very careful because you want to do everything right. You were first, so you are the example! You enjoy doing ",
+              {
+                "questionId": "r2-1"
+              },
+              " homework, making lists and ",
+              {
+                "text": "planning",
+                "highlight": true
+              },
+              ". You ",
+              {
+                "questionId": "r2-2"
+              },
+              " like anything unexpected to happen."
+            ]
+          ]
+        },
+        {
+          "letter": "B",
+          "headingQuestionId": "r1-B",
+          "paragraphs": [
+            [
+              "You ",
+              {
+                "text": "consider",
+                "highlight": true
+              },
+              " other people’s feelings and hate it when people don’t agree. You want ",
+              {
+                "questionId": "r2-3"
+              },
+              " to be happy. You’re friends ",
+              {
+                "questionId": "r2-4"
+              },
+              " all your brothers’ and sisters’ friends. You can be really funny, too."
+            ]
+          ]
+        },
+        {
+          "letter": "C",
+          "headingQuestionId": "r1-C",
+          "paragraphs": [
+            [
+              "You never do anything wrong! You are ",
+              {
+                "questionId": "r2-5"
+              },
+              " baby of the family, and everyone loves you. You want everyone to watch you. You like people and people like you! Oh, and you really enjoy having ",
+              {
+                "text": "surprises",
+                "highlight": true
+              },
+              "!"
+            ]
+          ]
+        },
+        {
+          "letter": "D",
+          "headingQuestionId": "r1-D",
+          "paragraphs": [
+            [
+              "You prefer being with adults, not children your own age. You’re good ",
+              {
+                "questionId": "r2-6"
+              },
+              " everything you do. You love winning and have a ",
+              {
+                "text": "clear",
+                "highlight": true
+              },
+              " view of the world. You hate it when you don’t succeed."
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 520" role="img" aria-labelledby="title desc">
+<title id="title">People for describing appearance</title>
+<desc id="desc">Seven labelled people: Bobbie, Nicky, Stefanie, Freddie, Anne, John and Sara.</desc>
+<defs>
+  <style>
+    .bg{fill:#f8fafc}.floor{fill:#e2e8f0}.label{font:700 24px Arial,sans-serif;fill:#0f172a}.small{font:600 18px Arial,sans-serif;fill:#475569}.skin1{fill:#8d5524}.skin2{fill:#c68642}.skin3{fill:#f1c27d}.skin4{fill:#ffdbac}.hair-dark{fill:#1f2937}.hair-light{fill:#facc15}.hair-fair{fill:#d6b36a}.line{stroke:#334155;stroke-width:5;stroke-linecap:round;fill:none}.thin{stroke:#334155;stroke-width:3;stroke-linecap:round;fill:none}.shirt{fill:#dbeafe}.shirt2{fill:#fce7f3}.shirt3{fill:#dcfce7}.shirt4{fill:#ede9fe}.trousers{fill:#64748b}.black{fill:#111827}.white{fill:#fff}.dress{fill:#0f172a}.accent{fill:#38bdf8}
+  </style>
+</defs>
+<rect class="bg" width="1100" height="520" rx="26"/>
+<rect x="42" y="70" width="1016" height="80" rx="18" fill="#e0f2fe"/>
+<text x="550" y="123" text-anchor="middle" font-family="Arial, sans-serif" font-size="44" font-weight="800" fill="#0369a1">CINEMA</text>
+<rect class="floor" x="34" y="430" width="1032" height="42" rx="21"/>
+
+<!-- Bobbie -->
+<g transform="translate(95,86)">
+  <text class="label" x="55" y="0" text-anchor="middle">Bobbie</text>
+  <circle class="skin1" cx="55" cy="90" r="34"/>
+  <rect class="shirt" x="20" y="125" width="70" height="130" rx="22"/>
+  <path class="line" d="M22 150 L-2 225 M88 150 L116 225"/>
+  <rect class="trousers" x="23" y="245" width="26" height="105" rx="12"/><rect class="trousers" x="60" y="245" width="26" height="105" rx="12"/>
+  <path class="black" d="M18 350 h35 q6 0 6 9 v5 h-48 v-6 q0-8 7-8zM55 350 h35 q6 0 6 9 v5 h-48 v-6 q0-8 7-8z"/>
+</g>
+
+<!-- Nicky -->
+<g transform="translate(230,94)">
+  <text class="label" x="55" y="0" text-anchor="middle">Nicky</text>
+  <path class="hair-dark" d="M12 66 q43 -48 88 0 q23 33 5 82 q-12 32 -101 32 q-18 -66 8 -114z"/>
+  <circle class="skin2" cx="55" cy="85" r="28"/>
+  <path class="shirt2" d="M18 128 h74 l20 143 h-114z"/>
+  <path class="line" d="M21 143 L-4 218 M90 143 L116 215"/>
+  <rect class="black" x="26" y="265" width="23" height="86" rx="10"/><rect class="black" x="61" y="265" width="23" height="86" rx="10"/>
+</g>
+
+<!-- Stefanie -->
+<g transform="translate(365,82)">
+  <text class="label" x="55" y="0" text-anchor="middle">Stefanie</text>
+  <path class="hair-light" d="M18 58 q38 -42 74 0 v68 q-40 35 -78 0z"/>
+  <circle class="skin4" cx="55" cy="82" r="30"/>
+  <path class="shirt2" d="M20 125 h70 l18 118 h-106z"/>
+  <path class="line" d="M18 142 L-5 210 M91 142 L118 207"/>
+  <rect class="black" x="28" y="238" width="24" height="104" rx="10"/><rect class="black" x="62" y="238" width="24" height="104" rx="10"/>
+</g>
+
+<!-- Freddie -->
+<g transform="translate(505,86)">
+  <text class="label" x="55" y="0" text-anchor="middle">Freddie</text>
+  <path class="hair-fair" d="M22 60 q35 -31 70 0 q-31 20 -70 0z"/>
+  <circle class="skin4" cx="55" cy="88" r="32"/>
+  <rect class="shirt3" x="18" y="128" width="76" height="126" rx="20"/>
+  <path class="line" d="M18 148 L-7 223 M92 148 L120 223"/>
+  <rect class="trousers" x="25" y="246" width="27" height="108" rx="12"/><rect class="trousers" x="62" y="246" width="27" height="108" rx="12"/>
+</g>
+
+<!-- Anne -->
+<g transform="translate(645,102)">
+  <text class="label" x="55" y="0" text-anchor="middle">Anne</text>
+  <path fill="#cbd5e1" d="M20 62 q36 -30 72 0 v36 q-36 14 -72 0z"/>
+  <circle class="skin4" cx="55" cy="88" r="30"/>
+  <path class="shirt4" d="M20 128 h70 l15 126 h-100z"/>
+  <path class="line" d="M18 145 L0 212 M90 145 L110 212"/>
+  <rect fill="#f8fafc" x="27" y="246" width="24" height="92" rx="11"/><rect fill="#f8fafc" x="61" y="246" width="24" height="92" rx="11"/>
+</g>
+
+<!-- John -->
+<g transform="translate(790,88)">
+  <text class="label" x="55" y="0" text-anchor="middle">John</text>
+  <path class="hair-dark" d="M20 70 q12 -35 33 -15 q18 -22 35 9 q19 31 -5 44 h-58 q-24 -16 -5 -38z"/>
+  <circle class="skin3" cx="55" cy="92" r="32"/>
+  <circle class="thin" cx="43" cy="90" r="9"/><circle class="thin" cx="67" cy="90" r="9"/><path class="thin" d="M52 90 h6"/>
+  <rect class="shirt" x="18" y="132" width="76" height="126" rx="20"/>
+  <path class="line" d="M20 150 L-6 225 M91 150 L119 225"/>
+  <rect class="trousers" x="24" y="250" width="28" height="105" rx="12"/><rect class="trousers" x="62" y="250" width="28" height="105" rx="12"/>
+</g>
+
+<!-- Sara -->
+<g transform="translate(930,84)">
+  <text class="label" x="55" y="0" text-anchor="middle">Sara</text>
+  <path class="hair-dark" d="M18 55 q37 -39 74 0 v148 q-38 25 -78 0z"/>
+  <circle class="skin4" cx="55" cy="86" r="30"/>
+  <path class="dress" d="M22 128 h68 l26 150 h-120z"/>
+  <path class="line" d="M20 150 L-5 220 M91 150 L118 220"/>
+  <rect class="black" x="31" y="274" width="21" height="82" rx="10"/><rect class="black" x="61" y="274" width="21" height="82" rx="10"/>
+</g>
+</svg>

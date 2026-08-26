@@ -38,6 +38,6 @@ window.APP_CONFIG = {
 
   site: {
     baseUrl: "",
-    appVersion: "daniil-clean-1.0.0"
+    appVersion: "daniil-lesson-1.0.0"
   }
 };

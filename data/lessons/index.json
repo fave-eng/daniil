@@ -1,3 +1,11 @@
 {
-  "lessons": []
+  "lessons": [
+    {
+      "id": "lesson-1",
+      "number": 1,
+      "title": "All about me",
+      "subtitle": "Prepare Level 4 · Unit 1 · Vocabulary and reading",
+      "status": "published"
+    }
+  ]
 }

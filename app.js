@@ -751,6 +751,9 @@
     if (question.type === "matching" && question.scorePerPair) {
       return Object.keys(question.correctAnswer || {}).length;
     }
+    if (question.type === "multiple-choice" && question.scorePerAnswer) {
+      return Utils.asArray(question.correctAnswer).length;
+    }
     return Number(question.points || 1);
   }
 
@@ -791,6 +794,21 @@
         correct += earned;
         details[question.id] = {
           correct: earned === points,
+          points,
+          earned,
+          explanation: question.explanation || ""
+        };
+        return;
+      }
+      if (question.type === "multiple-choice" && question.scorePerAnswer) {
+        const expected = new Set(Utils.asArray(question.correctAnswer).map(Utils.normaliseText));
+        const actual = Utils.asArray(answers[question.id]).map(Utils.normaliseText);
+        const matched = actual.filter((item) => expected.has(item)).length;
+        const extra = actual.filter((item) => !expected.has(item)).length;
+        const earned = Math.max(0, Math.min(points, matched - extra));
+        correct += earned;
+        details[question.id] = {
+          correct: earned === points && extra === 0,
           points,
           earned,
           explanation: question.explanation || ""
@@ -1027,6 +1045,65 @@
     return `<section class="card exercise-block statement-list-card"><div class="statement-list-heading"><h2>${Utils.escape(block.title || "")}</h2>${block.instruction ? `<p>${Utils.escape(block.instruction)}</p>` : ""}</div><div class="statement-list">${rows}</div></section>`;
   }
 
+
+  function renderWordSelectBlock(block, answers, checked, locked) {
+    const question = Utils.asArray(block.questions)[0];
+    if (!question) return "";
+    const id = String(question.id);
+    const selected = new Set(Utils.asArray(answers[id]).map(String));
+    const correctAnswers = new Set(Utils.asArray(question.correctAnswer).map(String));
+    const result = checked?.[id];
+    const chips = Utils.asArray(question.options).map((option) => {
+      const value = optionValue(option);
+      const label = optionLabel(option);
+      const isSelected = selected.has(value);
+      const state = result && isSelected ? (correctAnswers.has(value) ? "is-correct" : "is-incorrect") : "";
+      return `<label class="word-snake-chip ${state}"><input type="checkbox" data-question-id="${Utils.escape(id)}" value="${Utils.escape(value)}" ${isSelected ? "checked" : ""} ${locked ? "disabled" : ""}><span>${Utils.escape(label)}</span></label>`;
+    }).join("");
+    const resultHtml = result ? `<div class="result-label ${result.correct ? "correct" : "incorrect"}"><span aria-hidden="true">${result.correct ? "✓" : "✕"}</span><span><strong>${result.correct ? "Correct" : "Check this answer"}.</strong> ${Number(result.earned || 0)} of ${Number(result.points || 0)} correct selections.</span></div>` : "";
+    return `<section class="card exercise-block lesson-content-card word-select-card">${renderContentHeading(block)}<div class="lesson-content-body">${block.instruction ? `<p class="instruction">${Utils.escape(block.instruction)}</p>` : ""}<div class="word-snake" aria-label="${Utils.escape(question.question || block.title || "Word snake")}">${chips}</div>${resultHtml}</div></section>`;
+  }
+
+  function renderInlineQuestionPart(part, questionMap, answers, checked, locked) {
+    if (typeof part === "string") return Utils.escape(part);
+    if (part && typeof part === "object" && part.text) {
+      const copy = Utils.escape(part.text);
+      return part.highlight ? `<strong class="source-highlight">${copy}</strong>` : copy;
+    }
+    if (!part || typeof part !== "object" || !part.questionId) return "";
+    return renderConversationGapPart(part, questionMap, answers, checked, locked);
+  }
+
+  function renderPictureDescriptionBlock(block, answers, checked, locked) {
+    const questions = Utils.asArray(block.questions);
+    const questionMap = new Map(questions.map((question) => [String(question.id), question]));
+    const wordBank = renderLessonWordBank(block);
+    const figure = block.figure || {};
+    const figureHtml = figure.src ? `<figure class="sticky-lesson-figure"><img src="${Utils.escape(figure.src)}" alt="${Utils.escape(figure.alt || "Lesson illustration")}">${figure.caption ? `<figcaption>${Utils.escape(figure.caption)}</figcaption>` : ""}</figure>` : "";
+    const rows = Utils.asArray(block.rows).map((row) => `<p class="picture-description-row"><strong>${Utils.escape(row.label || "")}</strong> ${Utils.asArray(row.parts).map((part) => renderInlineQuestionPart(part, questionMap, answers, checked, locked)).join("")}</p>`).join("");
+    return `<section class="exercise-block split-sticky-card picture-description-card"><aside class="split-sticky-side">${figureHtml}${wordBank}</aside><div class="card split-sticky-main lesson-content-card">${renderContentHeading(block)}<div class="lesson-content-body">${block.instruction ? `<p class="instruction">${Utils.escape(block.instruction)}</p>` : ""}<div class="picture-description-list">${rows}</div></div></div></section>`;
+  }
+
+  function renderReadingComprehensionBlock(block, answers, checked, locked) {
+    const questions = Utils.asArray(block.questions);
+    const questionMap = new Map(questions.map((question) => [String(question.id), question]));
+    const wordBank = renderLessonWordBank(block);
+    const figure = block.figure || {};
+    const figureHtml = figure.src ? `<figure class="reading-figure"><img src="${Utils.escape(figure.src)}" alt="${Utils.escape(figure.alt || "Reading illustration")}">${figure.caption ? `<figcaption>${Utils.escape(figure.caption)}</figcaption>` : ""}</figure>` : "";
+    const sections = Utils.asArray(block.sections).map((section) => {
+      const heading = section.headingQuestionId ? renderInlineQuestionPart({ questionId: section.headingQuestionId }, questionMap, answers, checked, locked) : Utils.escape(section.heading || "");
+      const paragraphs = Utils.asArray(section.paragraphs).map((paragraph) => `<p>${Utils.asArray(paragraph).map((part) => renderInlineQuestionPart(part, questionMap, answers, checked, locked)).join("")}</p>`).join("");
+      return `<section class="birth-order-section"><h3><span>${Utils.escape(section.letter || "")}</span>${heading}</h3>${paragraphs}</section>`;
+    }).join("");
+    const commentQuestions = Utils.asArray(block.commentQuestionIds).map((id, index) => {
+      const question = questionMap.get(String(id));
+      return question ? renderQuestion(question, index + 1, answers[question.id], checked, locked) : "";
+    }).join("");
+    const matchingQuestion = questionMap.get(String(block.matchingQuestionId));
+    const matchingHtml = matchingQuestion ? renderQuestion(matchingQuestion, "", answers[matchingQuestion.id], checked, locked) : "";
+    return `<section class="exercise-block split-sticky-card reading-comprehension-card"><aside class="split-sticky-side reading-sticky-side"><div class="card reading-text-card">${renderContentHeading(block)}<div class="lesson-content-body">${block.instructions?.headings ? `<div class="lesson-task-instruction"><span class="lesson-task-label">Exercise 1</span><p>${Utils.escape(block.instructions.headings)}</p></div>` : ""}${wordBank}${block.instructions?.gaps ? `<div class="lesson-task-instruction"><span class="lesson-task-label">Exercise 2</span><p>${Utils.escape(block.instructions.gaps)}</p></div>` : ""}<article class="birth-order-text"><div class="birth-order-title">Birth order</div><p class="birth-order-lead">${Utils.escape(block.lead || "")}</p>${sections}</article>${figureHtml}</div></div></aside><div class="reading-task-column"><section class="exercise-block">${block.commentsTitle ? `<h2>${Utils.escape(block.commentsTitle)}</h2>` : ""}${block.commentsInstruction ? `<p class="instruction">${Utils.escape(block.commentsInstruction)}</p>` : ""}${commentQuestions}</section><section class="exercise-block">${block.matchingTitle ? `<h2>${Utils.escape(block.matchingTitle)}</h2>` : ""}${matchingHtml}</section></div></section>`;
+  }
+
   async function initLesson() {
     UI.loading();
     const lessonId = Utils.query("id");
@@ -1060,6 +1137,15 @@
       const checked = meta.checkDetails || null;
       let questionNumber = 0;
       const blockHtml = Utils.asArray(lesson.blocks).map((block) => {
+        if (block.type === "word-select") {
+          return renderWordSelectBlock(block, progress.answers, checked, locked);
+        }
+        if (block.type === "picture-description") {
+          return renderPictureDescriptionBlock(block, progress.answers, checked, locked);
+        }
+        if (block.type === "reading-comprehension") {
+          return renderReadingComprehensionBlock(block, progress.answers, checked, locked);
+        }
         if (block.type === "gap-text") {
           return renderGapTextBlock(block, progress.answers, checked, locked);
         }
@@ -1150,7 +1236,15 @@
         document.querySelector(".score-panel")?.focus?.();
       });
       document.getElementById("submit-homework")?.addEventListener("click", async () => {
-        const unanswered = questions.filter((question) => question.required !== false && (progress.answers[question.id] == null || progress.answers[question.id] === "" || (Array.isArray(progress.answers[question.id]) && !progress.answers[question.id].length)));
+        const unanswered = questions.filter((question) => {
+          if (question.required === false || question.autoCheck === false) return false;
+          const value = progress.answers[question.id];
+          if (question.type === "matching") {
+            const expectedKeys = Object.keys(question.correctAnswer || {});
+            return !value || typeof value !== "object" || expectedKeys.some((key) => !String(value[key] || "").trim());
+          }
+          return value == null || value === "" || (Array.isArray(value) && !value.length);
+        });
         if (unanswered.length) {
           UI.toast(`Complete ${unanswered.length} required task${unanswered.length === 1 ? "" : "s"} first.`);
           document.querySelector(`[data-question-card="${CSS.escape(unanswered[0].id)}"]`)?.scrollIntoView({ behavior: "smooth", block: "center" });
