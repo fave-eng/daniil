@@ -1,0 +1,4 @@
+project_id = "daniil-english-space"
+
+[functions.notify-homework-telegram]
+verify_jwt = false

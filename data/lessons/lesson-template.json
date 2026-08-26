@@ -1,0 +1,14 @@
+{
+  "id": "lesson-template",
+  "number": 0,
+  "title": "Lesson template",
+  "subtitle": "Copy this file, rename it lesson-N.json and replace all template values.",
+  "status": "draft",
+  "blocks": [],
+  "vocabulary": {
+    "id": "vocab-lesson-template",
+    "title": "Lesson vocabulary",
+    "words": []
+  },
+  "grammarIds": []
+}
