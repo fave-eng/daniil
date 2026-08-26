@@ -224,8 +224,8 @@
       "type": "picture-description",
       "title": "4. Look at the pictures and choose the correct word to complete the description. You can only use each word once.",
       "figure": {
-        "src": "assets/lessons/lesson-1-people.svg",
-        "alt": "Seven people labelled Bobbie, Nicky, Stefanie, Freddie, Anne, John and Sara"
+        "src": "assets/lessons/lesson-1-people.png",
+        "alt": "Improved scan image for Exercise 4 with the people labelled Bobbie, Nicky, Stefanie, Freddie, Anne, John and Sara"
       },
       "wordBank": [
         "attractive",
