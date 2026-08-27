@@ -1,0 +1,941 @@
+{
+  "id": "lesson-2",
+  "number": 2,
+  "title": "All about me",
+  "subtitle": "Prepare Level 4 · Unit 1 · Grammar, vocabulary and writing",
+  "status": "published",
+  "vocabularyTopicId": "vocab-lesson-2",
+  "grammarIds": [
+    "grammar-present-simple-continuous"
+  ],
+  "blocks": [
+    {
+      "type": "section-heading",
+      "kicker": "Grammar",
+      "title": "Present simple and continuous",
+      "subtitle": "Prepare Level 4 · Unit 1"
+    },
+    {
+      "type": "question-group",
+      "title": "1. Complete the sentences with the correct form of the verbs in brackets.",
+      "questions": [
+        {
+          "id": "g1-1",
+          "type": "text-input",
+          "question": "1 Julia ________ every day at 7 am. (get up)",
+          "correctAnswer": "gets up"
+        },
+        {
+          "id": "g1-2",
+          "type": "text-input",
+          "question": "2 Tonight, my parents ________ a TV show on their computer. (watch)",
+          "correctAnswer": "are watching",
+          "acceptedAnswers": [
+            "are watching",
+            "'re watching"
+          ]
+        },
+        {
+          "id": "g1-3",
+          "type": "text-input",
+          "question": "3 Martin ________ his new trainers. They’re really nice! (wear)",
+          "correctAnswer": "is wearing",
+          "acceptedAnswers": [
+            "is wearing",
+            "'s wearing"
+          ]
+        },
+        {
+          "id": "g1-4",
+          "type": "text-input",
+          "question": "4 We ________ our homework in our rooms. (finish)",
+          "correctAnswer": "are finishing",
+          "acceptedAnswers": [
+            "are finishing",
+            "'re finishing"
+          ]
+        },
+        {
+          "id": "g1-5",
+          "type": "text-input",
+          "question": "5 Every day my dad ________ 5 km before work. (run)",
+          "correctAnswer": "runs"
+        }
+      ]
+    },
+    {
+      "type": "question-group",
+      "title": "2. Choose the correct verb forms.",
+      "questions": [
+        {
+          "id": "g2-1",
+          "type": "single-choice",
+          "question": "1 ________ it when my bedroom isn’t tidy.",
+          "options": [
+            {
+              "value": "a",
+              "label": "I am hating"
+            },
+            {
+              "value": "b",
+              "label": "I hate"
+            }
+          ],
+          "correctAnswer": "b"
+        },
+        {
+          "id": "g2-2",
+          "type": "single-choice",
+          "question": "2 ________ that robots can do things better than humans.",
+          "options": [
+            {
+              "value": "a",
+              "label": "I don’t believe"
+            },
+            {
+              "value": "b",
+              "label": "I am not believing"
+            }
+          ],
+          "correctAnswer": "a"
+        },
+        {
+          "id": "g2-3",
+          "type": "single-choice",
+          "question": "3 ________ my birthday party at my favourite restaurant.",
+          "options": [
+            {
+              "value": "a",
+              "label": "I am having"
+            },
+            {
+              "value": "b",
+              "label": "I have"
+            }
+          ],
+          "correctAnswer": "a"
+        },
+        {
+          "id": "g2-4",
+          "type": "single-choice",
+          "question": "4 One day ________ to go to Australia.",
+          "options": [
+            {
+              "value": "a",
+              "label": "I want"
+            },
+            {
+              "value": "b",
+              "label": "I am wanting"
+            }
+          ],
+          "correctAnswer": "a"
+        },
+        {
+          "id": "g2-5",
+          "type": "single-choice",
+          "question": "5 ________ you this email to give you the flight information.",
+          "options": [
+            {
+              "value": "a",
+              "label": "I am sending"
+            },
+            {
+              "value": "b",
+              "label": "I send"
+            }
+          ],
+          "correctAnswer": "a"
+        },
+        {
+          "id": "g2-6",
+          "type": "single-choice",
+          "question": "6 ________ what you mean.",
+          "options": [
+            {
+              "value": "a",
+              "label": "I don’t understand"
+            },
+            {
+              "value": "b",
+              "label": "I am not understanding"
+            }
+          ],
+          "correctAnswer": "a"
+        },
+        {
+          "id": "g2-7",
+          "type": "single-choice",
+          "question": "7 My mother ________ a computer company.",
+          "options": [
+            {
+              "value": "a",
+              "label": "is owning"
+            },
+            {
+              "value": "b",
+              "label": "owns"
+            }
+          ],
+          "correctAnswer": "b"
+        },
+        {
+          "id": "g2-8",
+          "type": "single-choice",
+          "question": "8 I really ________ making pizza.",
+          "options": [
+            {
+              "value": "a",
+              "label": "am liking"
+            },
+            {
+              "value": "b",
+              "label": "like"
+            }
+          ],
+          "correctAnswer": "b"
+        }
+      ]
+    },
+    {
+      "type": "gap-text",
+      "title": "3. Complete the sentences with the words in the box.",
+      "wordBank": [
+        "always",
+        "every year",
+        "later today",
+        "never",
+        "next month",
+        "right now",
+        "sometimes",
+        "this term",
+        "tomorrow",
+        "tonight"
+      ],
+      "questions": [
+        {
+          "id": "g3-1",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "always",
+            "every year",
+            "later today",
+            "never",
+            "next month",
+            "right now",
+            "sometimes",
+            "this term",
+            "tomorrow",
+            "tonight"
+          ],
+          "question": "1",
+          "correctAnswer": "every year"
+        },
+        {
+          "id": "g3-2",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "always",
+            "every year",
+            "later today",
+            "never",
+            "next month",
+            "right now",
+            "sometimes",
+            "this term",
+            "tomorrow",
+            "tonight"
+          ],
+          "question": "2",
+          "correctAnswer": "this term"
+        },
+        {
+          "id": "g3-3",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "always",
+            "every year",
+            "later today",
+            "never",
+            "next month",
+            "right now",
+            "sometimes",
+            "this term",
+            "tomorrow",
+            "tonight"
+          ],
+          "question": "3",
+          "correctAnswer": "next month"
+        },
+        {
+          "id": "g3-4",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "always",
+            "every year",
+            "later today",
+            "never",
+            "next month",
+            "right now",
+            "sometimes",
+            "this term",
+            "tomorrow",
+            "tonight"
+          ],
+          "question": "4",
+          "correctAnswer": "tonight"
+        },
+        {
+          "id": "g3-5",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "always",
+            "every year",
+            "later today",
+            "never",
+            "next month",
+            "right now",
+            "sometimes",
+            "this term",
+            "tomorrow",
+            "tonight"
+          ],
+          "question": "5",
+          "correctAnswer": "always"
+        },
+        {
+          "id": "g3-6",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "always",
+            "every year",
+            "later today",
+            "never",
+            "next month",
+            "right now",
+            "sometimes",
+            "this term",
+            "tomorrow",
+            "tonight"
+          ],
+          "question": "6",
+          "correctAnswer": "later today"
+        },
+        {
+          "id": "g3-7",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "always",
+            "every year",
+            "later today",
+            "never",
+            "next month",
+            "right now",
+            "sometimes",
+            "this term",
+            "tomorrow",
+            "tonight"
+          ],
+          "question": "7",
+          "correctAnswer": "never"
+        },
+        {
+          "id": "g3-8",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "always",
+            "every year",
+            "later today",
+            "never",
+            "next month",
+            "right now",
+            "sometimes",
+            "this term",
+            "tomorrow",
+            "tonight"
+          ],
+          "question": "8",
+          "correctAnswer": "tomorrow"
+        },
+        {
+          "id": "g3-9",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "always",
+            "every year",
+            "later today",
+            "never",
+            "next month",
+            "right now",
+            "sometimes",
+            "this term",
+            "tomorrow",
+            "tonight"
+          ],
+          "question": "9",
+          "correctAnswer": "sometimes"
+        },
+        {
+          "id": "g3-10",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "always",
+            "every year",
+            "later today",
+            "never",
+            "next month",
+            "right now",
+            "sometimes",
+            "this term",
+            "tomorrow",
+            "tonight"
+          ],
+          "question": "10",
+          "correctAnswer": "right now"
+        }
+      ],
+      "paragraphs": [
+        [
+          {
+            "questionId": "g3-1"
+          },
+          " my birthday is on a different day!"
+        ],
+        [
+          "We’re learning about plant life in biology ",
+          {
+            "questionId": "g3-2"
+          },
+          "."
+        ],
+        [
+          {
+            "questionId": "g3-3"
+          },
+          " we’re spending two weeks by the sea – it’s holiday time!"
+        ],
+        [
+          "I can’t go to the cinema tonight because we’re visiting my aunt in hospital ",
+          {
+            "questionId": "g3-4"
+          },
+          "."
+        ],
+        [
+          "My music teacher’s classes are ",
+          {
+            "questionId": "g3-5"
+          },
+          " a lot of fun!"
+        ],
+        [
+          {
+            "questionId": "g3-6"
+          },
+          " I’m going to a party at my friend’s house!"
+        ],
+        [
+          "I ",
+          {
+            "questionId": "g3-7"
+          },
+          " go to bed before 8.30 pm."
+        ],
+        [
+          "I have an exam ",
+          {
+            "questionId": "g3-8"
+          },
+          ", so I’m going to bed early tonight."
+        ],
+        [
+          "My sister ",
+          {
+            "questionId": "g3-9"
+          },
+          " goes running before school. Other times she stays in bed!"
+        ],
+        [
+          "I’ll speak to you later because I’m tired ",
+          {
+            "questionId": "g3-10"
+          },
+          "."
+        ]
+      ]
+    },
+    {
+      "type": "question-group",
+      "title": "4. Correct the mistakes in these sentences, or tick (✓) any you think are correct.",
+      "questions": [
+        {
+          "id": "g4-1",
+          "type": "text-input",
+          "question": "1 When we are together, we are having fun.",
+          "correctAnswer": "When we are together, we have fun",
+          "acceptedAnswers": [
+            "When we are together, we have fun",
+            "When we are together, we have fun.",
+            "We have fun when we are together",
+            "We have fun when we are together."
+          ],
+          "answerLabel": "Correction or ✓"
+        },
+        {
+          "id": "g4-2",
+          "type": "text-input",
+          "question": "2 I write to tell you that I have a new computer.",
+          "correctAnswer": "I am writing to tell you that I have a new computer",
+          "acceptedAnswers": [
+            "I am writing to tell you that I have a new computer",
+            "I am writing to tell you that I have a new computer.",
+            "I'm writing to tell you that I have a new computer",
+            "I'm writing to tell you that I have a new computer.",
+            "I’m writing to tell you that I have a new computer",
+            "I’m writing to tell you that I have a new computer."
+          ],
+          "answerLabel": "Correction or ✓"
+        },
+        {
+          "id": "g4-3",
+          "type": "text-input",
+          "question": "3 I send you this email to invite you to my birthday party on Saturday.",
+          "correctAnswer": "I am sending you this email to invite you to my birthday party on Saturday",
+          "acceptedAnswers": [
+            "I am sending you this email to invite you to my birthday party on Saturday",
+            "I am sending you this email to invite you to my birthday party on Saturday.",
+            "I'm sending you this email to invite you to my birthday party on Saturday",
+            "I'm sending you this email to invite you to my birthday party on Saturday.",
+            "I’m sending you this email to invite you to my birthday party on Saturday",
+            "I’m sending you this email to invite you to my birthday party on Saturday."
+          ],
+          "answerLabel": "Correction or ✓"
+        },
+        {
+          "id": "g4-4",
+          "type": "text-input",
+          "question": "4 We go out together every week.",
+          "correctAnswer": "✓",
+          "acceptedAnswers": [
+            "✓",
+            "✔",
+            "tick",
+            "correct",
+            "right",
+            "no mistake",
+            "no mistakes",
+            "ok",
+            "okay",
+            "We go out together every week",
+            "We go out together every week."
+          ],
+          "answerLabel": "Correction or ✓"
+        }
+      ]
+    },
+    {
+      "type": "section-heading",
+      "kicker": "Vocabulary",
+      "title": "Prefixes: un-, in-, im-",
+      "subtitle": "Prepare Level 4 · Unit 1"
+    },
+    {
+      "type": "prefix-columns",
+      "id": "v1-prefix-columns",
+      "title": "1. Write the opposite of the adjectives in the correct column.",
+      "wordBank": [
+        "correct",
+        "expensive",
+        "fair",
+        "friendly",
+        "healthy",
+        "kind",
+        "known",
+        "lucky",
+        "patient",
+        "polite",
+        "visible",
+        "well"
+      ],
+      "columns": [
+        {
+          "prefix": "un-",
+          "expectedCount": 7
+        },
+        {
+          "prefix": "in-",
+          "expectedCount": 3
+        },
+        {
+          "prefix": "im-",
+          "expectedCount": 2
+        }
+      ],
+      "correctAnswer": {
+        "un-": [
+          "unfair",
+          "unfriendly",
+          "unhealthy",
+          "unkind",
+          "unknown",
+          "unlucky",
+          "unwell"
+        ],
+        "in-": [
+          "incorrect",
+          "inexpensive",
+          "invisible"
+        ],
+        "im-": [
+          "impatient",
+          "impolite"
+        ]
+      }
+    },
+    {
+      "type": "question-group",
+      "title": "2. Match the comments 1–6 with words from Exercise 1.",
+      "questions": [
+        {
+          "id": "v2-1",
+          "type": "text-input",
+          "controlType": "select",
+          "question": "1 I have enough money to buy it because it’s so cheap.",
+          "correctAnswer": "inexpensive",
+          "optionSource": "v1-prefix-columns"
+        },
+        {
+          "id": "v2-2",
+          "type": "text-input",
+          "controlType": "select",
+          "question": "2 Our team played better than the other team but didn’t win.",
+          "correctAnswer": "unfair",
+          "optionSource": "v1-prefix-columns"
+        },
+        {
+          "id": "v2-3",
+          "type": "text-input",
+          "controlType": "select",
+          "question": "3 She always wants everything done immediately.",
+          "correctAnswer": "impatient",
+          "optionSource": "v1-prefix-columns"
+        },
+        {
+          "id": "v2-4",
+          "type": "text-input",
+          "controlType": "select",
+          "question": "4 He’s never nice to me when I see him at school.",
+          "correctAnswer": "unkind",
+          "acceptedAnswers": [
+            "unkind",
+            "unfriendly"
+          ],
+          "optionSource": "v1-prefix-columns"
+        },
+        {
+          "id": "v2-5",
+          "type": "text-input",
+          "controlType": "select",
+          "question": "5 Smoking is very bad for you.",
+          "correctAnswer": "unhealthy",
+          "optionSource": "v1-prefix-columns"
+        },
+        {
+          "id": "v2-6",
+          "type": "text-input",
+          "controlType": "select",
+          "question": "6 The bus driver never says ‘hello’ or ‘goodbye’.",
+          "correctAnswer": "impolite",
+          "optionSource": "v1-prefix-columns"
+        }
+      ],
+      "dependsOn": {
+        "questionId": "v1-prefix-columns",
+        "minItems": 12,
+        "message": "Complete Exercise 1 first. Then use your words from Exercise 1 here."
+      }
+    },
+    {
+      "type": "question-group",
+      "title": "3. Use words from Exercise 1 to complete the sentences.",
+      "questions": [
+        {
+          "id": "v3-1",
+          "type": "text-input",
+          "controlType": "select",
+          "question": "1 a Sabrina’s not going to school because she’s sick. b Yes, she looks very ________.",
+          "correctAnswer": "unwell",
+          "optionSource": "v1-prefix-columns"
+        },
+        {
+          "id": "v3-2",
+          "type": "text-input",
+          "controlType": "select",
+          "question": "2 a Look at the fog – I can’t see anything! b Yes, the house right opposite is almost ________!",
+          "correctAnswer": "invisible",
+          "optionSource": "v1-prefix-columns"
+        },
+        {
+          "id": "v3-3",
+          "type": "text-input",
+          "controlType": "select",
+          "question": "3 a He always says bad things about people. b I know. I think he’s really ________.",
+          "correctAnswer": "unkind",
+          "acceptedAnswers": [
+            "unkind",
+            "unfriendly"
+          ],
+          "optionSource": "v1-prefix-columns"
+        },
+        {
+          "id": "v3-4",
+          "type": "text-input",
+          "controlType": "select",
+          "question": "4 a The doctor was wrong when he told me to stop working. b Do you think his advice was ________?",
+          "correctAnswer": "incorrect",
+          "optionSource": "v1-prefix-columns"
+        },
+        {
+          "id": "v3-5",
+          "type": "text-input",
+          "controlType": "select",
+          "question": "5 a Carl cheats when we play computer games and he always wins. b That’s really ________!",
+          "correctAnswer": "unfair",
+          "optionSource": "v1-prefix-columns"
+        },
+        {
+          "id": "v3-6",
+          "type": "text-input",
+          "controlType": "select",
+          "question": "6 a Do you think there’s life on other planets? b That’s something ________.",
+          "correctAnswer": "unknown",
+          "optionSource": "v1-prefix-columns"
+        }
+      ],
+      "dependsOn": {
+        "questionId": "v1-prefix-columns",
+        "minItems": 12,
+        "message": "Complete Exercise 1 first. Then use your words from Exercise 1 here."
+      }
+    },
+    {
+      "type": "section-heading",
+      "kicker": "Writing",
+      "title": "An online profile",
+      "subtitle": "Prepare Level 4 · Unit 1"
+    },
+    {
+      "type": "question-group",
+      "title": "1. Before you read the two online profiles, tick (✓) the information you think people will include.",
+      "questions": [
+        {
+          "id": "w1-selection",
+          "type": "multiple-choice",
+          "autoCheck": false,
+          "question": "Tick (✓) the information you think people will include.",
+          "options": [
+            "1 an online username",
+            "2 a description of what they look like",
+            "3 where they live",
+            "4 a description of their personality",
+            "5 friends’ hobbies"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "profile-reading",
+      "title": "Read the two online profiles.",
+      "profiles": [
+        {
+          "name": "Rita",
+          "username": "Ritzy",
+          "paragraphs": [
+            "My name’s Rita, but my friends call me Ritzy. My hair is short, dark and curly! I’m from Canada and I live in the capital – Ottawa. I go to Williamson High School and my favourite subject is maths. I like to say what I think, but sometimes people say I’m a bit impolite. I get good marks at school and my teachers say I’m quite intelligent, so I am doing something right! I’m really into sports, and I play tennis well. I’m also learning the guitar at the moment. I don’t have my own guitar, but I have asked my parents to get me one for my birthday!"
+          ]
+        },
+        {
+          "name": "Sam",
+          "username": "Star 1",
+          "paragraphs": [
+            "Hey guys, I’m Sam! My hair is short, dark and curly. I’m from South Africa, but I live in New York. My hobbies are watching movies and acting – I’m hoping to be famous one day! I go to drama classes two times a week, which is very important because I want to be an actor. I’m a friendly person and I’m fairly confident, but I can be quite impatient and sometimes people think I’m a bit unfair! I don’t do much exercise, so I sometimes feel a bit unhealthy!"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "question-group",
+      "title": "2. Read the two online profiles. Decide who does the following things. Write Sam or Rita.",
+      "questions": [
+        {
+          "id": "w2-1",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "Sam",
+            "Rita"
+          ],
+          "question": "1 ________ lives in a different place from where he / she was born.",
+          "correctAnswer": "Sam"
+        },
+        {
+          "id": "w2-2",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "Sam",
+            "Rita"
+          ],
+          "question": "2 ________ has one subject he / she really likes at school.",
+          "correctAnswer": "Rita"
+        },
+        {
+          "id": "w2-3",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "Sam",
+            "Rita"
+          ],
+          "question": "3 ________ has classes outside school.",
+          "correctAnswer": "Sam"
+        },
+        {
+          "id": "w2-4",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "Sam",
+            "Rita"
+          ],
+          "question": "4 ________ does an outdoor activity.",
+          "correctAnswer": "Rita"
+        },
+        {
+          "id": "w2-5",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "Sam",
+            "Rita"
+          ],
+          "question": "5 ________ wants to be a star.",
+          "correctAnswer": "Sam"
+        },
+        {
+          "id": "w2-6",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "Sam",
+            "Rita"
+          ],
+          "question": "6 ________ is from North America.",
+          "correctAnswer": "Rita"
+        }
+      ]
+    },
+    {
+      "type": "question-group",
+      "title": "3. Add the missing vowels (a, e, i, o, u) to make adverbs.",
+      "questions": [
+        {
+          "id": "w3-1",
+          "type": "text-input",
+          "question": "1 b___t",
+          "correctAnswer": "bit"
+        },
+        {
+          "id": "w3-2",
+          "type": "text-input",
+          "question": "2 q___t_",
+          "correctAnswer": "quite"
+        },
+        {
+          "id": "w3-3",
+          "type": "text-input",
+          "question": "3 r___lly",
+          "correctAnswer": "really"
+        },
+        {
+          "id": "w3-4",
+          "type": "text-input",
+          "question": "4 v_ry",
+          "correctAnswer": "very"
+        },
+        {
+          "id": "w3-5",
+          "type": "text-input",
+          "question": "5 f___rly",
+          "correctAnswer": "fairly"
+        }
+      ]
+    },
+    {
+      "type": "question-group",
+      "title": "4. Write some information about yourself for these notes.",
+      "questions": [
+        {
+          "id": "w4-1",
+          "type": "open-answer",
+          "autoCheck": false,
+          "question": "What’s your name?"
+        },
+        {
+          "id": "w4-2",
+          "type": "open-answer",
+          "autoCheck": false,
+          "question": "Which country do you come from?"
+        },
+        {
+          "id": "w4-3",
+          "type": "open-answer",
+          "autoCheck": false,
+          "question": "Where do you live?"
+        },
+        {
+          "id": "w4-4",
+          "type": "open-answer",
+          "autoCheck": false,
+          "question": "What do you look like?"
+        },
+        {
+          "id": "w4-5",
+          "type": "open-answer",
+          "autoCheck": false,
+          "question": "What type of person are you?"
+        },
+        {
+          "id": "w4-6",
+          "type": "open-answer",
+          "autoCheck": false,
+          "question": "What is your favourite subject at school? What are your hobbies and interests?"
+        }
+      ]
+    },
+    {
+      "type": "question-group",
+      "title": "5. Write an online profile about yourself.",
+      "instruction": "Use the tips in the Prepare to write box, Student’s Book, page 13. Use adverbs to make adjectives stronger or weaker. Remember to check your spelling and grammar. Write about 100 words.",
+      "questions": [
+        {
+          "id": "w5-profile",
+          "type": "open-answer",
+          "autoCheck": false,
+          "question": "Write an online profile about yourself.",
+          "placeholder": "Write about 100 words."
+        }
+      ]
+    }
+  ]
+}

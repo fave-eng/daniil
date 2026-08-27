@@ -735,7 +735,7 @@
   }
 
   function collectQuestions(blocks) {
-    const supported = new Set(["single-choice", "multiple-choice", "true-false", "text-input", "matching", "ordering", "open-answer", "pronunciation"]);
+    const supported = new Set(["single-choice", "multiple-choice", "true-false", "text-input", "matching", "ordering", "open-answer", "pronunciation", "prefix-columns"]);
     const questions = [];
     const visit = (items) => Utils.asArray(items).forEach((block) => {
       if (supported.has(block.type)) questions.push(block);
@@ -746,8 +746,97 @@
     return questions;
   }
 
+  function splitPrefixColumnWords(value) {
+    return String(value || "")
+      .split(/[\n,;]+/)
+      .map((item) => item.trim())
+      .filter(Boolean);
+  }
+
+  function prefixColumnAnswerWords(answer) {
+    if (!answer || typeof answer !== "object") return [];
+    const words = [];
+    Object.values(answer).forEach((value) => splitPrefixColumnWords(value).forEach((word) => words.push(word)));
+    return words;
+  }
+
+  function uniqueAnswerWords(words) {
+    const seen = new Set();
+    const result = [];
+    words.forEach((word) => {
+      const key = Utils.normaliseText(word);
+      if (!key || seen.has(key)) return;
+      seen.add(key);
+      result.push(word);
+    });
+    return result;
+  }
+
+  function prefixColumnScore(question, answer) {
+    const expected = question.correctAnswer || {};
+    const actual = answer && typeof answer === "object" ? answer : {};
+    let points = 0;
+    let earned = 0;
+    let extra = 0;
+    const columnStats = {};
+    Object.entries(expected).forEach(([prefix, expectedWords]) => {
+      const expectedSet = new Set(Utils.asArray(expectedWords).map(Utils.normaliseText));
+      const actualWords = splitPrefixColumnWords(actual[prefix]);
+      const actualKeys = actualWords.map(Utils.normaliseText).filter(Boolean);
+      const uniqueActual = new Set(actualKeys);
+      const matched = [...uniqueActual].filter((word) => expectedSet.has(word)).length;
+      const wrong = [...uniqueActual].filter((word) => !expectedSet.has(word)).length;
+      points += expectedSet.size;
+      earned += matched;
+      extra += wrong;
+      columnStats[prefix] = { expected: expectedSet.size, filled: uniqueActual.size, matched, wrong };
+    });
+    const clean = extra === 0 && Object.entries(expected).every(([prefix, expectedWords]) => {
+      const expectedSet = new Set(Utils.asArray(expectedWords).map(Utils.normaliseText));
+      const actualSet = new Set(splitPrefixColumnWords(actual[prefix]).map(Utils.normaliseText).filter(Boolean));
+      return expectedSet.size === actualSet.size && [...expectedSet].every((word) => actualSet.has(word));
+    });
+    return { correct: clean, points, earned: Math.max(0, Math.min(points, earned - extra)), columnStats };
+  }
+
+  function prefixColumnsComplete(question, answers) {
+    const answer = answers?.[question.id];
+    if (!answer || typeof answer !== "object") return false;
+    const expectedTotal = questionPoints(question);
+    const words = prefixColumnAnswerWords(answer);
+    if (words.length < expectedTotal) return false;
+    return Object.keys(question.correctAnswer || {}).every((prefix) => splitPrefixColumnWords(answer[prefix]).length > 0);
+  }
+
+  function resolveQuestionOptions(question, answers) {
+    if (question.optionSource) {
+      const words = uniqueAnswerWords(prefixColumnAnswerWords(answers?.[question.optionSource]));
+      return words.map((word) => ({ value: word, label: word }));
+    }
+    return Utils.asArray(question.options);
+  }
+
+  function dependencyReady(dep, answers, questions) {
+    if (!dep || !dep.questionId) return true;
+    const source = questions.find((item) => item.id === dep.questionId);
+    if (!source) return true;
+    if (source.type === "prefix-columns") return prefixColumnsComplete(source, answers);
+    const value = answers?.[dep.questionId];
+    if (Array.isArray(value)) return value.length >= Number(dep.minItems || 1);
+    if (value && typeof value === "object") return Object.keys(value).length >= Number(dep.minItems || 1);
+    return String(value || "").trim().length > 0;
+  }
+
+  function renderDependencyNotice(block) {
+    const message = block.dependsOn?.message || "Complete the previous exercise first.";
+    return `<section class="card exercise-block dependency-notice"><h2>${Utils.escape(block.title || "Next exercise")}</h2><div class="notice">${Utils.escape(message)}</div></section>`;
+  }
+
   function questionPoints(question) {
     if (question.type === "open-answer" || question.type === "pronunciation" || question.autoCheck === false) return 0;
+    if (question.type === "prefix-columns") {
+      return Object.values(question.correctAnswer || {}).reduce((sum, items) => sum + Utils.asArray(items).length, 0);
+    }
     if (question.type === "matching" && question.scorePerPair) {
       return Object.keys(question.correctAnswer || {}).length;
     }
@@ -773,6 +862,9 @@
       const accepted = Utils.asArray(question.acceptedAnswers?.length ? question.acceptedAnswers : [question.correctAnswer]);
       return accepted.some((item) => JSON.stringify(actual) === JSON.stringify(Utils.asArray(item).map(String)));
     }
+    if (type === "prefix-columns") {
+      return prefixColumnScore(question, answer).correct;
+    }
     return null;
   }
 
@@ -784,6 +876,18 @@
       const points = questionPoints(question);
       if (!points) return;
       total += points;
+      if (question.type === "prefix-columns") {
+        const score = prefixColumnScore(question, answers[question.id]);
+        correct += score.earned;
+        details[question.id] = {
+          correct: score.correct,
+          points: score.points,
+          earned: score.earned,
+          columnStats: score.columnStats,
+          explanation: question.explanation || ""
+        };
+        return;
+      }
       if (question.type === "matching" && question.scorePerPair) {
         const expected = question.correctAnswer || {};
         const actual = answers[question.id] || {};
@@ -833,7 +937,7 @@
     return String(question.question || question.prompt || question.title || "").trim();
   }
 
-  function renderQuestion(question, number, answer, checked, locked) {
+  function renderQuestion(question, number, answer, checked, locked, allAnswers = {}) {
     const id = Utils.escape(question.id);
     const result = checked?.[question.id];
     const stateClass = result ? (result.correct ? "is-correct" : "is-incorrect") : "";
@@ -841,22 +945,30 @@
     const contextHtml = question.context ? `<p class="question-context">${Utils.escape(question.context)}</p>` : "";
     const frameHtml = question.frame ? `<div class="question-frame">${Utils.escape(question.frame)}</div>` : "";
     let control = "";
+    const resolvedOptions = resolveQuestionOptions(question, allAnswers);
     if (["single-choice", "true-false"].includes(question.type)) {
-      const options = question.type === "true-false" ? ["true", "false"] : Utils.asArray(question.options);
+      const options = question.type === "true-false" ? ["true", "false"] : resolvedOptions;
       control = `<div class="answer-options">${options.map((option) => {
         const value = optionValue(option);
         return `<label class="option"><input type="radio" name="q-${id}" data-question-id="${id}" value="${Utils.escape(value)}" ${String(answer) === value ? "checked" : ""} ${locked ? "disabled" : ""}><span>${Utils.escape(optionLabel(option))}</span></label>`;
       }).join("")}</div>`;
     } else if (question.type === "multiple-choice") {
       const values = Utils.asArray(answer).map(String);
-      control = `<div class="answer-options">${Utils.asArray(question.options).map((option) => {
+      control = `<div class="answer-options">${resolvedOptions.map((option) => {
         const value = optionValue(option);
         return `<label class="option"><input type="checkbox" data-question-id="${id}" value="${Utils.escape(value)}" ${values.includes(value) ? "checked" : ""} ${locked ? "disabled" : ""}><span>${Utils.escape(optionLabel(option))}</span></label>`;
       }).join("")}</div>`;
     } else if (question.type === "text-input") {
       const answerLabel = question.answerLabel || "Your answer";
       const placeholder = question.placeholder ? ` placeholder="${Utils.escape(question.placeholder)}"` : "";
-      control = `<label><span class="small muted">${Utils.escape(answerLabel)}</span><input class="text-answer" type="text" data-question-id="${id}" value="${Utils.escape(answer || "")}"${placeholder} ${locked ? "readonly" : ""} autocomplete="off"></label>`;
+      const selected = String(answer || "");
+      if (question.controlType === "select" && resolvedOptions.length) {
+        control = `<label><span class="small muted">${Utils.escape(answerLabel)}</span><select class="select-answer" data-question-id="${id}" ${locked ? "disabled" : ""}><option value="">Choose…</option>${resolvedOptions.map((option) => { const value = optionValue(option); return `<option value="${Utils.escape(value)}" ${selected === value ? "selected" : ""}>${Utils.escape(optionLabel(option))}</option>`; }).join("")}</select></label>`;
+      } else if (question.controlType === "select" && question.optionSource) {
+        control = `<label><span class="small muted">${Utils.escape(answerLabel)}</span><select class="select-answer" data-question-id="${id}" disabled><option value="">Complete Exercise 1 first</option></select></label>`;
+      } else {
+        control = `<label><span class="small muted">${Utils.escape(answerLabel)}</span><input class="text-answer" type="text" data-question-id="${id}" value="${Utils.escape(answer || "")}"${placeholder} ${locked ? "readonly" : ""} autocomplete="off"></label>`;
+      }
     } else if (question.type === "open-answer" || question.type === "pronunciation") {
       control = `<label><span class="small muted">${question.type === "pronunciation" ? "Your note or self-assessment" : "Your answer"}</span><textarea class="open-answer" data-question-id="${id}" ${locked ? "readonly" : ""}>${Utils.escape(answer || "")}</textarea></label>`;
     } else if (question.type === "matching") {
@@ -954,8 +1066,18 @@
     return `<header class="lesson-section-divider"><span>${Utils.escape(block.kicker || "")}</span><h2>${Utils.escape(block.title || "")}</h2></header>`;
   }
 
+  function renderProfileReadingBlock(block) {
+    const profiles = Utils.asArray(block.profiles).map((profile) => {
+      const paragraphs = Utils.asArray(profile.paragraphs || profile.text).map((paragraph) => `<p>${Utils.escape(paragraph)}</p>`).join("");
+      const avatar = profile.avatar ? `<img src="${Utils.escape(profile.avatar)}" alt="${Utils.escape(profile.name || "Profile picture")}">` : `<span>${Utils.escape(String(profile.name || "?").slice(0, 1))}</span>`;
+      return `<article class="facenet-profile-card"><div class="facenet-profile-head"><div class="facenet-avatar">${avatar}</div><div><span class="facenet-username">${Utils.escape(profile.username || profile.name || "Profile")}</span>${profile.name ? `<h3>${Utils.escape(profile.name)}</h3>` : ""}</div></div><div class="facenet-profile-copy">${paragraphs}</div></article>`;
+    }).join("");
+    return `<section class="card exercise-block lesson-content-card facenet-block">${renderContentHeading(block)}<div class="facenet-shell"><div class="facenet-bar"><strong>FaceNet</strong><span>Profile</span><span>Account</span></div><div class="facenet-grid">${profiles}</div></div></section>`;
+  }
+
   function renderContentBlock(block) {
     if (block.type === "section-heading") return renderSectionHeading(block);
+    if (block.type === "profile-reading") return renderProfileReadingBlock(block);
     if (block.type === "audio-playlist") return renderAudioPlaylistBlock(block);
     if (block.type === "content") {
       if (block.variant === "language-note") return renderLanguageNoteBlock(block);
@@ -1045,6 +1167,26 @@
     return `<section class="card exercise-block statement-list-card"><div class="statement-list-heading"><h2>${Utils.escape(block.title || "")}</h2>${block.instruction ? `<p>${Utils.escape(block.instruction)}</p>` : ""}</div><div class="statement-list">${rows}</div></section>`;
   }
 
+
+  function renderPrefixColumnsBlock(block, answers, checked, locked) {
+    const id = String(block.id);
+    const escapedId = Utils.escape(id);
+    const current = answers[id] && typeof answers[id] === "object" ? answers[id] : {};
+    const result = checked?.[id];
+    const stateClass = result ? (result.correct ? "is-correct" : "is-incorrect") : "";
+    const bank = Utils.asArray(block.wordBank).length
+      ? `<div class="prefix-source-bank" aria-label="Adjectives">${block.wordBank.map((word) => `<span>${Utils.escape(word)}</span>`).join("")}</div>`
+      : "";
+    const columns = Utils.asArray(block.columns).map((column) => {
+      const prefix = String(column.prefix || "");
+      const value = String(current[prefix] || "");
+      const stats = result?.columnStats?.[prefix];
+      const columnClass = result && stats ? (stats.wrong === 0 && stats.matched === stats.expected ? "is-correct" : "is-incorrect") : "";
+      return `<label class="prefix-column ${columnClass}"><span class="prefix-column-title">${Utils.escape(prefix)}</span><textarea class="prefix-column-input" data-question-id="${escapedId}" data-prefix="${Utils.escape(prefix)}" rows="${Math.max(3, Number(column.expectedCount || 3))}" ${locked ? "readonly" : ""} placeholder="one word per line">${Utils.escape(value)}</textarea>${stats ? `<span class="prefix-column-status">${Number(stats.matched || 0)} / ${Number(stats.expected || 0)}</span>` : ""}</label>`;
+    }).join("");
+    const resultHtml = result ? `<div class="result-label ${result.correct ? "correct" : "incorrect"}"><span aria-hidden="true">${result.correct ? "✓" : "✕"}</span><span><strong>${result.correct ? "Correct" : "Check this answer"}.</strong> ${Number(result.earned || 0)} of ${Number(result.points || 0)} words are in the correct columns.</span></div>` : "";
+    return `<section class="card exercise-block prefix-columns-card ${stateClass}" data-question-card="${escapedId}">${renderContentHeading(block)}<div class="lesson-content-body">${bank}<div class="prefix-columns-grid">${columns}</div>${resultHtml}</div></section>`;
+  }
 
   function renderWordSelectBlock(block, answers, checked, locked) {
     const question = Utils.asArray(block.questions)[0];
@@ -1149,6 +1291,12 @@
         if (block.type === "gap-text") {
           return renderGapTextBlock(block, progress.answers, checked, locked);
         }
+        if (block.type === "prefix-columns") {
+          return renderPrefixColumnsBlock(block, progress.answers, checked, locked);
+        }
+        if (block.dependsOn && !dependencyReady(block.dependsOn, progress.answers, questions)) {
+          return renderDependencyNotice(block);
+        }
         const content = renderContentBlock(block);
         if (content) return content;
         if (block.type === "conversation-gap-fill") {
@@ -1159,11 +1307,11 @@
             questionNumber += block.questions.length;
             return renderStatementListBlock(block, progress.answers, checked, locked);
           }
-          return `<section class="exercise-block">${block.title ? `<h2>${Utils.escape(block.title)}</h2>` : ""}${block.instruction ? `<p class="instruction">${Utils.escape(block.instruction)}</p>` : ""}${block.questions.map((question) => { questionNumber += 1; return renderQuestion({ ...question, parentTitle: block.title }, questionNumber, progress.answers[question.id], checked, locked); }).join("")}</section>`;
+          return `<section class="exercise-block">${block.title ? `<h2>${Utils.escape(block.title)}</h2>` : ""}${block.instruction ? `<p class="instruction">${Utils.escape(block.instruction)}</p>` : ""}${block.questions.map((question) => { questionNumber += 1; return renderQuestion({ ...question, parentTitle: block.title }, questionNumber, progress.answers[question.id], checked, locked, progress.answers); }).join("")}</section>`;
         }
         if (["single-choice", "multiple-choice", "true-false", "text-input", "matching", "ordering", "open-answer", "pronunciation"].includes(block.type)) {
           questionNumber += 1;
-          return `<section class="exercise-block">${renderQuestion(block, questionNumber, progress.answers[block.id], checked, locked)}</section>`;
+          return `<section class="exercise-block">${renderQuestion(block, questionNumber, progress.answers[block.id], checked, locked, progress.answers)}</section>`;
         }
         return "";
       }).join("");
@@ -1184,6 +1332,14 @@
       if (!question) return;
       if (question.type === "single-choice" || question.type === "true-false") progress.answers[id] = element.value;
       else if (question.type === "multiple-choice") progress.answers[id] = [...document.querySelectorAll(`input[data-question-id="${CSS.escape(id)}"]:checked`)].map((item) => item.value);
+      else if (question.type === "prefix-columns") {
+        progress.answers[id] = progress.answers[id] && typeof progress.answers[id] === "object" ? progress.answers[id] : {};
+        progress.answers[id][element.dataset.prefix] = element.value;
+        questions.filter((item) => item.optionSource === id).forEach((item) => {
+          const available = new Set(resolveQuestionOptions(item, progress.answers).map(optionValue));
+          if (progress.answers[item.id] && !available.has(String(progress.answers[item.id]))) progress.answers[item.id] = "";
+        });
+      }
       else if (question.type === "matching") {
         progress.answers[id] = progress.answers[id] && typeof progress.answers[id] === "object" ? progress.answers[id] : {};
         progress.answers[id][element.dataset.matchKey] = element.value;
@@ -1206,7 +1362,8 @@
 
     const bindLessonEvents = () => {
       document.querySelectorAll("[data-question-id]").forEach((element) => {
-        element.addEventListener(element.tagName === "INPUT" && element.type === "text" ? "input" : "change", () => extractAnswer(element));
+        const liveInput = (element.tagName === "INPUT" && element.type === "text") || element.tagName === "TEXTAREA";
+        element.addEventListener(liveInput ? "input" : "change", () => extractAnswer(element));
       });
       document.querySelectorAll("[data-order-action]").forEach((button) => {
         button.addEventListener("click", () => {
@@ -1239,6 +1396,9 @@
         const unanswered = questions.filter((question) => {
           if (question.required === false || question.autoCheck === false) return false;
           const value = progress.answers[question.id];
+          if (question.type === "prefix-columns") {
+            return !prefixColumnsComplete(question, progress.answers);
+          }
           if (question.type === "matching") {
             const expectedKeys = Object.keys(question.correctAnswer || {});
             return !value || typeof value !== "object" || expectedKeys.some((key) => !String(value[key] || "").trim());
@@ -1290,23 +1450,20 @@
       try {
         const { data, error } = await Cloud.client.functions.invoke(Cloud.functionName("notifyTelegram", "notify-telegram"), {
           body: {
-            eventType: "homework_report",
+            action: "homework_report",
             studentId: STUDENT_ID,
             lessonId: lesson.id,
-            lessonUrl: window.location.href
+            submissionId: progress.submission_id
           }
         });
         if (error) throw error;
-        const reportWasSent = data?.ok === true && (data?.reportSentAt || data?.skipped === true || data?.reason === "already_sent");
-        if (reportWasSent) {
-          progress.status = "submitted";
-          progress.report_status = "sent";
-          progress.report_sent_at = data?.reportSentAt || progress.report_sent_at;
-        }
+        progress.status = data?.reportStatus === "sent" || data?.alreadySent ? "submitted" : progress.status;
+        progress.report_status = data?.reportStatus || (data?.alreadySent ? "sent" : "pending");
+        progress.report_sent_at = data?.reportSentAt || progress.report_sent_at;
         progress.report_error = null;
         Storage.set("homework", lesson.id, progress);
         progress = await ProgressService.loadHomeworkProgress(lesson.id) || progress;
-        UI.toast(data?.skipped || data?.reason === "already_sent" ? "Report was already delivered." : "Report sent to the teacher.");
+        UI.toast(data?.alreadySent ? "Report was already delivered." : "Report sent to the teacher.");
       } catch (error) {
         progress.report_status = "failed";
         progress.report_error = "Report delivery failed";

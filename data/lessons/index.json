@@ -6,6 +6,13 @@
       "title": "All about me",
       "subtitle": "Prepare Level 4 · Unit 1 · Vocabulary and reading",
       "status": "published"
+    },
+    {
+      "id": "lesson-2",
+      "number": 2,
+      "title": "All about me",
+      "subtitle": "Prepare Level 4 · Unit 1 · Grammar, vocabulary and writing",
+      "status": "published"
     }
   ]
 }
