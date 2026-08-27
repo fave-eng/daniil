@@ -1290,20 +1290,23 @@
       try {
         const { data, error } = await Cloud.client.functions.invoke(Cloud.functionName("notifyTelegram", "notify-telegram"), {
           body: {
-            action: "homework_report",
+            eventType: "homework_report",
             studentId: STUDENT_ID,
             lessonId: lesson.id,
-            submissionId: progress.submission_id
+            lessonUrl: window.location.href
           }
         });
         if (error) throw error;
-        progress.status = data?.reportStatus === "sent" || data?.alreadySent ? "submitted" : progress.status;
-        progress.report_status = data?.reportStatus || (data?.alreadySent ? "sent" : "pending");
-        progress.report_sent_at = data?.reportSentAt || progress.report_sent_at;
+        const reportWasSent = data?.ok === true && (data?.reportSentAt || data?.skipped === true || data?.reason === "already_sent");
+        if (reportWasSent) {
+          progress.status = "submitted";
+          progress.report_status = "sent";
+          progress.report_sent_at = data?.reportSentAt || progress.report_sent_at;
+        }
         progress.report_error = null;
         Storage.set("homework", lesson.id, progress);
         progress = await ProgressService.loadHomeworkProgress(lesson.id) || progress;
-        UI.toast(data?.alreadySent ? "Report was already delivered." : "Report sent to the teacher.");
+        UI.toast(data?.skipped || data?.reason === "already_sent" ? "Report was already delivered." : "Report sent to the teacher.");
       } catch (error) {
         progress.report_status = "failed";
         progress.report_error = "Report delivery failed";

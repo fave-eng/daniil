@@ -34,6 +34,10 @@ jobs:
           test -n "$NOTIFY_WEBHOOK_SECRET" || (echo "Missing NOTIFY_WEBHOOK_SECRET" && exit 1)
           test -n "$SITE_BASE_URL" || (echo "Missing repository variable SITE_BASE_URL" && exit 1)
           test -n "$STUDENT_ID" || (echo "Missing repository variable STUDENT_ID" && exit 1)
+          echo "Project: $SUPABASE_PROJECT_ID"
+          echo "Student: $STUDENT_ID"
+          echo "Function: notify-homework-telegram"
+          echo "Notify secret is present"
 
       - name: Save Edge Function secrets in Supabase
         shell: bash
@@ -50,7 +54,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          supabase functions deploy notify-homework-telegram --project-ref "$SUPABASE_PROJECT_ID"
+          supabase functions deploy notify-homework-telegram --project-ref "$SUPABASE_PROJECT_ID" --no-verify-jwt
 
       - name: Done
-        run: echo "Telegram notification function is deployed for the shared homework notifier."
+        run: echo "Telegram notification function is deployed for Daniil."

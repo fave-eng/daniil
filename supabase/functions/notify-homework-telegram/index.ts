@@ -1,6 +1,6 @@
 import { createClient } from "npm:@supabase/supabase-js@2";
 
-const FUNCTION_VERSION = "homework-reports-v1-daniil-clean";
+const FUNCTION_VERSION = "homework-reports-v2-english-motivation";
 const DIAGNOSTIC_VERSION = "daniil-diagnostics-v1";
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -54,20 +54,6 @@ function allowedStudent(studentId: unknown): string {
   return value;
 }
 
-function studentDisplayName(studentId: string): string {
-  const names: Record<string, string> = {
-    daniil: "Даниил"
-  };
-  return names[studentId] || studentId;
-}
-
-function studentEnglishName(studentId: string): string {
-  const names: Record<string, string> = {
-    daniil: "Daniil"
-  };
-  const fallback = studentId.charAt(0).toUpperCase() + studentId.slice(1);
-  return names[studentId] || fallback;
-}
 
 function grammarButtonTitle(item: Record<string, unknown>, index: number): string {
   const fullTitle = String(item.title || `Grammar ${index + 1}`).trim();
@@ -79,7 +65,26 @@ function grammarButtonTitle(item: Record<string, unknown>, index: number): strin
 
 function dateTime(value: string | null | undefined): string {
   const date = value ? new Date(value) : new Date();
-  return new Intl.DateTimeFormat("ru-RU", { dateStyle: "medium", timeStyle: "short", timeZone: "Europe/Moscow" }).format(date);
+  return new Intl.DateTimeFormat("en-GB", { dateStyle: "medium", timeStyle: "short", timeZone: "Europe/Moscow" }).format(date);
+}
+
+const MOTIVATION_LINES = [
+  "You've got this! 🌟",
+  "Small steps, big progress. 🚀",
+  "Keep going — you're doing great! 💪",
+  "Every lesson makes you stronger. ✨",
+  "Believe in your progress. 🌱",
+  "One task at a time — you've got it! ✅",
+  "Stay curious and keep learning. 📚",
+  "Great effort brings great results. 🏆",
+  "Practice today, confidence tomorrow. ⭐",
+  "Keep moving forward. 🔥"
+];
+
+function motivationLine(): string {
+  const values = new Uint32Array(1);
+  crypto.getRandomValues(values);
+  return MOTIVATION_LINES[values[0] % MOTIVATION_LINES.length];
 }
 
 async function sendTelegram(
@@ -303,7 +308,12 @@ async function diagnosticsSendReport(client: ReturnType<typeof createClient>, bo
 
   try {
     const recipient = await getRecipient(client, studentId);
-    const text = `🧪 English Space: тестовый Telegram-отчёт\nУченик: ${studentDisplayName(studentId)}\nДиагностика: ${DIAGNOSTIC_VERSION}\nВремя: ${dateTime(new Date(now).toISOString())}`;
+    const text = [
+      "🧪 English Space: Telegram test report",
+      `Diagnostics: ${DIAGNOSTIC_VERSION}`,
+      `Time: ${dateTime(new Date(now).toISOString())}`,
+      motivationLine()
+    ].join("\n");
     const messageId = await sendTelegram(telegramBotToken(studentId), recipient, text);
     const sentAt = new Date().toISOString();
     const { error } = await client
@@ -371,14 +381,14 @@ async function homeworkReport(client: ReturnType<typeof createClient>, body: Rec
   const baseUrl = Deno.env.get("SITE_BASE_URL")?.replace(/\/$/, "");
   const link = baseUrl ? `${baseUrl}/lesson.html?id=${encodeURIComponent(lessonId)}` : null;
   const text = [
-    `📝 Домашняя работа: ${title}`,
-    `Ученик: ${studentDisplayName(studentId)}`,
-    firstCheck ? `Первая проверка: ${Number(firstCheck.correct || 0)} / ${Number(firstCheck.total || 0)}` : null,
-    `Финальный результат: ${correct} / ${total} (${percent}%)`,
-    `Ошибок: ${mistakes}`,
-    checkCount ? `Проверок до отправки: ${checkCount}` : null,
-    `Отправлено: ${dateTime(submission.submitted_at)}`,
-    link ? `Открыть: ${link}` : null
+    `📝 Homework report: ${title}`,
+    firstCheck ? `First check: ${Number(firstCheck.correct || 0)} / ${Number(firstCheck.total || 0)}` : null,
+    `Final result: ${correct} / ${total} (${percent}%)`,
+    `Mistakes: ${mistakes}`,
+    checkCount ? `Checks before submission: ${checkCount}` : null,
+    `Submitted: ${dateTime(submission.submitted_at)}`,
+    link ? `Open: ${link}` : null,
+    motivationLine()
   ].filter(Boolean).join("\n");
 
   try {
@@ -599,11 +609,11 @@ async function materialPublished(client: ReturnType<typeof createClient>, reques
     steps.push(`${steps.length ? "Then" : "Now"}, do the homework.`);
 
     const text = [
-      `Hi, ${studentEnglishName(studentId)}! 👋`,
+      "Hi! 👋",
       "Your new English homework is ready.",
       `📘 ${title}`,
       steps.join("\n"),
-      "Good luck! You can do it! 🌟"
+      motivationLine()
     ].join("\n\n");
 
     const keyboard: Array<Array<{ text: string; url: string }>> = [];
@@ -647,7 +657,12 @@ async function diagnostic(client: ReturnType<typeof createClient>, body: Record<
   if (claim.alreadySent) return json({ ok: true, diagnostic: true, alreadySent: true, serverTime: now.toISOString() });
   try {
     const recipient = await getRecipient(client, studentId);
-    const text = `🧪 English Space: тест Telegram-отчёта\nУченик: ${studentDisplayName(studentId)}\nФункция: ${FUNCTION_VERSION}\nВремя: ${dateTime(now.toISOString())}`;
+    const text = [
+      "🧪 English Space: Telegram report test",
+      `Function: ${FUNCTION_VERSION}`,
+      `Time: ${dateTime(now.toISOString())}`,
+      motivationLine()
+    ].join("\n");
     const messageId = await sendTelegram(telegramBotToken(studentId), recipient, text);
     const sentAt = new Date().toISOString();
     await client.from("material_publications").update({ status: "sent", telegram_message_id: messageId || null, sent_at: sentAt, error_message: null }).eq("id", claim.existing.id);

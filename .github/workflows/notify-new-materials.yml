@@ -24,6 +24,7 @@ jobs:
       STUDENT_ID: ${{ vars.STUDENT_ID }}
       SUPABASE_PROJECT_ID: ${{ vars.SUPABASE_PROJECT_ID }}
       NOTIFY_WEBHOOK_SECRET: ${{ secrets.NOTIFY_WEBHOOK_SECRET }}
+      NOTIFY_FUNCTION: notify-homework-telegram
       LESSON_ID: ${{ inputs.lesson_id }}
 
     steps:
@@ -32,6 +33,21 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+
+      - name: Check notification settings
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$SITE_BASE_URL" || (echo "Missing repository variable SITE_BASE_URL" && exit 1)
+          test -n "$STUDENT_ID" || (echo "Missing repository variable STUDENT_ID" && exit 1)
+          test -n "$SUPABASE_PROJECT_ID" || (echo "Missing repository variable SUPABASE_PROJECT_ID" && exit 1)
+          test -n "$NOTIFY_WEBHOOK_SECRET" || (echo "Missing NOTIFY_WEBHOOK_SECRET" && exit 1)
+          test -n "$LESSON_ID" || (echo "Missing lesson_id" && exit 1)
+          echo "Project: $SUPABASE_PROJECT_ID"
+          echo "Student: $STUDENT_ID"
+          echo "Function: $NOTIFY_FUNCTION"
+          echo "Lesson: $LESSON_ID"
+          echo "Notify secret is present"
 
       - name: Send one Telegram notification for the lesson
         run: node scripts/prepare-notification.mjs

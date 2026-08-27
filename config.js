@@ -18,7 +18,7 @@ window.APP_CONFIG = {
       grammar: "grammar_progress"
     },
     functions: {
-      notifyTelegram: "notify-homework-telegram"
+      notifyTelegram: "notify-telegram"
     }
   },
 
