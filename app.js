@@ -942,6 +942,8 @@
     const result = checked?.[question.id];
     const stateClass = result ? (result.correct ? "is-correct" : "is-incorrect") : "";
     const prompt = originalQuestionPrompt(question);
+    const hasInlineParts = Array.isArray(question.inlineParts) && question.inlineParts.length > 0;
+    const promptHtml = hasInlineParts ? renderQuestionInlinePrompt(question, allAnswers, checked, locked, allAnswers) : Utils.escape(prompt);
     const contextHtml = question.context ? `<p class="question-context">${Utils.escape(question.context)}</p>` : "";
     const frameHtml = question.frame ? `<div class="question-frame">${Utils.escape(question.frame)}</div>` : "";
     let control = "";
@@ -962,12 +964,15 @@
       const answerLabel = question.answerLabel || "Your answer";
       const placeholder = question.placeholder ? ` placeholder="${Utils.escape(question.placeholder)}"` : "";
       const selected = String(answer || "");
-      if (question.controlType === "select" && resolvedOptions.length) {
+      if (hasInlineParts) {
+        control = "";
+      } else if (question.controlType === "select" && resolvedOptions.length) {
         control = `<label><span class="small muted">${Utils.escape(answerLabel)}</span><select class="select-answer" data-question-id="${id}" ${locked ? "disabled" : ""}><option value="">Choose…</option>${resolvedOptions.map((option) => { const value = optionValue(option); return `<option value="${Utils.escape(value)}" ${selected === value ? "selected" : ""}>${Utils.escape(optionLabel(option))}</option>`; }).join("")}</select></label>`;
       } else if (question.controlType === "select" && question.optionSource) {
         control = `<label><span class="small muted">${Utils.escape(answerLabel)}</span><select class="select-answer" data-question-id="${id}" disabled><option value="">Complete Exercise 1 first</option></select></label>`;
       } else {
-        control = `<label><span class="small muted">${Utils.escape(answerLabel)}</span><input class="text-answer" type="text" data-question-id="${id}" value="${Utils.escape(answer || "")}"${placeholder} ${locked ? "readonly" : ""} autocomplete="off"></label>`;
+        const tickControl = question.tickable ? `<label class="tick-answer-option"><input type="checkbox" data-tick-question-id="${id}" ${["✓", "✔", "tick", "correct", "right", "no mistake", "no mistakes", "ok", "okay"].includes(Utils.normaliseText(selected)) ? "checked" : ""} ${locked ? "disabled" : ""}><span>${Utils.escape(question.tickLabel || "✓ This sentence is correct")}</span></label>` : "";
+        control = `<label><span class="small muted">${Utils.escape(answerLabel)}</span><input class="text-answer" type="text" data-question-id="${id}" value="${Utils.escape(answer || "")}"${placeholder} ${locked ? "readonly" : ""} autocomplete="off"></label>${tickControl}`;
       }
     } else if (question.type === "open-answer" || question.type === "pronunciation") {
       control = `<label><span class="small muted">${question.type === "pronunciation" ? "Your note or self-assessment" : "Your answer"}</span><textarea class="open-answer" data-question-id="${id}" ${locked ? "readonly" : ""}>${Utils.escape(answer || "")}</textarea></label>`;
@@ -1004,7 +1009,9 @@
       }).join("")}</div>`;
     }
     const resultHtml = result ? `<div class="result-label ${result.correct ? "correct" : "incorrect"}"><span aria-hidden="true">${result.correct ? "✓" : "✕"}</span><span><strong>${result.correct ? "Correct" : "Check this answer"}.</strong>${result.explanation ? ` ${Utils.escape(result.explanation)}` : ""}</span></div>` : "";
-    return `<article class="card question-card ${stateClass}" data-question-card="${id}"><div class="question-heading"><div class="question-text">${Utils.escape(prompt)}</div>${contextHtml}${frameHtml}</div><div class="question-answer">${control}</div>${resultHtml}</article>`;
+    const answerHtml = control ? `<div class="question-answer">${control}</div>` : "";
+    const inlineClass = hasInlineParts ? "has-inline-answer" : "";
+    return `<article class="card question-card ${stateClass} ${inlineClass}" data-question-card="${id}"><div class="question-heading"><div class="question-text">${promptHtml}</div>${contextHtml}${frameHtml}</div>${answerHtml}${resultHtml}</article>`;
   }
 
   function renderContentParagraph(item) {
@@ -1091,7 +1098,7 @@
     return "";
   }
 
-  function renderConversationGapPart(part, questionMap, answers, checked, locked) {
+  function renderConversationGapPart(part, questionMap, answers, checked, locked, allAnswers = answers) {
     if (typeof part === "string") return Utils.escape(part);
     if (!part || typeof part !== "object" || !part.questionId) return "";
     const question = questionMap.get(String(part.questionId));
@@ -1104,10 +1111,16 @@
       ? `<span class="conversation-gap-status" aria-label="${result.correct ? "Correct" : "Incorrect"}">${result.correct ? "✓" : "✕"}</span>`
       : "";
     const selected = String(answers[id] || "");
-    const options = Utils.asArray(question.options);
-    const control = question.controlType === "select" && options.length
-      ? `<select class="select-answer conversation-gap-input conversation-gap-select" data-question-id="${escapedId}" aria-label="${Utils.escape(question.question || "Missing word or phrase")}" ${locked ? "disabled" : ""}><option value="">Choose…</option>${options.map((option) => { const value = optionValue(option); return `<option value="${Utils.escape(value)}" ${selected === value ? "selected" : ""}>${Utils.escape(optionLabel(option))}</option>`; }).join("")}</select>`
-      : `<input class="text-answer conversation-gap-input" type="text" data-question-id="${escapedId}" value="${Utils.escape(selected)}" aria-label="${Utils.escape(question.question || "Missing word or phrase")}" ${locked ? "readonly" : ""} autocomplete="off">`;
+    const options = resolveQuestionOptions(question, allAnswers);
+    let control = "";
+    if (question.controlType === "select" && options.length) {
+      control = `<select class="select-answer conversation-gap-input conversation-gap-select" data-question-id="${escapedId}" aria-label="${Utils.escape(question.question || "Missing word or phrase")}" ${locked ? "disabled" : ""}><option value="">Choose…</option>${options.map((option) => { const value = optionValue(option); return `<option value="${Utils.escape(value)}" ${selected === value ? "selected" : ""}>${Utils.escape(optionLabel(option))}</option>`; }).join("")}</select>`;
+    } else if (question.controlType === "select" && question.optionSource) {
+      control = `<select class="select-answer conversation-gap-input conversation-gap-select" data-question-id="${escapedId}" disabled><option value="">Complete Exercise 1 first</option></select>`;
+    } else {
+      const placeholder = question.placeholder ? ` placeholder="${Utils.escape(question.placeholder)}"` : "";
+      control = `<input class="text-answer conversation-gap-input" type="text" data-question-id="${escapedId}" value="${Utils.escape(selected)}" aria-label="${Utils.escape(question.question || "Missing word or phrase")}"${placeholder} ${locked ? "readonly" : ""} autocomplete="off">`;
+    }
     return `<span class="conversation-gap ${stateClass}">${control}${status}</span>`;
   }
 
@@ -1206,14 +1219,19 @@
     return `<section class="card exercise-block lesson-content-card word-select-card">${renderContentHeading(block)}<div class="lesson-content-body">${block.instruction ? `<p class="instruction">${Utils.escape(block.instruction)}</p>` : ""}<div class="word-snake" aria-label="${Utils.escape(question.question || block.title || "Word snake")}">${chips}</div>${resultHtml}</div></section>`;
   }
 
-  function renderInlineQuestionPart(part, questionMap, answers, checked, locked) {
+  function renderInlineQuestionPart(part, questionMap, answers, checked, locked, allAnswers = answers) {
     if (typeof part === "string") return Utils.escape(part);
     if (part && typeof part === "object" && part.text) {
       const copy = Utils.escape(part.text);
       return part.highlight ? `<strong class="source-highlight">${copy}</strong>` : copy;
     }
     if (!part || typeof part !== "object" || !part.questionId) return "";
-    return renderConversationGapPart(part, questionMap, answers, checked, locked);
+    return renderConversationGapPart(part, questionMap, answers, checked, locked, allAnswers);
+  }
+
+  function renderQuestionInlinePrompt(question, answers, checked, locked, allAnswers = answers) {
+    const questionMap = new Map([[String(question.id), question]]);
+    return Utils.asArray(question.inlineParts).map((part) => renderInlineQuestionPart(part, questionMap, answers, checked, locked, allAnswers)).join("");
   }
 
   function renderPictureDescriptionBlock(block, answers, checked, locked) {
@@ -1364,6 +1382,22 @@
       document.querySelectorAll("[data-question-id]").forEach((element) => {
         const liveInput = (element.tagName === "INPUT" && element.type === "text") || element.tagName === "TEXTAREA";
         element.addEventListener(liveInput ? "input" : "change", () => extractAnswer(element));
+      });
+      document.querySelectorAll("[data-tick-question-id]").forEach((element) => {
+        element.addEventListener("change", () => {
+          const id = element.dataset.tickQuestionId;
+          progress.answers[id] = element.checked ? "✓" : "";
+          if (progress.answers.__meta?.checkDetails) {
+            const recalculated = calculateLessonResult(questions, progress.answers);
+            progress.score_correct = recalculated.correct;
+            progress.score_total = recalculated.total;
+            progress.score_percent = recalculated.percent;
+            progress.answers.__meta.checkDetails = recalculated.details;
+          }
+          progress.status = "draft";
+          saveDraft();
+          render();
+        });
       });
       document.querySelectorAll("[data-order-action]").forEach((button) => {
         button.addEventListener("click", () => {

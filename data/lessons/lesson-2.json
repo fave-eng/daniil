@@ -23,7 +23,15 @@
           "id": "g1-1",
           "type": "text-input",
           "question": "1 Julia ________ every day at 7 am. (get up)",
-          "correctAnswer": "gets up"
+          "correctAnswer": "gets up",
+          "inlineParts": [
+            "1 Julia ",
+            {
+              "questionId": "g1-1"
+            },
+            " every day at 7 am. (get up)"
+          ],
+          "answerLabel": "Missing word / form"
         },
         {
           "id": "g1-2",
@@ -33,7 +41,15 @@
           "acceptedAnswers": [
             "are watching",
             "'re watching"
-          ]
+          ],
+          "inlineParts": [
+            "2 Tonight, my parents ",
+            {
+              "questionId": "g1-2"
+            },
+            " a TV show on their computer. (watch)"
+          ],
+          "answerLabel": "Missing word / form"
         },
         {
           "id": "g1-3",
@@ -43,7 +59,15 @@
           "acceptedAnswers": [
             "is wearing",
             "'s wearing"
-          ]
+          ],
+          "inlineParts": [
+            "3 Martin ",
+            {
+              "questionId": "g1-3"
+            },
+            " his new trainers. They’re really nice! (wear)"
+          ],
+          "answerLabel": "Missing word / form"
         },
         {
           "id": "g1-4",
@@ -53,13 +77,29 @@
           "acceptedAnswers": [
             "are finishing",
             "'re finishing"
-          ]
+          ],
+          "inlineParts": [
+            "4 We ",
+            {
+              "questionId": "g1-4"
+            },
+            " our homework in our rooms. (finish)"
+          ],
+          "answerLabel": "Missing word / form"
         },
         {
           "id": "g1-5",
           "type": "text-input",
           "question": "5 Every day my dad ________ 5 km before work. (run)",
-          "correctAnswer": "runs"
+          "correctAnswer": "runs",
+          "inlineParts": [
+            "5 Every day my dad ",
+            {
+              "questionId": "g1-5"
+            },
+            " 5 km before work. (run)"
+          ],
+          "answerLabel": "Missing word / form"
         }
       ]
     },
@@ -489,7 +529,10 @@
             "We have fun when we are together",
             "We have fun when we are together."
           ],
-          "answerLabel": "Correction or ✓"
+          "answerLabel": "Correction or ✓",
+          "tickable": true,
+          "tickLabel": "✓ This sentence is correct",
+          "placeholder": "Write the corrected sentence"
         },
         {
           "id": "g4-2",
@@ -504,7 +547,10 @@
             "I’m writing to tell you that I have a new computer",
             "I’m writing to tell you that I have a new computer."
           ],
-          "answerLabel": "Correction or ✓"
+          "answerLabel": "Correction or ✓",
+          "tickable": true,
+          "tickLabel": "✓ This sentence is correct",
+          "placeholder": "Write the corrected sentence"
         },
         {
           "id": "g4-3",
@@ -519,7 +565,10 @@
             "I’m sending you this email to invite you to my birthday party on Saturday",
             "I’m sending you this email to invite you to my birthday party on Saturday."
           ],
-          "answerLabel": "Correction or ✓"
+          "answerLabel": "Correction or ✓",
+          "tickable": true,
+          "tickLabel": "✓ This sentence is correct",
+          "placeholder": "Write the corrected sentence"
         },
         {
           "id": "g4-4",
@@ -539,7 +588,10 @@
             "We go out together every week",
             "We go out together every week."
           ],
-          "answerLabel": "Correction or ✓"
+          "answerLabel": "Correction or ✓",
+          "tickable": true,
+          "tickLabel": "✓ This sentence is correct",
+          "placeholder": "Write the corrected sentence"
         }
       ]
     },
@@ -612,7 +664,14 @@
           "controlType": "select",
           "question": "1 I have enough money to buy it because it’s so cheap.",
           "correctAnswer": "inexpensive",
-          "optionSource": "v1-prefix-columns"
+          "optionSource": "v1-prefix-columns",
+          "inlineParts": [
+            {
+              "questionId": "v2-1"
+            },
+            " I have enough money to buy it because it’s so cheap."
+          ],
+          "answerLabel": "Missing word / form"
         },
         {
           "id": "v2-2",
@@ -620,7 +679,14 @@
           "controlType": "select",
           "question": "2 Our team played better than the other team but didn’t win.",
           "correctAnswer": "unfair",
-          "optionSource": "v1-prefix-columns"
+          "optionSource": "v1-prefix-columns",
+          "inlineParts": [
+            {
+              "questionId": "v2-2"
+            },
+            " Our team played better than the other team but didn’t win."
+          ],
+          "answerLabel": "Missing word / form"
         },
         {
           "id": "v2-3",
@@ -628,7 +694,14 @@
           "controlType": "select",
           "question": "3 She always wants everything done immediately.",
           "correctAnswer": "impatient",
-          "optionSource": "v1-prefix-columns"
+          "optionSource": "v1-prefix-columns",
+          "inlineParts": [
+            {
+              "questionId": "v2-3"
+            },
+            " She always wants everything done immediately."
+          ],
+          "answerLabel": "Missing word / form"
         },
         {
           "id": "v2-4",
@@ -640,7 +713,14 @@
             "unkind",
             "unfriendly"
           ],
-          "optionSource": "v1-prefix-columns"
+          "optionSource": "v1-prefix-columns",
+          "inlineParts": [
+            {
+              "questionId": "v2-4"
+            },
+            " He’s never nice to me when I see him at school."
+          ],
+          "answerLabel": "Missing word / form"
         },
         {
           "id": "v2-5",
@@ -648,7 +728,14 @@
           "controlType": "select",
           "question": "5 Smoking is very bad for you.",
           "correctAnswer": "unhealthy",
-          "optionSource": "v1-prefix-columns"
+          "optionSource": "v1-prefix-columns",
+          "inlineParts": [
+            {
+              "questionId": "v2-5"
+            },
+            " Smoking is very bad for you."
+          ],
+          "answerLabel": "Missing word / form"
         },
         {
           "id": "v2-6",
@@ -656,7 +743,14 @@
           "controlType": "select",
           "question": "6 The bus driver never says ‘hello’ or ‘goodbye’.",
           "correctAnswer": "impolite",
-          "optionSource": "v1-prefix-columns"
+          "optionSource": "v1-prefix-columns",
+          "inlineParts": [
+            {
+              "questionId": "v2-6"
+            },
+            " The bus driver never says ‘hello’ or ‘goodbye’."
+          ],
+          "answerLabel": "Missing word / form"
         }
       ],
       "dependsOn": {
@@ -675,7 +769,15 @@
           "controlType": "select",
           "question": "1 a Sabrina’s not going to school because she’s sick. b Yes, she looks very ________.",
           "correctAnswer": "unwell",
-          "optionSource": "v1-prefix-columns"
+          "optionSource": "v1-prefix-columns",
+          "inlineParts": [
+            "1 a Sabrina’s not going to school because she’s sick. b Yes, she looks very ",
+            {
+              "questionId": "v3-1"
+            },
+            "."
+          ],
+          "answerLabel": "Missing word / form"
         },
         {
           "id": "v3-2",
@@ -683,7 +785,15 @@
           "controlType": "select",
           "question": "2 a Look at the fog – I can’t see anything! b Yes, the house right opposite is almost ________!",
           "correctAnswer": "invisible",
-          "optionSource": "v1-prefix-columns"
+          "optionSource": "v1-prefix-columns",
+          "inlineParts": [
+            "2 a Look at the fog – I can’t see anything! b Yes, the house right opposite is almost ",
+            {
+              "questionId": "v3-2"
+            },
+            "!"
+          ],
+          "answerLabel": "Missing word / form"
         },
         {
           "id": "v3-3",
@@ -695,7 +805,15 @@
             "unkind",
             "unfriendly"
           ],
-          "optionSource": "v1-prefix-columns"
+          "optionSource": "v1-prefix-columns",
+          "inlineParts": [
+            "3 a He always says bad things about people. b I know. I think he’s really ",
+            {
+              "questionId": "v3-3"
+            },
+            "."
+          ],
+          "answerLabel": "Missing word / form"
         },
         {
           "id": "v3-4",
@@ -703,7 +821,15 @@
           "controlType": "select",
           "question": "4 a The doctor was wrong when he told me to stop working. b Do you think his advice was ________?",
           "correctAnswer": "incorrect",
-          "optionSource": "v1-prefix-columns"
+          "optionSource": "v1-prefix-columns",
+          "inlineParts": [
+            "4 a The doctor was wrong when he told me to stop working. b Do you think his advice was ",
+            {
+              "questionId": "v3-4"
+            },
+            "?"
+          ],
+          "answerLabel": "Missing word / form"
         },
         {
           "id": "v3-5",
@@ -711,7 +837,15 @@
           "controlType": "select",
           "question": "5 a Carl cheats when we play computer games and he always wins. b That’s really ________!",
           "correctAnswer": "unfair",
-          "optionSource": "v1-prefix-columns"
+          "optionSource": "v1-prefix-columns",
+          "inlineParts": [
+            "5 a Carl cheats when we play computer games and he always wins. b That’s really ",
+            {
+              "questionId": "v3-5"
+            },
+            "!"
+          ],
+          "answerLabel": "Missing word / form"
         },
         {
           "id": "v3-6",
@@ -719,7 +853,15 @@
           "controlType": "select",
           "question": "6 a Do you think there’s life on other planets? b That’s something ________.",
           "correctAnswer": "unknown",
-          "optionSource": "v1-prefix-columns"
+          "optionSource": "v1-prefix-columns",
+          "inlineParts": [
+            "6 a Do you think there’s life on other planets? b That’s something ",
+            {
+              "questionId": "v3-6"
+            },
+            "."
+          ],
+          "answerLabel": "Missing word / form"
         }
       ],
       "dependsOn": {
@@ -786,7 +928,14 @@
             "Rita"
           ],
           "question": "1 ________ lives in a different place from where he / she was born.",
-          "correctAnswer": "Sam"
+          "correctAnswer": "Sam",
+          "inlineParts": [
+            {
+              "questionId": "w2-1"
+            },
+            " lives in a different place from where he / she was born."
+          ],
+          "answerLabel": "Missing word / form"
         },
         {
           "id": "w2-2",
@@ -797,7 +946,14 @@
             "Rita"
           ],
           "question": "2 ________ has one subject he / she really likes at school.",
-          "correctAnswer": "Rita"
+          "correctAnswer": "Rita",
+          "inlineParts": [
+            {
+              "questionId": "w2-2"
+            },
+            " has one subject he / she really likes at school."
+          ],
+          "answerLabel": "Missing word / form"
         },
         {
           "id": "w2-3",
@@ -808,7 +964,14 @@
             "Rita"
           ],
           "question": "3 ________ has classes outside school.",
-          "correctAnswer": "Sam"
+          "correctAnswer": "Sam",
+          "inlineParts": [
+            {
+              "questionId": "w2-3"
+            },
+            " has classes outside school."
+          ],
+          "answerLabel": "Missing word / form"
         },
         {
           "id": "w2-4",
@@ -819,7 +982,14 @@
             "Rita"
           ],
           "question": "4 ________ does an outdoor activity.",
-          "correctAnswer": "Rita"
+          "correctAnswer": "Rita",
+          "inlineParts": [
+            {
+              "questionId": "w2-4"
+            },
+            " does an outdoor activity."
+          ],
+          "answerLabel": "Missing word / form"
         },
         {
           "id": "w2-5",
@@ -830,7 +1000,14 @@
             "Rita"
           ],
           "question": "5 ________ wants to be a star.",
-          "correctAnswer": "Sam"
+          "correctAnswer": "Sam",
+          "inlineParts": [
+            {
+              "questionId": "w2-5"
+            },
+            " wants to be a star."
+          ],
+          "answerLabel": "Missing word / form"
         },
         {
           "id": "w2-6",
@@ -841,7 +1018,14 @@
             "Rita"
           ],
           "question": "6 ________ is from North America.",
-          "correctAnswer": "Rita"
+          "correctAnswer": "Rita",
+          "inlineParts": [
+            {
+              "questionId": "w2-6"
+            },
+            " is from North America."
+          ],
+          "answerLabel": "Missing word / form"
         }
       ]
     },
@@ -853,31 +1037,41 @@
           "id": "w3-1",
           "type": "text-input",
           "question": "1 b___t",
-          "correctAnswer": "bit"
+          "correctAnswer": "bit",
+          "answerLabel": "Complete word",
+          "placeholder": "Write the full word"
         },
         {
           "id": "w3-2",
           "type": "text-input",
           "question": "2 q___t_",
-          "correctAnswer": "quite"
+          "correctAnswer": "quite",
+          "answerLabel": "Complete word",
+          "placeholder": "Write the full word"
         },
         {
           "id": "w3-3",
           "type": "text-input",
           "question": "3 r___lly",
-          "correctAnswer": "really"
+          "correctAnswer": "really",
+          "answerLabel": "Complete word",
+          "placeholder": "Write the full word"
         },
         {
           "id": "w3-4",
           "type": "text-input",
           "question": "4 v_ry",
-          "correctAnswer": "very"
+          "correctAnswer": "very",
+          "answerLabel": "Complete word",
+          "placeholder": "Write the full word"
         },
         {
           "id": "w3-5",
           "type": "text-input",
           "question": "5 f___rly",
-          "correctAnswer": "fairly"
+          "correctAnswer": "fairly",
+          "answerLabel": "Complete word",
+          "placeholder": "Write the full word"
         }
       ]
     },

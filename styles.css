@@ -4666,3 +4666,54 @@ body[data-page="vocabulary"] .mode-tabs {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Lesson inline gap answers: keep the answer field inside the original sentence. */
+.question-card.has-inline-answer .question-heading {
+  display: block;
+}
+
+.question-card.has-inline-answer .question-text {
+  line-height: 2.35;
+}
+
+.question-card.has-inline-answer .conversation-gap-input,
+.question-card.has-inline-answer .conversation-gap-select {
+  min-width: 165px;
+  max-width: 100%;
+}
+
+.tick-answer-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  margin-top: 0.85rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--border, rgba(148, 163, 184, 0.45));
+  border-radius: 999px;
+  background: var(--surface-soft, rgba(148, 163, 184, 0.08));
+  color: var(--text, #0f172a);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.tick-answer-option input {
+  width: 1.05rem;
+  height: 1.05rem;
+  margin: 0;
+  accent-color: var(--primary, #4f46e5);
+}
+
+.tick-answer-option:has(input:checked) {
+  border-color: rgba(34, 197, 94, 0.55);
+  background: rgba(34, 197, 94, 0.10);
+}
+
+@media (max-width: 620px) {
+  .question-card.has-inline-answer .conversation-gap,
+  .question-card.has-inline-answer .conversation-gap-input,
+  .question-card.has-inline-answer .conversation-gap-select {
+    width: 100%;
+  }
+}
