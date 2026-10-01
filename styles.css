@@ -4356,6 +4356,10 @@ body[data-page="vocabulary"] .mode-tabs {
   overflow: auto;
   padding-right: .25rem;
 }
+body.has-bottom-nav .split-sticky-side {
+  max-height: calc(100vh - var(--header-height, 72px) - var(--nav-height, 76px) - env(safe-area-inset-bottom) - 2.75rem);
+  padding-bottom: .25rem;
+}
 .sticky-lesson-figure,
 .reading-figure {
   margin: 0;
@@ -4416,6 +4420,9 @@ body[data-page="vocabulary"] .mode-tabs {
 }
 .reading-sticky-side {
   max-height: calc(100vh - var(--header-height, 72px) - 2rem);
+}
+body.has-bottom-nav .reading-sticky-side {
+  max-height: calc(100vh - var(--header-height, 72px) - var(--nav-height, 76px) - env(safe-area-inset-bottom) - 2.75rem);
 }
 .reading-text-card {
   max-height: inherit;
