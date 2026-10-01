@@ -4728,7 +4728,8 @@ body.has-bottom-nav .reading-sticky-side {
 
 /* Unit 2: In fashion article reading */
 .fashion-reading-card .reading-text-card {
-  overflow: hidden;
+  max-height: none;
+  overflow: visible;
 }
 .fashion-article-title {
   background: linear-gradient(135deg, rgba(15,23,42,.95), rgba(71,85,105,.82));
