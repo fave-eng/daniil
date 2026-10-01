@@ -320,5 +320,140 @@ window.VOCABULARY_DATA = [
         "exampleEn": "Rita’s favourite subject is maths."
       }
     ]
+  },
+  {
+    "id": "vocab-lesson-3",
+    "title": "In fashion · Clothes and shoes",
+    "subtitle": "Vocabulary from Prepare Level 4 Unit 2",
+    "icon": "👟",
+    "label": "Lesson 3",
+    "linkedLessonId": "lesson-3",
+    "words": [
+      {
+        "en": "badly-dressed",
+        "ru": "плохо одетый",
+        "exampleEn": "He never wears nice clothes; he is badly-dressed."
+      },
+      {
+        "en": "second-hand",
+        "ru": "подержанный / секонд-хенд",
+        "exampleEn": "I buy second-hand clothes because they are cheap."
+      },
+      {
+        "en": "unfashionable",
+        "ru": "немодный",
+        "exampleEn": "Old clothes can look unfashionable."
+      },
+      {
+        "en": "casual",
+        "ru": "повседневный / неформальный",
+        "exampleEn": "I’m going to wear casual clothes to a small party."
+      },
+      {
+        "en": "uncomfortable",
+        "ru": "неудобный",
+        "exampleEn": "These trendy trainers are really uncomfortable."
+      },
+      {
+        "en": "loose-fitting",
+        "ru": "свободный по крою",
+        "exampleEn": "Loose-fitting clothes are large and comfortable to wear."
+      },
+      {
+        "en": "comfortable",
+        "ru": "удобный",
+        "exampleEn": "These trainers are comfortable."
+      },
+      {
+        "en": "smart",
+        "ru": "опрятный / нарядный",
+        "exampleEn": "The restaurant sign says smart clothes only."
+      },
+      {
+        "en": "skinny",
+        "ru": "узкий / облегающий",
+        "exampleEn": "Are you wearing your skinny jeans?"
+      },
+      {
+        "en": "brand new",
+        "ru": "совершенно новый",
+        "exampleEn": "It’s a brand new jacket from the sports shop."
+      },
+      {
+        "en": "trendy",
+        "ru": "модный / в тренде",
+        "exampleEn": "Trendy shoes are popular now."
+      },
+      {
+        "en": "well-dressed",
+        "ru": "хорошо одетый",
+        "exampleEn": "She is really well-dressed."
+      },
+      {
+        "en": "protect",
+        "ru": "защищать",
+        "exampleEn": "Shoes protect our feet."
+      },
+      {
+        "en": "comment",
+        "ru": "комментарий",
+        "exampleEn": "Here are some comments from the survey."
+      },
+      {
+        "en": "collection",
+        "ru": "коллекция",
+        "exampleEn": "She has a great collection of shoes."
+      },
+      {
+        "en": "essential",
+        "ru": "необходимый / важный",
+        "exampleEn": "Shoes are an essential fashion item."
+      },
+      {
+        "en": "shoe style",
+        "ru": "стиль обуви",
+        "exampleEn": "Some people follow shoe styles."
+      },
+      {
+        "en": "trainers",
+        "ru": "кроссовки",
+        "exampleEn": "I love shoes, especially trainers."
+      },
+      {
+        "en": "leather shoes",
+        "ru": "кожаные туфли / обувь",
+        "exampleEn": "Everyone wears the same black leather shoes."
+      },
+      {
+        "en": "uniform",
+        "ru": "форма",
+        "exampleEn": "We have a uniform at school."
+      },
+      {
+        "en": "fashionable",
+        "ru": "модный",
+        "exampleEn": "She is creative, but she isn’t fashionable in my opinion."
+      },
+      {
+        "en": "opinion",
+        "ru": "мнение",
+        "exampleEn": "In my opinion, the shoes are boring."
+      },
+      {
+        "en": "scruffy",
+        "ru": "потрёпанный / неопрятный",
+        "exampleEn": "The shoes look scruffy after a few months."
+      },
+      {
+        "en": "sandals",
+        "ru": "сандалии",
+        "exampleEn": "Her sandals are always pretty in the summer."
+      },
+      {
+        "en": "make or break your style",
+        "ru": "создать или испортить стиль",
+        "exampleEn": "A pair of shoes can make or break your style."
+      }
+    ]
   }
 ];

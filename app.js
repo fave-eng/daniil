@@ -808,23 +808,38 @@
     return Object.keys(question.correctAnswer || {}).every((prefix) => splitPrefixColumnWords(answer[prefix]).length > 0);
   }
 
+  function answerWordsFromSource(sourceId, answers) {
+    const value = answers?.[sourceId];
+    if (value == null) return [];
+    if (Array.isArray(value)) return value.map(String).filter((item) => item.trim());
+    if (value && typeof value === "object") return prefixColumnAnswerWords(value);
+    return String(value).trim() ? [String(value).trim()] : [];
+  }
+
   function resolveQuestionOptions(question, answers) {
+    const baseOptions = Utils.asArray(question.options).map((option) => ({ value: optionValue(option), label: optionLabel(option) }));
     if (question.optionSource) {
-      const words = uniqueAnswerWords(prefixColumnAnswerWords(answers?.[question.optionSource]));
-      return words.map((word) => ({ value: word, label: word }));
+      const sources = Utils.asArray(question.optionSource);
+      const sourceWords = uniqueAnswerWords(sources.flatMap((sourceId) => answerWordsFromSource(sourceId, answers)));
+      return uniqueAnswerWords([...sourceWords, ...baseOptions.map((option) => option.value)])
+        .map((word) => ({ value: word, label: word }));
     }
     return Utils.asArray(question.options);
   }
 
   function dependencyReady(dep, answers, questions) {
-    if (!dep || !dep.questionId) return true;
-    const source = questions.find((item) => item.id === dep.questionId);
-    if (!source) return true;
-    if (source.type === "prefix-columns") return prefixColumnsComplete(source, answers);
-    const value = answers?.[dep.questionId];
-    if (Array.isArray(value)) return value.length >= Number(dep.minItems || 1);
-    if (value && typeof value === "object") return Object.keys(value).length >= Number(dep.minItems || 1);
-    return String(value || "").trim().length > 0;
+    if (!dep) return true;
+    const ids = dep.questionIds ? Utils.asArray(dep.questionIds) : (dep.questionId ? [dep.questionId] : []);
+    if (!ids.length) return true;
+    return ids.every((questionId) => {
+      const source = questions.find((item) => item.id === questionId);
+      if (!source) return true;
+      if (source.type === "prefix-columns") return prefixColumnsComplete(source, answers);
+      const value = answers?.[questionId];
+      if (Array.isArray(value)) return value.length >= Number(dep.minItems || 1);
+      if (value && typeof value === "object") return Object.keys(value).length >= Number(dep.minItems || 1);
+      return String(value || "").trim().length > 0;
+    });
   }
 
   function renderDependencyNotice(block) {
@@ -1264,6 +1279,33 @@
     return `<section class="exercise-block split-sticky-card reading-comprehension-card"><aside class="split-sticky-side reading-sticky-side"><div class="card reading-text-card">${renderContentHeading(block)}<div class="lesson-content-body">${block.instructions?.headings ? `<div class="lesson-task-instruction"><span class="lesson-task-label">Exercise 1</span><p>${Utils.escape(block.instructions.headings)}</p></div>` : ""}${wordBank}${block.instructions?.gaps ? `<div class="lesson-task-instruction"><span class="lesson-task-label">Exercise 2</span><p>${Utils.escape(block.instructions.gaps)}</p></div>` : ""}<article class="birth-order-text"><div class="birth-order-title">Birth order</div><p class="birth-order-lead">${Utils.escape(block.lead || "")}</p>${sections}</article>${figureHtml}</div></div></aside><div class="reading-task-column"><section class="exercise-block">${block.commentsTitle ? `<h2>${Utils.escape(block.commentsTitle)}</h2>` : ""}${block.commentsInstruction ? `<p class="instruction">${Utils.escape(block.commentsInstruction)}</p>` : ""}${commentQuestions}</section><section class="exercise-block">${block.matchingTitle ? `<h2>${Utils.escape(block.matchingTitle)}</h2>` : ""}${matchingHtml}</section></div></section>`;
   }
 
+  function renderFashionArticlePart(part) {
+    if (typeof part === "string") return Utils.escape(part);
+    if (!part || typeof part !== "object") return "";
+    const copy = Utils.escape(part.text || "");
+    return part.highlight ? `<strong class="source-highlight">${copy}</strong>` : copy;
+  }
+
+  function renderFashionArticleReadingBlock(block, answers, checked, locked) {
+    const questions = Utils.asArray(block.questions);
+    const questionMap = new Map(questions.map((question) => [String(question.id), question]));
+    const article = block.article || {};
+    const intro = Utils.asArray(article.intro).map((paragraph) => `<p>${Utils.asArray(paragraph).map(renderFashionArticlePart).join("")}</p>`).join("");
+    const comments = Utils.asArray(article.comments).map((comment) => {
+      const paragraphs = Utils.asArray(comment.paragraphs).map((paragraph) => `<p>${Utils.asArray(paragraph).map(renderFashionArticlePart).join("")}</p>`).join("");
+      return `<article class="fashion-comment-card"><div class="fashion-comment-copy">${paragraphs}</div><p class="fashion-comment-author">${Utils.escape(comment.author || "")}</p></article>`;
+    }).join("");
+    const articleHtml = `<article class="fashion-article"><div class="fashion-article-title"><span>What do you think about</span><strong>SHOES?</strong></div><div class="fashion-article-intro">${intro}</div><h3>Here are some of the <strong class="source-highlight">comments</strong> from the survey.</h3><div class="fashion-comments-grid">${comments}</div></article>`;
+    const taskHtml = Utils.asArray(block.tasks).map((task) => {
+      const taskQuestions = Utils.asArray(task.questionIds).map((id, index) => {
+        const question = questionMap.get(String(id));
+        return question ? renderQuestion(question, index + 1, answers[question.id], checked, locked, answers) : "";
+      }).join("");
+      return `<section class="exercise-block fashion-reading-task">${task.title ? `<h2>${Utils.escape(task.title)}</h2>` : ""}${task.instruction ? `<p class="instruction">${Utils.escape(task.instruction)}</p>` : ""}${taskQuestions}</section>`;
+    }).join("");
+    return `<section class="exercise-block split-sticky-card fashion-reading-card"><aside class="split-sticky-side reading-sticky-side"><div class="card reading-text-card">${renderContentHeading(block)}<div class="lesson-content-body">${articleHtml}</div></div></aside><div class="reading-task-column">${taskHtml}</div></section>`;
+  }
+
   async function initLesson() {
     UI.loading();
     const lessonId = Utils.query("id");
@@ -1305,6 +1347,9 @@
         }
         if (block.type === "reading-comprehension") {
           return renderReadingComprehensionBlock(block, progress.answers, checked, locked);
+        }
+        if (block.type === "fashion-reading") {
+          return renderFashionArticleReadingBlock(block, progress.answers, checked, locked);
         }
         if (block.type === "gap-text") {
           return renderGapTextBlock(block, progress.answers, checked, locked);

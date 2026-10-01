@@ -1,0 +1,997 @@
+{
+  "id": "lesson-3",
+  "number": 3,
+  "title": "In fashion",
+  "subtitle": "Prepare Level 4 · Unit 2 · Vocabulary and reading",
+  "status": "published",
+  "vocabularyTopicId": "vocab-lesson-3",
+  "grammarIds": [],
+  "blocks": [
+    {
+      "type": "section-heading",
+      "kicker": "Vocabulary",
+      "title": "Clothes: adjectives",
+      "subtitle": "Prepare Level 4 · Unit 2"
+    },
+    {
+      "type": "question-group",
+      "title": "1. Write the letters in the correct order to make adjectives.",
+      "questions": [
+        {
+          "id": "v1-1",
+          "type": "text-input",
+          "question": "1 adlyb-edressd",
+          "correctAnswer": "badly-dressed",
+          "acceptedAnswers": [
+            "badly-dressed",
+            "badly dressed"
+          ],
+          "inlineParts": [
+            "1 adlyb-edressd ",
+            {
+              "questionId": "v1-1"
+            }
+          ],
+          "answerLabel": "Adjective"
+        },
+        {
+          "id": "v1-2",
+          "type": "text-input",
+          "question": "2 dnsceo-dhna",
+          "correctAnswer": "second-hand",
+          "acceptedAnswers": [
+            "second-hand",
+            "second hand"
+          ],
+          "inlineParts": [
+            "2 dnsceo-dhna ",
+            {
+              "questionId": "v1-2"
+            }
+          ],
+          "answerLabel": "Adjective"
+        },
+        {
+          "id": "v1-3",
+          "type": "text-input",
+          "question": "3 ufnhensoalabi",
+          "correctAnswer": "unfashionable",
+          "inlineParts": [
+            "3 ufnhensoalabi ",
+            {
+              "questionId": "v1-3"
+            }
+          ],
+          "answerLabel": "Adjective"
+        },
+        {
+          "id": "v1-4",
+          "type": "text-input",
+          "question": "4 acusla",
+          "correctAnswer": "casual",
+          "inlineParts": [
+            "4 acusla ",
+            {
+              "questionId": "v1-4"
+            }
+          ],
+          "answerLabel": "Adjective"
+        },
+        {
+          "id": "v1-5",
+          "type": "text-input",
+          "question": "5 uclfbntaremoo",
+          "correctAnswer": "uncomfortable",
+          "inlineParts": [
+            "5 uclfbntaremoo ",
+            {
+              "questionId": "v1-5"
+            }
+          ],
+          "answerLabel": "Adjective"
+        }
+      ]
+    },
+    {
+      "type": "matching",
+      "id": "v2-match",
+      "title": "2. Match the words to their meanings.",
+      "scorePerPair": true,
+      "left": [
+        {
+          "value": "loose-fitting",
+          "label": "1 loose-fitting"
+        },
+        {
+          "value": "comfortable",
+          "label": "2 comfortable"
+        },
+        {
+          "value": "smart",
+          "label": "3 smart"
+        },
+        {
+          "value": "skinny",
+          "label": "4 skinny"
+        },
+        {
+          "value": "brand new",
+          "label": "5 brand new"
+        },
+        {
+          "value": "trendy",
+          "label": "6 trendy"
+        },
+        {
+          "value": "well-dressed",
+          "label": "7 well-dressed"
+        }
+      ],
+      "right": [
+        {
+          "value": "a",
+          "label": "a narrow and fitting closely to the body"
+        },
+        {
+          "value": "b",
+          "label": "b wearing attractive, good-quality clothes"
+        },
+        {
+          "value": "c",
+          "label": "c large and comfortable to wear"
+        },
+        {
+          "value": "d",
+          "label": "d gives a pleasant feeling"
+        },
+        {
+          "value": "e",
+          "label": "e having a clean, tidy and stylish appearance"
+        },
+        {
+          "value": "f",
+          "label": "f completely new"
+        },
+        {
+          "value": "g",
+          "label": "g popular at a particular time"
+        }
+      ],
+      "correctAnswer": {
+        "loose-fitting": "c",
+        "comfortable": "d",
+        "smart": "e",
+        "skinny": "a",
+        "brand new": "f",
+        "trendy": "g",
+        "well-dressed": "b"
+      }
+    },
+    {
+      "type": "question-group",
+      "title": "3. Complete the sentences with the correct word from Exercise 1.",
+      "dependsOn": {
+        "questionIds": [
+          "v1-1",
+          "v1-2",
+          "v1-3",
+          "v1-4",
+          "v1-5"
+        ],
+        "message": "Complete Exercise 1 first. Then use your words from Exercise 1 here."
+      },
+      "questions": [
+        {
+          "id": "v3-1",
+          "type": "text-input",
+          "controlType": "select",
+          "optionSource": [
+            "v1-1",
+            "v1-2",
+            "v1-3",
+            "v1-4",
+            "v1-5"
+          ],
+          "question": "1 I don’t like these trainers. They are very trendy, but they are really ________.",
+          "correctAnswer": "uncomfortable",
+          "inlineParts": [
+            "1 I don’t like these trainers. They are very trendy, but they are really ",
+            {
+              "questionId": "v3-1"
+            },
+            "."
+          ],
+          "answerLabel": "Word from Exercise 1"
+        },
+        {
+          "id": "v3-2",
+          "type": "text-input",
+          "controlType": "select",
+          "optionSource": [
+            "v1-1",
+            "v1-2",
+            "v1-3",
+            "v1-4",
+            "v1-5"
+          ],
+          "question": "2 I always buy ________ clothes because they’re so cheap!",
+          "correctAnswer": "second-hand",
+          "acceptedAnswers": [
+            "second-hand",
+            "second hand"
+          ],
+          "inlineParts": [
+            "2 I always buy ",
+            {
+              "questionId": "v3-2"
+            },
+            " clothes because they’re so cheap!"
+          ],
+          "answerLabel": "Word from Exercise 1"
+        },
+        {
+          "id": "v3-3",
+          "type": "text-input",
+          "controlType": "select",
+          "optionSource": [
+            "v1-1",
+            "v1-2",
+            "v1-3",
+            "v1-4",
+            "v1-5"
+          ],
+          "question": "3 My clothes looked great five years ago. Now they look so ________.",
+          "correctAnswer": "unfashionable",
+          "inlineParts": [
+            "3 My clothes looked great five years ago. Now they look so ",
+            {
+              "questionId": "v3-3"
+            },
+            "."
+          ],
+          "answerLabel": "Word from Exercise 1"
+        },
+        {
+          "id": "v3-4",
+          "type": "text-input",
+          "controlType": "select",
+          "optionSource": [
+            "v1-1",
+            "v1-2",
+            "v1-3",
+            "v1-4",
+            "v1-5"
+          ],
+          "question": "4 My dad never wears nice clothes. He’s really ________!",
+          "correctAnswer": "badly-dressed",
+          "acceptedAnswers": [
+            "badly-dressed",
+            "badly dressed"
+          ],
+          "inlineParts": [
+            "4 My dad never wears nice clothes. He’s really ",
+            {
+              "questionId": "v3-4"
+            },
+            "!"
+          ],
+          "answerLabel": "Word from Exercise 1"
+        },
+        {
+          "id": "v3-5",
+          "type": "text-input",
+          "controlType": "select",
+          "optionSource": [
+            "v1-1",
+            "v1-2",
+            "v1-3",
+            "v1-4",
+            "v1-5"
+          ],
+          "question": "5 It’s only a small party at a friend’s house. I’m going to wear ________ clothes.",
+          "correctAnswer": "casual",
+          "inlineParts": [
+            "5 It’s only a small party at a friend’s house. I’m going to wear ",
+            {
+              "questionId": "v3-5"
+            },
+            " clothes."
+          ],
+          "answerLabel": "Word from Exercise 1"
+        }
+      ]
+    },
+    {
+      "type": "conversation-gap-fill",
+      "kicker": "Vocabulary",
+      "title": "4. Complete the conversation with words from Exercises 1 and 2.",
+      "dependsOn": {
+        "questionIds": [
+          "v1-1",
+          "v1-2",
+          "v1-3",
+          "v1-4",
+          "v1-5"
+        ],
+        "message": "Complete Exercise 1 first. Then use words from Exercises 1 and 2 here."
+      },
+      "wordBankGroups": [
+        {
+          "label": "Exercise 1",
+          "words": [
+            "Use your answers from Exercise 1"
+          ]
+        },
+        {
+          "label": "Exercise 2",
+          "words": [
+            "loose-fitting",
+            "comfortable",
+            "smart",
+            "skinny",
+            "brand new",
+            "trendy",
+            "well-dressed"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "v4-1",
+          "type": "text-input",
+          "controlType": "select",
+          "optionSource": [
+            "v1-1",
+            "v1-2",
+            "v1-3",
+            "v1-4",
+            "v1-5"
+          ],
+          "options": [
+            "loose-fitting",
+            "comfortable",
+            "smart",
+            "skinny",
+            "brand new",
+            "trendy",
+            "well-dressed"
+          ],
+          "question": "skinny",
+          "correctAnswer": "skinny"
+        },
+        {
+          "id": "v4-2",
+          "type": "text-input",
+          "controlType": "select",
+          "optionSource": [
+            "v1-1",
+            "v1-2",
+            "v1-3",
+            "v1-4",
+            "v1-5"
+          ],
+          "options": [
+            "loose-fitting",
+            "comfortable",
+            "smart",
+            "skinny",
+            "brand new",
+            "trendy",
+            "well-dressed"
+          ],
+          "question": "uncomfortable",
+          "correctAnswer": "uncomfortable"
+        },
+        {
+          "id": "v4-3",
+          "type": "text-input",
+          "controlType": "select",
+          "optionSource": [
+            "v1-1",
+            "v1-2",
+            "v1-3",
+            "v1-4",
+            "v1-5"
+          ],
+          "options": [
+            "loose-fitting",
+            "comfortable",
+            "smart",
+            "skinny",
+            "brand new",
+            "trendy",
+            "well-dressed"
+          ],
+          "question": "second-hand",
+          "correctAnswer": "second-hand",
+          "acceptedAnswers": [
+            "second-hand",
+            "second hand"
+          ]
+        },
+        {
+          "id": "v4-4",
+          "type": "text-input",
+          "controlType": "select",
+          "optionSource": [
+            "v1-1",
+            "v1-2",
+            "v1-3",
+            "v1-4",
+            "v1-5"
+          ],
+          "options": [
+            "loose-fitting",
+            "comfortable",
+            "smart",
+            "skinny",
+            "brand new",
+            "trendy",
+            "well-dressed"
+          ],
+          "question": "brand new",
+          "correctAnswer": "brand new"
+        },
+        {
+          "id": "v4-5",
+          "type": "text-input",
+          "controlType": "select",
+          "optionSource": [
+            "v1-1",
+            "v1-2",
+            "v1-3",
+            "v1-4",
+            "v1-5"
+          ],
+          "options": [
+            "loose-fitting",
+            "comfortable",
+            "smart",
+            "skinny",
+            "brand new",
+            "trendy",
+            "well-dressed"
+          ],
+          "question": "trendy",
+          "correctAnswer": "trendy"
+        },
+        {
+          "id": "v4-6",
+          "type": "text-input",
+          "controlType": "select",
+          "optionSource": [
+            "v1-1",
+            "v1-2",
+            "v1-3",
+            "v1-4",
+            "v1-5"
+          ],
+          "options": [
+            "loose-fitting",
+            "comfortable",
+            "smart",
+            "skinny",
+            "brand new",
+            "trendy",
+            "well-dressed"
+          ],
+          "question": "unfashionable",
+          "correctAnswer": "unfashionable"
+        },
+        {
+          "id": "v4-7",
+          "type": "text-input",
+          "controlType": "select",
+          "optionSource": [
+            "v1-1",
+            "v1-2",
+            "v1-3",
+            "v1-4",
+            "v1-5"
+          ],
+          "options": [
+            "loose-fitting",
+            "comfortable",
+            "smart",
+            "skinny",
+            "brand new",
+            "trendy",
+            "well-dressed"
+          ],
+          "question": "smart",
+          "correctAnswer": "smart"
+        },
+        {
+          "id": "v4-8",
+          "type": "text-input",
+          "controlType": "select",
+          "optionSource": [
+            "v1-1",
+            "v1-2",
+            "v1-3",
+            "v1-4",
+            "v1-5"
+          ],
+          "options": [
+            "loose-fitting",
+            "comfortable",
+            "smart",
+            "skinny",
+            "brand new",
+            "trendy",
+            "well-dressed"
+          ],
+          "question": "badly-dressed",
+          "correctAnswer": "badly-dressed",
+          "acceptedAnswers": [
+            "badly-dressed",
+            "badly dressed"
+          ]
+        },
+        {
+          "id": "v4-9",
+          "type": "text-input",
+          "controlType": "select",
+          "optionSource": [
+            "v1-1",
+            "v1-2",
+            "v1-3",
+            "v1-4",
+            "v1-5"
+          ],
+          "options": [
+            "loose-fitting",
+            "comfortable",
+            "smart",
+            "skinny",
+            "brand new",
+            "trendy",
+            "well-dressed"
+          ],
+          "question": "casual",
+          "correctAnswer": "casual"
+        },
+        {
+          "id": "v4-10",
+          "type": "text-input",
+          "controlType": "select",
+          "optionSource": [
+            "v1-1",
+            "v1-2",
+            "v1-3",
+            "v1-4",
+            "v1-5"
+          ],
+          "options": [
+            "loose-fitting",
+            "comfortable",
+            "smart",
+            "skinny",
+            "brand new",
+            "trendy",
+            "well-dressed"
+          ],
+          "question": "well-dressed",
+          "correctAnswer": "well-dressed",
+          "acceptedAnswers": [
+            "well-dressed",
+            "well dressed"
+          ]
+        }
+      ],
+      "conversations": [
+        {
+          "number": "1",
+          "lines": [
+            {
+              "speaker": "A",
+              "parts": [
+                "Are you wearing your ",
+                {
+                  "questionId": "v4-1"
+                },
+                " jeans to the concert?"
+              ]
+            },
+            {
+              "speaker": "B",
+              "parts": [
+                "Yes, I am. But they are a bit ",
+                {
+                  "questionId": "v4-2"
+                },
+                "."
+              ]
+            }
+          ]
+        },
+        {
+          "number": "2",
+          "lines": [
+            {
+              "speaker": "A",
+              "parts": [
+                "Is that a ",
+                {
+                  "questionId": "v4-3"
+                },
+                " jacket?"
+              ]
+            },
+            {
+              "speaker": "B",
+              "parts": [
+                "No, it’s ",
+                {
+                  "questionId": "v4-4"
+                },
+                ", from the new sports shop in town."
+              ]
+            }
+          ]
+        },
+        {
+          "number": "3",
+          "lines": [
+            {
+              "speaker": "A",
+              "parts": [
+                "She is so ",
+                {
+                  "questionId": "v4-5"
+                },
+                " and always wears the latest fashions!"
+              ]
+            },
+            {
+              "speaker": "B",
+              "parts": [
+                "Yes, she isn’t the type of person to be ",
+                {
+                  "questionId": "v4-6"
+                },
+                "!"
+              ]
+            }
+          ]
+        },
+        {
+          "number": "4",
+          "lines": [
+            {
+              "speaker": "A",
+              "parts": [
+                "The restaurant sign says ",
+                {
+                  "questionId": "v4-7"
+                },
+                " clothes only."
+              ]
+            },
+            {
+              "speaker": "B",
+              "parts": [
+                "I’m going home to change these old clothes because I am so ",
+                {
+                  "questionId": "v4-8"
+                },
+                "."
+              ]
+            }
+          ]
+        },
+        {
+          "number": "5",
+          "lines": [
+            {
+              "speaker": "A",
+              "parts": [
+                "Sam doesn’t worry about how he looks. He prefers a ",
+                {
+                  "questionId": "v4-9"
+                },
+                " style!"
+              ]
+            },
+            {
+              "speaker": "B",
+              "parts": [
+                "He’s not like his brother who is really ",
+                {
+                  "questionId": "v4-10"
+                },
+                ". He wears the best clothes."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section-heading",
+      "kicker": "Reading",
+      "title": "What do you think about shoes?",
+      "subtitle": "Prepare Level 4 · Unit 2"
+    },
+    {
+      "type": "fashion-reading",
+      "kicker": "Reading",
+      "title": "Article about shoes",
+      "article": {
+        "intro": [
+          [
+            "We all wear shoes every day. They ",
+            {
+              "text": "protect",
+              "highlight": true
+            },
+            " our feet from the things we do every day – walking, school activities, sports and so on. But for some people they are more than that. They follow shoe styles, and a good pair of trendy shoes or trainers will not be cheap. Mag About You did a survey and we discovered that many of you pay a lot of money for shoes. We think it’s because they are an ",
+            {
+              "text": "essential",
+              "highlight": true
+            },
+            " fashion item – specially for the youth of today! A pair of shoes can make or break your style!"
+          ]
+        ],
+        "comments": [
+          {
+            "author": "Raffi, South Africa",
+            "paragraphs": [
+              [
+                "I think it’s a bit boring the way everyone in my school wears the same black leather shoes. There are all kinds of shoes we could wear, but we have a uniform, and most people follow the rules. There is one girl in my class who wears all kinds of different things and she’s creative, but she isn’t fashionable in my opinion. My friends and I try to be a bit different and wear black trainers instead. We buy them from the same shop. But we like them!"
+              ]
+            ]
+          },
+          {
+            "author": "Anne Belle, New Zealand",
+            "paragraphs": [
+              [
+                "I love shoes, especially trainers. They are trendy and comfortable. You can wear them with everything – trousers, skirts and so on. At school we did a project where we had to add something to a pair of white trainers. I wrote half my name on the left and the other half on the right. It was such a cool project!"
+              ]
+            ]
+          },
+          {
+            "author": "Zehra, Turkey",
+            "paragraphs": [
+              [
+                "At my school we all have to wear these silly black or brown shoes. They look quite scruffy after a few months. Nobody likes them. Anyway, the kinds of shoes that we can wear at school is a big story at the moment! The school agrees now that the style of the uniform is unfashionable. Our art teacher can give the school some advice! She has a great ",
+                {
+                  "text": "collection",
+                  "highlight": true
+                },
+                " of shoes, and in the summer her sandals are always so pretty. She’s really well-dressed. I want to dress like her."
+              ]
+            ]
+          }
+        ]
+      },
+      "tasks": [
+        {
+          "title": "1. Look at the article about shoes before reading it. Tick (✓) where it comes from.",
+          "questionIds": [
+            "r1-source"
+          ]
+        },
+        {
+          "title": "2. Read the article. Are these sentences true (T) or false (F)?",
+          "questionIds": [
+            "r2-1",
+            "r2-2",
+            "r2-3",
+            "r2-4",
+            "r2-5",
+            "r2-6"
+          ]
+        },
+        {
+          "title": "3. Match the highlighted words in the article to their meanings.",
+          "questionIds": [
+            "r3-match"
+          ]
+        },
+        {
+          "title": "4. Complete the sentences with a word from Exercise 3.",
+          "questionIds": [
+            "r4-1",
+            "r4-2",
+            "r4-3",
+            "r4-4"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "r1-source",
+          "type": "single-choice",
+          "question": "Where does the article come from?",
+          "options": [
+            {
+              "value": "a blog",
+              "label": "1 a blog"
+            },
+            {
+              "value": "an email",
+              "label": "2 an email"
+            },
+            {
+              "value": "a teen magazine",
+              "label": "3 a teen magazine"
+            },
+            {
+              "value": "an online forum",
+              "label": "4 an online forum"
+            }
+          ],
+          "correctAnswer": "a teen magazine"
+        },
+        {
+          "id": "r2-1",
+          "type": "true-false",
+          "question": "1 Many readers buy expensive shoes.",
+          "correctAnswer": "true"
+        },
+        {
+          "id": "r2-2",
+          "type": "true-false",
+          "question": "2 At Raffi’s school, everyone wears the same colour trousers/skirt.",
+          "correctAnswer": "false"
+        },
+        {
+          "id": "r2-3",
+          "type": "true-false",
+          "question": "3 Raffi wears the same shoes as his friends.",
+          "correctAnswer": "true"
+        },
+        {
+          "id": "r2-4",
+          "type": "true-false",
+          "question": "4 Anne Belle wrote her name on her trainers.",
+          "correctAnswer": "true"
+        },
+        {
+          "id": "r2-5",
+          "type": "true-false",
+          "question": "5 At Zehra’s school, her classmates wear stylish shoes.",
+          "correctAnswer": "false"
+        },
+        {
+          "id": "r2-6",
+          "type": "true-false",
+          "question": "6 Zehra admires her art teacher’s style.",
+          "correctAnswer": "true"
+        },
+        {
+          "id": "r3-match",
+          "type": "matching",
+          "scorePerPair": true,
+          "pairs": [
+            {
+              "value": "protect",
+              "label": "1 protect"
+            },
+            {
+              "value": "comments",
+              "label": "2 comments"
+            },
+            {
+              "value": "collection",
+              "label": "3 collection"
+            },
+            {
+              "value": "essential",
+              "label": "4 essential"
+            }
+          ],
+          "options": [
+            {
+              "value": "a",
+              "label": "a things that you say or write that express your opinion"
+            },
+            {
+              "value": "b",
+              "label": "b a group of things or people"
+            },
+            {
+              "value": "c",
+              "label": "c very important and necessary"
+            },
+            {
+              "value": "d",
+              "label": "d keep someone or something safe from something dangerous or bad"
+            }
+          ],
+          "correctAnswer": {
+            "protect": "d",
+            "comments": "a",
+            "collection": "b",
+            "essential": "c"
+          }
+        },
+        {
+          "id": "r4-1",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "protect",
+            "comments",
+            "collection",
+            "essential"
+          ],
+          "question": "1 He always wears sunglasses to ________ his eyes from the sun.",
+          "correctAnswer": "protect",
+          "inlineParts": [
+            "1 He always wears sunglasses to ",
+            {
+              "questionId": "r4-1"
+            },
+            " his eyes from the sun."
+          ],
+          "answerLabel": "Word from Exercise 3"
+        },
+        {
+          "id": "r4-2",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "protect",
+            "comments",
+            "collection",
+            "essential"
+          ],
+          "question": "2 Jane likes to write ________ on social media about clothes people wear in their photos.",
+          "correctAnswer": "comments",
+          "inlineParts": [
+            "2 Jane likes to write ",
+            {
+              "questionId": "r4-2"
+            },
+            " on social media about clothes people wear in their photos."
+          ],
+          "answerLabel": "Word from Exercise 3"
+        },
+        {
+          "id": "r4-3",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "protect",
+            "comments",
+            "collection",
+            "essential"
+          ],
+          "question": "3 Some people think it’s ________ to look trendy all the time.",
+          "correctAnswer": "essential",
+          "inlineParts": [
+            "3 Some people think it’s ",
+            {
+              "questionId": "r4-3"
+            },
+            " to look trendy all the time."
+          ],
+          "answerLabel": "Word from Exercise 3"
+        },
+        {
+          "id": "r4-4",
+          "type": "text-input",
+          "controlType": "select",
+          "options": [
+            "protect",
+            "comments",
+            "collection",
+            "essential"
+          ],
+          "question": "4 I love the new fashion ________ at G&C this summer.",
+          "correctAnswer": "collection",
+          "inlineParts": [
+            "4 I love the new fashion ",
+            {
+              "questionId": "r4-4"
+            },
+            " at G&C this summer."
+          ],
+          "answerLabel": "Word from Exercise 3"
+        }
+      ]
+    }
+  ]
+}
