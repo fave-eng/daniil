@@ -455,5 +455,105 @@ window.VOCABULARY_DATA = [
         "exampleEn": "A pair of shoes can make or break your style."
       }
     ]
+  },
+  {
+    "id": "vocab-lesson-4",
+    "title": "In fashion · Adverbs and prom",
+    "subtitle": "Vocabulary from Prepare Level 4 Unit 2",
+    "icon": "🎓",
+    "label": "Lesson 4",
+    "linkedLessonId": "lesson-4",
+    "words": [
+      {
+        "en": "badly",
+        "ru": "плохо",
+        "exampleEn": "My team played badly this year."
+      },
+      {
+        "en": "carefully",
+        "ru": "внимательно / осторожно",
+        "exampleEn": "Jamie thinks carefully before he speaks."
+      },
+      {
+        "en": "yearly",
+        "ru": "ежегодно",
+        "exampleEn": "He visits his family yearly."
+      },
+      {
+        "en": "fast",
+        "ru": "быстро",
+        "exampleEn": "You’re driving too fast."
+      },
+      {
+        "en": "well",
+        "ru": "хорошо",
+        "exampleEn": "Georgina looks well after going to the gym."
+      },
+      {
+        "en": "healthily",
+        "ru": "полезно для здоровья / здоровым образом",
+        "exampleEn": "Eating healthily makes me feel better."
+      },
+      {
+        "en": "heavily",
+        "ru": "сильно / интенсивно",
+        "exampleEn": "It’s raining heavily."
+      },
+      {
+        "en": "early",
+        "ru": "рано",
+        "exampleEn": "I go to bed early before an exam."
+      },
+      {
+        "en": "prom",
+        "ru": "выпускной бал",
+        "exampleEn": "They are going to an end-of-school prom."
+      },
+      {
+        "en": "end-of-year party",
+        "ru": "вечеринка в конце учебного года",
+        "exampleEn": "She went to an end-of-year party."
+      },
+      {
+        "en": "wedding party",
+        "ru": "свадебная вечеринка",
+        "exampleEn": "They are dressed for a wedding party."
+      },
+      {
+        "en": "cousin",
+        "ru": "двоюродный брат / двоюродная сестра",
+        "exampleEn": "Rob is talking about his cousin or sister."
+      },
+      {
+        "en": "spend money",
+        "ru": "тратить деньги",
+        "exampleEn": "He doesn’t like spending a lot of money on one dress."
+      },
+      {
+        "en": "black tie",
+        "ru": "чёрный галстук",
+        "exampleEn": "He is wearing a black tie."
+      },
+      {
+        "en": "wait",
+        "ru": "ждать",
+        "exampleEn": "I can’t wait till our prom."
+      },
+      {
+        "en": "finish school",
+        "ru": "закончить школу",
+        "exampleEn": "Everyone celebrates when they finish school."
+      },
+      {
+        "en": "beautiful",
+        "ru": "красивый",
+        "exampleEn": "She looks beautiful in the photo."
+      },
+      {
+        "en": "photo",
+        "ru": "фотография",
+        "exampleEn": "That’s a photo from last year."
+      }
+    ]
   }
 ];

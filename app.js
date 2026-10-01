@@ -1149,6 +1149,14 @@
       : "";
   }
 
+  function renderAnswerWordBank(block, answers) {
+    const ids = Utils.asArray(block.answerWordBankFrom).map(String);
+    if (!ids.length) return "";
+    const words = uniqueAnswerWords(ids.map((id) => String(answers?.[id] || "").trim()).filter(Boolean));
+    if (!words.length) return "";
+    return `<div class="lesson-word-bank" aria-label="Your words from the previous exercise"><div class="lesson-word-bank-heading"><span class="lesson-word-bank-icon" aria-hidden="true">Aa</span><div><span class="lesson-word-bank-label">Your words from Exercise 1</span></div></div><div class="lesson-word-bank-items">${words.map((word) => `<span>${Utils.escape(word)}</span>`).join("")}</div></div>`;
+  }
+
   function renderConversationGapBlock(block, answers, checked, locked) {
     const questions = Utils.asArray(block.questions);
     const questionMap = new Map(questions.map((question) => [String(question.id), question]));
@@ -1160,9 +1168,11 @@
       }).join("");
       const lines = Utils.asArray(conversation.lines).map((line) => {
         const speaker = String(line.speaker || "");
-        const side = speaker.toUpperCase() === "B" ? "is-right" : "is-left";
+        const requestedSide = String(line.side || "").toLowerCase();
+        const side = requestedSide === "right" ? "is-right" : requestedSide === "left" ? "is-left" : (speaker.toUpperCase() === "B" ? "is-right" : "is-left");
+        const avatar = speaker.trim().slice(0, 1) || "?";
         const text = Utils.asArray(line.parts).map((part) => renderConversationGapPart(part, questionMap, answers, checked, locked)).join("");
-        return `<div class="conversation-message ${side}"><div class="conversation-avatar" aria-hidden="true">${Utils.escape(speaker)}</div><div class="conversation-bubble"><span class="conversation-speaker">${Utils.escape(speaker)}</span><p>${text}</p></div></div>`;
+        return `<div class="conversation-message ${side}"><div class="conversation-avatar" aria-hidden="true">${Utils.escape(avatar)}</div><div class="conversation-bubble"><span class="conversation-speaker">${Utils.escape(speaker)}</span><p>${text}</p></div></div>`;
       }).join("");
       return `<article class="conversation-item"><div class="conversation-item-heading"><span class="conversation-number">${Utils.escape(conversation.number)}</span><div class="conversation-pair-bank">${pairs}</div></div><div class="conversation-dialogue">${lines}</div></article>`;
     }).join("");
@@ -1370,7 +1380,8 @@
             questionNumber += block.questions.length;
             return renderStatementListBlock(block, progress.answers, checked, locked);
           }
-          return `<section class="exercise-block">${block.title ? `<h2>${Utils.escape(block.title)}</h2>` : ""}${block.instruction ? `<p class="instruction">${Utils.escape(block.instruction)}</p>` : ""}${block.questions.map((question) => { questionNumber += 1; return renderQuestion({ ...question, parentTitle: block.title }, questionNumber, progress.answers[question.id], checked, locked, progress.answers); }).join("")}</section>`;
+          const answerWordBank = renderAnswerWordBank(block, progress.answers);
+          return `<section class="exercise-block">${block.title ? `<h2>${Utils.escape(block.title)}</h2>` : ""}${block.instruction ? `<p class="instruction">${Utils.escape(block.instruction)}</p>` : ""}${answerWordBank}${block.questions.map((question) => { questionNumber += 1; return renderQuestion({ ...question, parentTitle: block.title }, questionNumber, progress.answers[question.id], checked, locked, progress.answers); }).join("")}</section>`;
         }
         if (["single-choice", "multiple-choice", "true-false", "text-input", "matching", "ordering", "open-answer", "pronunciation"].includes(block.type)) {
           questionNumber += 1;

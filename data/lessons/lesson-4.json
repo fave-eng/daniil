@@ -1,0 +1,1131 @@
+{
+  "id": "lesson-4",
+  "number": 4,
+  "title": "In fashion",
+  "subtitle": "Prepare Level 4 · Unit 2 · Past simple, adverbs and listening",
+  "status": "published",
+  "vocabularyTopicId": "vocab-lesson-4",
+  "grammarIds": [
+    "grammar-past-simple"
+  ],
+  "blocks": [
+    {
+      "type": "section-heading",
+      "kicker": "Grammar",
+      "title": "Past simple",
+      "subtitle": "Prepare Level 4 · Unit 2"
+    },
+    {
+      "type": "question-group",
+      "title": "1. Complete the sentences with the verbs in brackets in the past simple.",
+      "questions": [
+        {
+          "id": "ps1-1",
+          "type": "text-input",
+          "question": "1 Yesterday I  __INPUT__  my new jacket to school. (wear)",
+          "inlineParts": [
+            "1 Yesterday I ",
+            {
+              "questionId": "ps1-1"
+            },
+            " my new jacket to school. (wear)"
+          ],
+          "correctAnswer": "wore"
+        },
+        {
+          "id": "ps1-2",
+          "type": "text-input",
+          "question": "2 After watching Rihanna’s new video, everyone  __INPUT__  a trendy T-shirt like hers. (want)",
+          "inlineParts": [
+            "2 After watching Rihanna’s new video, everyone ",
+            {
+              "questionId": "ps1-2"
+            },
+            " a trendy T-shirt like hers. (want)"
+          ],
+          "correctAnswer": "wanted"
+        },
+        {
+          "id": "ps1-3",
+          "type": "text-input",
+          "question": "3 Mum  __INPUT__  to take her shoes back to the shop. (forget)",
+          "inlineParts": [
+            "3 Mum ",
+            {
+              "questionId": "ps1-3"
+            },
+            " to take her shoes back to the shop. (forget)"
+          ],
+          "correctAnswer": "forgot"
+        },
+        {
+          "id": "ps1-4",
+          "type": "text-input",
+          "question": "4 Dad  __INPUT__  into town to get Mum a new pair of earrings. (go)",
+          "inlineParts": [
+            "4 Dad ",
+            {
+              "questionId": "ps1-4"
+            },
+            " into town to get Mum a new pair of earrings. (go)"
+          ],
+          "correctAnswer": "went"
+        },
+        {
+          "id": "ps1-5",
+          "type": "text-input",
+          "question": "5 Lots of my friends  __INPUT__  their new Nike trainers online. (buy)",
+          "inlineParts": [
+            "5 Lots of my friends ",
+            {
+              "questionId": "ps1-5"
+            },
+            " their new Nike trainers online. (buy)"
+          ],
+          "correctAnswer": "bought"
+        },
+        {
+          "id": "ps1-6",
+          "type": "text-input",
+          "question": "6 Emily  __INPUT__  the fashion show in London last week. (enjoy)",
+          "inlineParts": [
+            "6 Emily ",
+            {
+              "questionId": "ps1-6"
+            },
+            " the fashion show in London last week. (enjoy)"
+          ],
+          "correctAnswer": "enjoyed"
+        },
+        {
+          "id": "ps1-7",
+          "type": "text-input",
+          "question": "7  __INPUT__  you text Mac about the sale in Zara next week? (do)",
+          "inlineParts": [
+            "7 ",
+            {
+              "questionId": "ps1-7"
+            },
+            " you text Mac about the sale in Zara next week? (do)"
+          ],
+          "correctAnswer": "Did",
+          "acceptedAnswers": [
+            "did",
+            "Did"
+          ]
+        },
+        {
+          "id": "ps1-8",
+          "type": "text-input",
+          "question": "8 Serena  __INPUT__  really smart in her new dress on Friday. (look)",
+          "inlineParts": [
+            "8 Serena ",
+            {
+              "questionId": "ps1-8"
+            },
+            " really smart in her new dress on Friday. (look)"
+          ],
+          "correctAnswer": "looked"
+        },
+        {
+          "id": "ps1-9",
+          "type": "text-input",
+          "question": "9 Andrew  __INPUT__  a new suit and tie for his birthday. (get)",
+          "inlineParts": [
+            "9 Andrew ",
+            {
+              "questionId": "ps1-9"
+            },
+            " a new suit and tie for his birthday. (get)"
+          ],
+          "correctAnswer": "got"
+        },
+        {
+          "id": "ps1-10",
+          "type": "text-input",
+          "question": "10 My brother  __INPUT__  wearing caps when he was younger. (love)",
+          "inlineParts": [
+            "10 My brother ",
+            {
+              "questionId": "ps1-10"
+            },
+            " wearing caps when he was younger. (love)"
+          ],
+          "correctAnswer": "loved"
+        }
+      ]
+    },
+    {
+      "type": "question-group",
+      "title": "2. Write the questions for these answers.",
+      "questions": [
+        {
+          "id": "ps2-1",
+          "type": "text-input",
+          "question": "1 what / you / do?",
+          "context": "I went clothes shopping with my friend.",
+          "answerLabel": "Write the complete question",
+          "placeholder": "Write the question",
+          "correctAnswer": "What did you do?",
+          "acceptedAnswers": [
+            "What did you do",
+            "What did you do?"
+          ]
+        },
+        {
+          "id": "ps2-2",
+          "type": "text-input",
+          "question": "2 your dad / buy / a new shirt?",
+          "context": "No, he didn’t. He bought a pair of shoes instead.",
+          "answerLabel": "Write the complete question",
+          "placeholder": "Write the question",
+          "correctAnswer": "Did your dad buy a new shirt?",
+          "acceptedAnswers": [
+            "Did your dad buy a new shirt",
+            "Did your dad buy a new shirt?"
+          ]
+        },
+        {
+          "id": "ps2-3",
+          "type": "text-input",
+          "question": "3 go / cinema / with / parents?",
+          "context": "No, I visited my friends instead.",
+          "answerLabel": "Write the complete question",
+          "placeholder": "Write the question",
+          "correctAnswer": "Did you go to the cinema with your parents?",
+          "acceptedAnswers": [
+            "Did you go to the cinema with your parents",
+            "Did you go to the cinema with your parents?",
+            "Did you go to cinema with your parents",
+            "Did you go to cinema with your parents?"
+          ]
+        },
+        {
+          "id": "ps2-4",
+          "type": "text-input",
+          "question": "4 do / wear / new jumper?",
+          "context": "I did! Everyone loved it!",
+          "answerLabel": "Write the complete question",
+          "placeholder": "Write the question",
+          "correctAnswer": "Did you wear your new jumper?",
+          "acceptedAnswers": [
+            "Did you wear your new jumper",
+            "Did you wear your new jumper?"
+          ]
+        },
+        {
+          "id": "ps2-5",
+          "type": "text-input",
+          "question": "5 how long / film / last?",
+          "context": "About two hours, I think.",
+          "answerLabel": "Write the complete question",
+          "placeholder": "Write the question",
+          "correctAnswer": "How long did the film last?",
+          "acceptedAnswers": [
+            "How long did the film last",
+            "How long did the film last?"
+          ]
+        },
+        {
+          "id": "ps2-6",
+          "type": "text-input",
+          "question": "6 eat / restaurant / after the fashion show?",
+          "context": "Yes, we did. We had burgers and salad.",
+          "answerLabel": "Write the complete question",
+          "placeholder": "Write the question",
+          "correctAnswer": "Did you eat at a restaurant after the fashion show?",
+          "acceptedAnswers": [
+            "Did you eat at a restaurant after the fashion show",
+            "Did you eat at a restaurant after the fashion show?",
+            "Did you eat at the restaurant after the fashion show",
+            "Did you eat at the restaurant after the fashion show?"
+          ]
+        },
+        {
+          "id": "ps2-7",
+          "type": "text-input",
+          "question": "7 you / get home / late?",
+          "context": "No, we didn’t. I think we got home at 8.30 pm.",
+          "answerLabel": "Write the complete question",
+          "placeholder": "Write the question",
+          "correctAnswer": "Did you get home late?",
+          "acceptedAnswers": [
+            "Did you get home late",
+            "Did you get home late?"
+          ]
+        },
+        {
+          "id": "ps2-8",
+          "type": "text-input",
+          "question": "8 your parents / buy / new skirt?",
+          "context": "Yes, they gave me the money and I got it from Kool Klothez.",
+          "answerLabel": "Write the complete question",
+          "placeholder": "Write the question",
+          "correctAnswer": "Did your parents buy you a new skirt?",
+          "acceptedAnswers": [
+            "Did your parents buy you a new skirt",
+            "Did your parents buy you a new skirt?"
+          ]
+        },
+        {
+          "id": "ps2-9",
+          "type": "text-input",
+          "question": "9 What / you / have / birthday?",
+          "context": "I had some new trainers and a T-shirt.",
+          "answerLabel": "Write the complete question",
+          "placeholder": "Write the question",
+          "correctAnswer": "What did you have for your birthday?",
+          "acceptedAnswers": [
+            "What did you have for your birthday",
+            "What did you have for your birthday?",
+            "What did you get for your birthday",
+            "What did you get for your birthday?"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "question-group",
+      "title": "3. Complete the sentences. Put the verbs into the correct positive or negative form.",
+      "questions": [
+        {
+          "id": "ps3-1",
+          "type": "text-input",
+          "question": "1 It was raining, so I  __INPUT__  my umbrella. (take)",
+          "inlineParts": [
+            "1 It was raining, so I ",
+            {
+              "questionId": "ps3-1"
+            },
+            " my umbrella. (take)"
+          ],
+          "correctAnswer": "took"
+        },
+        {
+          "id": "ps3-2",
+          "type": "text-input",
+          "question": "2 The book was boring and I  __INPUT__  it at all. (enjoy)",
+          "inlineParts": [
+            "2 The book was boring and I ",
+            {
+              "questionId": "ps3-2"
+            },
+            " it at all. (enjoy)"
+          ],
+          "correctAnswer": "didn't enjoy",
+          "acceptedAnswers": [
+            "didn't enjoy",
+            "didn’t enjoy",
+            "did not enjoy"
+          ]
+        },
+        {
+          "id": "ps3-3",
+          "type": "text-input",
+          "question": "3 We  __INPUT__  to Spain for our holidays from Heathrow Airport. (fly)",
+          "inlineParts": [
+            "3 We ",
+            {
+              "questionId": "ps3-3"
+            },
+            " to Spain for our holidays from Heathrow Airport. (fly)"
+          ],
+          "correctAnswer": "flew"
+        },
+        {
+          "id": "ps3-4",
+          "type": "text-input",
+          "question": "4 My best friend  __INPUT__  me a lovely birthday present. (give)",
+          "inlineParts": [
+            "4 My best friend ",
+            {
+              "questionId": "ps3-4"
+            },
+            " me a lovely birthday present. (give)"
+          ],
+          "correctAnswer": "gave"
+        },
+        {
+          "id": "ps3-5",
+          "type": "text-input",
+          "question": "5 Suni  __INPUT__  to play with Marta because he was watching TV. (want)",
+          "inlineParts": [
+            "5 Suni ",
+            {
+              "questionId": "ps3-5"
+            },
+            " to play with Marta because he was watching TV. (want)"
+          ],
+          "correctAnswer": "didn't want",
+          "acceptedAnswers": [
+            "didn't want",
+            "didn’t want",
+            "did not want"
+          ]
+        },
+        {
+          "id": "ps3-6",
+          "type": "text-input",
+          "question": "6 It was a hot day and we  __INPUT__  lots of water. (drink)",
+          "inlineParts": [
+            "6 It was a hot day and we ",
+            {
+              "questionId": "ps3-6"
+            },
+            " lots of water. (drink)"
+          ],
+          "correctAnswer": "drank"
+        },
+        {
+          "id": "ps3-7",
+          "type": "text-input",
+          "question": "7 You  __INPUT__  me last week because you had to do your homework. Remember? (visit)",
+          "inlineParts": [
+            "7 You ",
+            {
+              "questionId": "ps3-7"
+            },
+            " me last week because you had to do your homework. Remember? (visit)"
+          ],
+          "correctAnswer": "didn't visit",
+          "acceptedAnswers": [
+            "didn't visit",
+            "didn’t visit",
+            "did not visit"
+          ]
+        },
+        {
+          "id": "ps3-8",
+          "type": "text-input",
+          "question": "8 She  __INPUT__  you an email this morning. (send)",
+          "inlineParts": [
+            "8 She ",
+            {
+              "questionId": "ps3-8"
+            },
+            " you an email this morning. (send)"
+          ],
+          "correctAnswer": "sent"
+        }
+      ]
+    },
+    {
+      "type": "gap-text",
+      "title": "4. Complete the text with the verbs in the box. Use the past simple, positive or negative.",
+      "wordBank": [
+        "ask",
+        "buy",
+        "catch",
+        "go",
+        "look",
+        "see",
+        "smile",
+        "spend",
+        "tell",
+        "visit"
+      ],
+      "questions": [
+        {
+          "id": "ps4-1",
+          "type": "text-input",
+          "question": "1",
+          "correctAnswer": "went"
+        },
+        {
+          "id": "ps4-2",
+          "type": "text-input",
+          "question": "2",
+          "correctAnswer": "caught"
+        },
+        {
+          "id": "ps4-3",
+          "type": "text-input",
+          "question": "3",
+          "correctAnswer": "spent"
+        },
+        {
+          "id": "ps4-4",
+          "type": "text-input",
+          "question": "4",
+          "correctAnswer": "visited"
+        },
+        {
+          "id": "ps4-5",
+          "type": "text-input",
+          "question": "5",
+          "correctAnswer": "asked"
+        },
+        {
+          "id": "ps4-6",
+          "type": "text-input",
+          "question": "6",
+          "correctAnswer": "bought"
+        },
+        {
+          "id": "ps4-7",
+          "type": "text-input",
+          "question": "7",
+          "correctAnswer": "saw"
+        },
+        {
+          "id": "ps4-8",
+          "type": "text-input",
+          "question": "8",
+          "correctAnswer": "looked"
+        },
+        {
+          "id": "ps4-9",
+          "type": "text-input",
+          "question": "9",
+          "correctAnswer": "told"
+        },
+        {
+          "id": "ps4-10",
+          "type": "text-input",
+          "question": "10",
+          "correctAnswer": "smiled"
+        }
+      ],
+      "paragraphs": [
+        [
+          "Eve ",
+          {
+            "questionId": "ps4-1"
+          },
+          " shopping with her parents in London last week. They ",
+          {
+            "questionId": "ps4-2"
+          },
+          " a train from Bristol to London. They ",
+          {
+            "questionId": "ps4-3"
+          },
+          " two days there. They ",
+          {
+            "questionId": "ps4-4"
+          },
+          " all the best shops for clothes in the main shopping areas like Oxford Street, Camden and Carnaby Street! Eve is so lucky because her mum ",
+          {
+            "questionId": "ps4-5"
+          },
+          " her what type of clothes she wanted. So she ",
+          {
+            "questionId": "ps4-6"
+          },
+          " her a lot of trendy things like skinny jeans and cool white trainers. She was wearing them when I ",
+          {
+            "questionId": "ps4-7"
+          },
+          " her at the party on Friday. She ",
+          {
+            "questionId": "ps4-8"
+          },
+          " so happy when people ",
+          {
+            "questionId": "ps4-9"
+          },
+          " her how nice her clothes were – she ",
+          {
+            "questionId": "ps4-10"
+          },
+          " all night long. I think I need to go to London soon, too!"
+        ]
+      ]
+    },
+    {
+      "type": "question-group",
+      "title": "5. Choose the correct sentence in each pair.",
+      "questions": [
+        {
+          "id": "ps5-1",
+          "type": "single-choice",
+          "question": "1",
+          "options": [
+            {
+              "value": "a",
+              "label": "a We were there for three days because last week is a holiday."
+            },
+            {
+              "value": "b",
+              "label": "b We were there for three days because last week was a holiday."
+            }
+          ],
+          "correctAnswer": "b"
+        },
+        {
+          "id": "ps5-2",
+          "type": "single-choice",
+          "question": "2",
+          "options": [
+            {
+              "value": "a",
+              "label": "a Last Saturday I went to the cinema with my friends."
+            },
+            {
+              "value": "b",
+              "label": "b Last Saturday I go to the cinema with my friends."
+            }
+          ],
+          "correctAnswer": "a"
+        },
+        {
+          "id": "ps5-3",
+          "type": "single-choice",
+          "question": "3",
+          "options": [
+            {
+              "value": "a",
+              "label": "a The National Park is a clean and quiet place, so we chose to go there."
+            },
+            {
+              "value": "b",
+              "label": "b The National Park is a clean and quiet place, so we choosed to go there."
+            }
+          ],
+          "correctAnswer": "a"
+        },
+        {
+          "id": "ps5-4",
+          "type": "single-choice",
+          "question": "4",
+          "options": [
+            {
+              "value": "a",
+              "label": "a She so surprised and really happy!"
+            },
+            {
+              "value": "b",
+              "label": "b She was so surprised and really happy!"
+            }
+          ],
+          "correctAnswer": "b"
+        },
+        {
+          "id": "ps5-5",
+          "type": "single-choice",
+          "question": "5",
+          "options": [
+            {
+              "value": "a",
+              "label": "a I have a lot of fun last weekend."
+            },
+            {
+              "value": "b",
+              "label": "b I had a lot of fun last weekend."
+            }
+          ],
+          "correctAnswer": "b"
+        }
+      ]
+    },
+    {
+      "type": "section-heading",
+      "kicker": "Vocabulary",
+      "title": "Adverbs",
+      "subtitle": "Prepare Level 4 · Unit 2"
+    },
+    {
+      "type": "question-group",
+      "title": "1. Write the letters in the correct order to make adverbs.",
+      "questions": [
+        {
+          "id": "adv1-1",
+          "type": "text-input",
+          "question": "1 dalby",
+          "answerLabel": "Adverb",
+          "correctAnswer": "badly"
+        },
+        {
+          "id": "adv1-2",
+          "type": "text-input",
+          "question": "2 larceufly",
+          "answerLabel": "Adverb",
+          "correctAnswer": "carefully"
+        },
+        {
+          "id": "adv1-3",
+          "type": "text-input",
+          "question": "3 yarley",
+          "answerLabel": "Adverb",
+          "correctAnswer": "yearly"
+        },
+        {
+          "id": "adv1-4",
+          "type": "text-input",
+          "question": "4 saft",
+          "answerLabel": "Adverb",
+          "correctAnswer": "fast"
+        },
+        {
+          "id": "adv1-5",
+          "type": "text-input",
+          "question": "5 elew",
+          "answerLabel": "Adverb",
+          "correctAnswer": "well"
+        },
+        {
+          "id": "adv1-6",
+          "type": "text-input",
+          "question": "6 talilhtey",
+          "answerLabel": "Adverb",
+          "correctAnswer": "healthily"
+        },
+        {
+          "id": "adv1-7",
+          "type": "text-input",
+          "question": "7 vaheyli",
+          "answerLabel": "Adverb",
+          "correctAnswer": "heavily"
+        },
+        {
+          "id": "adv1-8",
+          "type": "text-input",
+          "question": "8 lraey",
+          "answerLabel": "Adverb",
+          "correctAnswer": "early"
+        }
+      ]
+    },
+    {
+      "type": "question-group",
+      "title": "2. Complete the sentences with adverbs from Exercise 1.",
+      "dependsOn": {
+        "questionIds": [
+          "adv1-1",
+          "adv1-2",
+          "adv1-3",
+          "adv1-4",
+          "adv1-5",
+          "adv1-6",
+          "adv1-7",
+          "adv1-8"
+        ],
+        "message": "Complete Exercise 1 first. Then use your adverbs from Exercise 1."
+      },
+      "answerWordBankFrom": [
+        "adv1-1",
+        "adv1-2",
+        "adv1-3",
+        "adv1-4",
+        "adv1-5",
+        "adv1-6",
+        "adv1-7",
+        "adv1-8"
+      ],
+      "questions": [
+        {
+          "id": "adv2-1",
+          "type": "text-input",
+          "question": "1 I always go to bed  __INPUT__  before an exam.",
+          "inlineParts": [
+            "1 I always go to bed ",
+            {
+              "questionId": "adv2-1"
+            },
+            " before an exam."
+          ],
+          "correctAnswer": "early"
+        },
+        {
+          "id": "adv2-2",
+          "type": "text-input",
+          "question": "2 Eating  __INPUT__  makes me feel better.",
+          "inlineParts": [
+            "2 Eating ",
+            {
+              "questionId": "adv2-2"
+            },
+            " makes me feel better."
+          ],
+          "correctAnswer": "healthily"
+        },
+        {
+          "id": "adv2-3",
+          "type": "text-input",
+          "question": "3 It’s raining  __INPUT__ , so I’ll stay at home today.",
+          "inlineParts": [
+            "3 It’s raining ",
+            {
+              "questionId": "adv2-3"
+            },
+            ", so I’ll stay at home today."
+          ],
+          "correctAnswer": "heavily"
+        },
+        {
+          "id": "adv2-4",
+          "type": "text-input",
+          "question": "4 You’re driving too  __INPUT__ ! Slow down!",
+          "inlineParts": [
+            "4 You’re driving too ",
+            {
+              "questionId": "adv2-4"
+            },
+            "! Slow down!"
+          ],
+          "correctAnswer": "fast"
+        },
+        {
+          "id": "adv2-5",
+          "type": "text-input",
+          "question": "5 Georgina looks really  __INPUT__  after going to the gym.",
+          "inlineParts": [
+            "5 Georgina looks really ",
+            {
+              "questionId": "adv2-5"
+            },
+            " after going to the gym."
+          ],
+          "correctAnswer": "well"
+        },
+        {
+          "id": "adv2-6",
+          "type": "text-input",
+          "question": "6 Paul visits his family in South Africa  __INPUT__ , usually in August.",
+          "inlineParts": [
+            "6 Paul visits his family in South Africa ",
+            {
+              "questionId": "adv2-6"
+            },
+            ", usually in August."
+          ],
+          "correctAnswer": "yearly"
+        },
+        {
+          "id": "adv2-7",
+          "type": "text-input",
+          "question": "7 My team played  __INPUT__  this year.",
+          "inlineParts": [
+            "7 My team played ",
+            {
+              "questionId": "adv2-7"
+            },
+            " this year."
+          ],
+          "correctAnswer": "badly"
+        },
+        {
+          "id": "adv2-8",
+          "type": "text-input",
+          "question": "8 Jamie thinks  __INPUT__  before he speaks.",
+          "inlineParts": [
+            "8 Jamie thinks ",
+            {
+              "questionId": "adv2-8"
+            },
+            " before he speaks."
+          ],
+          "correctAnswer": "carefully"
+        }
+      ]
+    },
+    {
+      "type": "section-heading",
+      "kicker": "Listening",
+      "title": "Prom",
+      "subtitle": "Prepare Level 4 · Unit 2"
+    },
+    {
+      "type": "image",
+      "src": "assets/lessons/lesson-4-prom-photo.png",
+      "alt": "Five teenagers dressed formally for a prom or end-of-school party"
+    },
+    {
+      "type": "question-group",
+      "title": "1. Look at the photo. Where are the teens? Tick (✓) the event where you think they are.",
+      "questions": [
+        {
+          "id": "lis1",
+          "type": "single-choice",
+          "question": "Where are the teens?",
+          "options": [
+            {
+              "value": "1",
+              "label": "1 a special birthday party"
+            },
+            {
+              "value": "2",
+              "label": "2 a party at the end of high school"
+            },
+            {
+              "value": "3",
+              "label": "3 a wedding party"
+            }
+          ],
+          "correctAnswer": "2"
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "kicker": "Listening",
+      "title": "2. Now listen and check your answer.",
+      "paragraphs": []
+    },
+    {
+      "type": "question-group",
+      "title": "3. Listen again and choose the correct answers.",
+      "questions": [
+        {
+          "id": "lis3-1",
+          "type": "single-choice",
+          "question": "1 Rob is talking about his ... Denise.",
+          "options": [
+            {
+              "value": "cousin",
+              "label": "cousin"
+            },
+            {
+              "value": "sister",
+              "label": "sister"
+            }
+          ],
+          "correctAnswer": "sister"
+        },
+        {
+          "id": "lis3-2",
+          "type": "single-choice",
+          "question": "2 Denise left school ...",
+          "options": [
+            {
+              "value": "last year",
+              "label": "last year"
+            },
+            {
+              "value": "two years ago",
+              "label": "two years ago"
+            }
+          ],
+          "correctAnswer": "last year"
+        },
+        {
+          "id": "lis3-3",
+          "type": "single-choice",
+          "question": "3 Rob thinks proms are ...",
+          "options": [
+            {
+              "value": "British",
+              "label": "British"
+            },
+            {
+              "value": "American",
+              "label": "American"
+            }
+          ],
+          "correctAnswer": "American"
+        },
+        {
+          "id": "lis3-4",
+          "type": "single-choice",
+          "question": "4 Rob thinks it ... a good idea to spend a lot of money on a prom dress.",
+          "options": [
+            {
+              "value": "is",
+              "label": "is"
+            },
+            {
+              "value": "isn’t",
+              "label": "isn’t"
+            }
+          ],
+          "correctAnswer": "isn’t"
+        },
+        {
+          "id": "lis3-5",
+          "type": "single-choice",
+          "question": "5 Denise got a job in a ...",
+          "options": [
+            {
+              "value": "café",
+              "label": "café"
+            },
+            {
+              "value": "clothes shop",
+              "label": "clothes shop"
+            }
+          ],
+          "correctAnswer": "café"
+        },
+        {
+          "id": "lis3-6",
+          "type": "single-choice",
+          "question": "6 Lara says she is ... buy her prom dress herself.",
+          "options": [
+            {
+              "value": "going to",
+              "label": "going to"
+            },
+            {
+              "value": "not going to",
+              "label": "not going to"
+            }
+          ],
+          "correctAnswer": "going to"
+        }
+      ]
+    },
+    {
+      "type": "conversation-gap-fill",
+      "title": "4. Listen again and complete the first part of the conversation.",
+      "questions": [
+        {
+          "id": "lis4-1",
+          "type": "text-input",
+          "question": "1",
+          "correctAnswer": "beautiful"
+        },
+        {
+          "id": "lis4-2",
+          "type": "text-input",
+          "question": "2",
+          "correctAnswer": "photo"
+        },
+        {
+          "id": "lis4-3",
+          "type": "text-input",
+          "question": "3",
+          "correctAnswer": "remember"
+        },
+        {
+          "id": "lis4-4",
+          "type": "text-input",
+          "question": "4",
+          "correctAnswer": "party"
+        },
+        {
+          "id": "lis4-5",
+          "type": "text-input",
+          "question": "5",
+          "correctAnswer": "good-looking",
+          "acceptedAnswers": [
+            "good-looking",
+            "good looking"
+          ]
+        },
+        {
+          "id": "lis4-6",
+          "type": "text-input",
+          "question": "6",
+          "correctAnswer": "black"
+        },
+        {
+          "id": "lis4-7",
+          "type": "text-input",
+          "question": "7",
+          "correctAnswer": "wait"
+        },
+        {
+          "id": "lis4-8",
+          "type": "text-input",
+          "question": "8",
+          "correctAnswer": "finish"
+        },
+        {
+          "id": "lis4-9",
+          "type": "text-input",
+          "question": "9",
+          "correctAnswer": "America"
+        }
+      ],
+      "conversations": [
+        {
+          "number": "",
+          "lines": [
+            {
+              "speaker": "Lara",
+              "side": "left",
+              "parts": [
+                "Hey, Rob, is that your sister? She’s ",
+                {
+                  "questionId": "lis4-1"
+                },
+                "!"
+              ]
+            },
+            {
+              "speaker": "Rob",
+              "side": "right",
+              "parts": [
+                "Yeah, that’s Denise! And that’s a ",
+                {
+                  "questionId": "lis4-2"
+                },
+                " from last year! Do you ",
+                {
+                  "questionId": "lis4-3"
+                },
+                ", Lara? She went to that end-of-year ",
+                {
+                  "questionId": "lis4-4"
+                },
+                ", the prom."
+              ]
+            },
+            {
+              "speaker": "Lara",
+              "side": "left",
+              "parts": [
+                "Yes. And is that Andy Patterson with her? He’s very ",
+                {
+                  "questionId": "lis4-5"
+                },
+                ", isn’t he?"
+              ]
+            },
+            {
+              "speaker": "Rob",
+              "side": "right",
+              "parts": [
+                "Yep! In his ",
+                {
+                  "questionId": "lis4-6"
+                },
+                " tie!"
+              ]
+            },
+            {
+              "speaker": "Lara",
+              "side": "left",
+              "parts": [
+                "I can’t ",
+                {
+                  "questionId": "lis4-7"
+                },
+                " till our prom, can you?"
+              ]
+            },
+            {
+              "speaker": "Rob",
+              "side": "right",
+              "parts": [
+                "Do you think I’m going to wear a tie like that?"
+              ]
+            },
+            {
+              "speaker": "Lara",
+              "side": "left",
+              "parts": [
+                "Yes, you have to! Everyone does when they ",
+                {
+                  "questionId": "lis4-8"
+                },
+                " school."
+              ]
+            },
+            {
+              "speaker": "Rob",
+              "side": "right",
+              "parts": [
+                "Hmm. I think the prom comes from ",
+                {
+                  "questionId": "lis4-9"
+                },
+                ". I don’t like it."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

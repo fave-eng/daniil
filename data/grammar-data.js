@@ -313,5 +313,330 @@ window.GRAMMAR_DATA = [
         ]
       }
     ]
+  },
+  {
+    "id": "grammar-past-simple",
+    "number": 2,
+    "order": 2,
+    "status": "published",
+    "title": "Past simple",
+    "subtitle": "Completed actions and situations in the past",
+    "label": "Lesson 4",
+    "linkedLessonId": "lesson-4",
+    "passScore": 100,
+    "explanation": "Use the past simple for actions and situations that started and finished in the past. We often use it with finished time expressions such as yesterday, last week, on Friday, two years ago and when I was younger.",
+    "formula": "Positive: subject + past form. Negative: subject + did not (didn’t) + base verb. Question: Did + subject + base verb? With be, use was/were without did.",
+    "glanceCards": [
+      {
+        "icon": "✓",
+        "label": "Positive",
+        "hint": "finished past action",
+        "pattern": "I watched · she went · they bought",
+        "example": "Dad went into town yesterday."
+      },
+      {
+        "icon": "−",
+        "label": "Negative",
+        "hint": "didn’t + base verb",
+        "pattern": "I didn’t watch · she didn’t go",
+        "example": "I didn’t enjoy the film."
+      },
+      {
+        "icon": "?",
+        "label": "Question",
+        "hint": "Did + subject + base verb?",
+        "pattern": "Did you watch? · What did she buy?",
+        "example": "Did your dad buy a new shirt?"
+      },
+      {
+        "icon": "BE",
+        "label": "Past of be",
+        "hint": "was / were",
+        "pattern": "I was · you were · wasn’t / weren’t",
+        "example": "We were at the party on Friday."
+      }
+    ],
+    "miniRules": [
+      {
+        "title": "Regular verbs",
+        "text": "Most regular verbs add -ed. If a verb ends in -e, add -d. If it ends consonant + y, change y to i and add -ed. Short stressed verbs may double the final consonant.",
+        "example": "love → loved · study → studied · stop → stopped"
+      },
+      {
+        "title": "Irregular verbs",
+        "text": "Irregular verbs have special past forms that you need to learn.",
+        "example": "go → went · buy → bought · wear → wore · get → got"
+      },
+      {
+        "title": "Negatives",
+        "text": "Use didn’t + the base form. Do not use a past form after didn’t.",
+        "example": "She didn’t buy the dress. Not: She didn’t bought the dress."
+      },
+      {
+        "title": "Questions",
+        "text": "Use Did + subject + base form. Question words come before did.",
+        "example": "Did you go out? · What did you wear?"
+      },
+      {
+        "title": "Was / were",
+        "text": "The verb be is different: I/he/she/it was; you/we/they were. Use wasn’t/weren’t for negatives and Was/Were at the beginning of questions.",
+        "example": "She was happy. · Were they at school?"
+      }
+    ],
+    "tables": [
+      {
+        "title": "Past simple forms",
+        "headers": [
+          "Form",
+          "Pattern",
+          "Example"
+        ],
+        "rows": [
+          [
+            "Positive",
+            "subject + past form",
+            "She bought new trainers."
+          ],
+          [
+            "Negative",
+            "subject + didn’t + base verb",
+            "She didn’t buy new trainers."
+          ],
+          [
+            "Question",
+            "Did + subject + base verb?",
+            "Did she buy new trainers?"
+          ],
+          [
+            "Short answer",
+            "Yes, ... did. / No, ... didn’t.",
+            "Yes, she did."
+          ]
+        ]
+      },
+      {
+        "title": "Past simple of be",
+        "headers": [
+          "Subject",
+          "Positive",
+          "Negative"
+        ],
+        "rows": [
+          [
+            "I / he / she / it",
+            "was",
+            "wasn’t"
+          ],
+          [
+            "you / we / they",
+            "were",
+            "weren’t"
+          ]
+        ]
+      }
+    ],
+    "exampleGroups": [
+      {
+        "title": "Common finished-time expressions",
+        "items": [
+          "yesterday",
+          "last week / last year",
+          "on Friday",
+          "two years ago",
+          "when I was younger"
+        ]
+      }
+    ],
+    "mistakes": [
+      "After did/didn’t, use the base verb: Did you go? not Did you went?",
+      "Do not add -ed to irregular verbs: went, not goed; bought, not buyed.",
+      "Use was/were for be, not did be: She was happy.",
+      "A finished past time normally needs the past simple: I had fun last weekend."
+    ],
+    "exercises": [
+      {
+        "id": "past-1",
+        "difficulty": "Easy",
+        "title": "Choose the correct past form.",
+        "instructions": "Choose the correct form in each sentence.",
+        "items": [
+          {
+            "id": "1",
+            "input": "single",
+            "prompt": "1 Yesterday Mia ___ a new jacket.",
+            "options": [
+              "buy",
+              "bought"
+            ],
+            "answer": 1
+          },
+          {
+            "id": "2",
+            "input": "single",
+            "prompt": "2 We ___ a film last night.",
+            "options": [
+              "watched",
+              "watch"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "3",
+            "input": "single",
+            "prompt": "3 Dad ___ into town yesterday.",
+            "options": [
+              "went",
+              "goed"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "4",
+            "input": "single",
+            "prompt": "4 They ___ very happy after the party.",
+            "options": [
+              "was",
+              "were"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "id": "past-2",
+        "difficulty": "Medium",
+        "title": "Complete the sentences.",
+        "instructions": "Write the correct past simple form.",
+        "items": [
+          {
+            "id": "1",
+            "input": "text",
+            "prompt": "1 I ________ my homework after dinner. (finish)",
+            "answer": "finished"
+          },
+          {
+            "id": "2",
+            "input": "text",
+            "prompt": "2 Leo ________ his phone on the bus. (lose)",
+            "answer": "lost"
+          },
+          {
+            "id": "3",
+            "input": "text",
+            "prompt": "3 We ________ the dress. (not like)",
+            "answer": "didn't like",
+            "acceptedAnswers": [
+              "didn't like",
+              "didn’t like",
+              "did not like"
+            ]
+          },
+          {
+            "id": "4",
+            "input": "text",
+            "prompt": "4 My friends ________ home late. (come)",
+            "answer": "came"
+          }
+        ]
+      },
+      {
+        "id": "past-3",
+        "difficulty": "Higher challenge",
+        "title": "Change the sentence.",
+        "instructions": "Write the requested negative or question.",
+        "items": [
+          {
+            "id": "1",
+            "input": "text",
+            "prompt": "1 Make negative: She bought new shoes.",
+            "answer": "She didn't buy new shoes",
+            "acceptedAnswers": [
+              "She didn't buy new shoes.",
+              "She didn’t buy new shoes",
+              "She didn’t buy new shoes.",
+              "She did not buy new shoes",
+              "She did not buy new shoes."
+            ]
+          },
+          {
+            "id": "2",
+            "input": "text",
+            "prompt": "2 Make a question: You went shopping.",
+            "answer": "Did you go shopping?",
+            "acceptedAnswers": [
+              "Did you go shopping"
+            ]
+          },
+          {
+            "id": "3",
+            "input": "text",
+            "prompt": "3 Make negative: They were at school.",
+            "answer": "They weren't at school",
+            "acceptedAnswers": [
+              "They weren't at school.",
+              "They weren’t at school",
+              "They weren’t at school.",
+              "They were not at school",
+              "They were not at school."
+            ]
+          },
+          {
+            "id": "4",
+            "input": "text",
+            "prompt": "4 Make a question: He wore a tie.",
+            "answer": "Did he wear a tie?",
+            "acceptedAnswers": [
+              "Did he wear a tie"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "past-4",
+        "difficulty": "Most challenging",
+        "title": "Build the full sentence.",
+        "instructions": "Use the prompts to write a complete past simple sentence or question.",
+        "items": [
+          {
+            "id": "1",
+            "input": "text",
+            "prompt": "1 what / you / do / yesterday?",
+            "answer": "What did you do yesterday?",
+            "acceptedAnswers": [
+              "What did you do yesterday"
+            ]
+          },
+          {
+            "id": "2",
+            "input": "text",
+            "prompt": "2 my brother / not wear / tie / party",
+            "answer": "My brother didn't wear a tie to the party",
+            "acceptedAnswers": [
+              "My brother didn't wear a tie to the party.",
+              "My brother didn’t wear a tie to the party",
+              "My brother didn’t wear a tie to the party."
+            ]
+          },
+          {
+            "id": "3",
+            "input": "text",
+            "prompt": "3 we / be / at home / last night",
+            "answer": "We were at home last night",
+            "acceptedAnswers": [
+              "We were at home last night."
+            ]
+          },
+          {
+            "id": "4",
+            "input": "text",
+            "prompt": "4 she / buy / new dress / Friday",
+            "answer": "She bought a new dress on Friday",
+            "acceptedAnswers": [
+              "She bought a new dress on Friday."
+            ]
+          }
+        ]
+      }
+    ]
   }
 ];
