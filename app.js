@@ -984,9 +984,10 @@
     const inlineMeta = hasInlineParts ? extractInlinePromptMeta(question.inlineParts) : { number: "", parts: [] };
     const promptMeta = hasInlineParts ? { number: inlineMeta.number, text: "" } : splitLeadingNumber(prompt);
     const visibleNumber = promptMeta.number || "";
+    const promptText = hasInlineParts ? "" : (promptMeta.number ? promptMeta.text : prompt);
     const promptHtml = hasInlineParts
       ? renderQuestionInlinePrompt({ ...question, inlineParts: inlineMeta.parts }, allAnswers, checked, locked, allAnswers)
-      : Utils.escape(promptMeta.text || prompt);
+      : (promptText ? Utils.escape(promptText) : "");
     const contextHtml = question.context ? `<p class="question-context">${Utils.escape(question.context)}</p>` : "";
     const frameHtml = question.frame ? `<div class="question-frame">${Utils.escape(question.frame)}</div>` : "";
     let control = "";
@@ -1054,8 +1055,9 @@
     const resultHtml = result ? `<div class="result-label ${result.correct ? "correct" : "incorrect"}"><span aria-hidden="true">${result.correct ? "✓" : "✕"}</span><span><strong>${result.correct ? "Correct" : "Check this answer"}.</strong>${result.explanation ? ` ${Utils.escape(result.explanation)}` : ""}</span></div>` : "";
     const answerHtml = control ? `<div class="question-answer">${control}</div>` : "";
     const inlineClass = hasInlineParts ? "has-inline-answer" : "";
-    const headingHtml = (visibleNumber || promptHtml || contextHtml || frameHtml)
-      ? `<div class="question-heading ${visibleNumber ? "has-number" : ""}">${visibleNumber ? `<span class="question-number">${Utils.escape(visibleNumber)}</span>` : ""}<div class="question-copy">${promptHtml ? `<div class="question-text">${promptHtml}</div>` : ""}${contextHtml}${frameHtml}</div></div>`
+    const copyHtml = `${promptHtml ? `<div class="question-text">${promptHtml}</div>` : ""}${contextHtml}${frameHtml}`;
+    const headingHtml = (visibleNumber || copyHtml)
+      ? `<div class="question-heading ${visibleNumber ? "has-number" : ""}">${visibleNumber ? `<span class="question-number">${Utils.escape(visibleNumber)}</span>` : ""}${copyHtml ? `<div class="question-copy">${copyHtml}</div>` : ""}</div>`
       : "";
     return `<article class="card question-card ${stateClass} ${inlineClass}" data-question-card="${id}">${headingHtml}${answerHtml}${resultHtml}</article>`;
   }
@@ -1115,9 +1117,11 @@
   }
 
   function renderAudioPlaylistBlock(block) {
-    const tracks = Utils.asArray(block.tracks).map((track, index) => `<article class="lesson-audio-track"><div class="lesson-audio-track-heading"><span class="lesson-audio-number">${index + 1}</span><h3>${Utils.escape(track.title || `Audio ${index + 1}`)}</h3></div><audio class="media-player" controls preload="metadata" src="${Utils.escape(track.src)}">Your browser cannot play this audio.</audio></article>`).join("");
+    const trackList = Utils.asArray(block.tracks);
+    const isSingleTrack = trackList.length === 1;
+    const tracks = trackList.map((track, index) => `<article class="lesson-audio-track ${isSingleTrack ? "single-track" : ""}"><div class="lesson-audio-track-heading">${isSingleTrack ? "" : `<span class="lesson-audio-number">${index + 1}</span>`}<div class="lesson-audio-track-copy"><h3>${Utils.escape(track.title || `Audio ${index + 1}`)}</h3>${track.caption ? `<p>${Utils.escape(track.caption)}</p>` : ""}</div></div><audio class="media-player" controls preload="metadata" src="${Utils.escape(track.src)}">Your browser cannot play this audio.</audio></article>`).join("");
     const audioLabel = String(block.audioLabel || block.label || "2.1");
-    return `<section class="card exercise-block lesson-audio-playlist" aria-label="Listening audio"><div class="lesson-audio-playlist-heading"><span class="lesson-content-kicker">${Utils.escape(block.kicker || "Audio")}</span><h2>${Utils.escape(audioLabel)}</h2></div><div class="lesson-audio-track-list">${tracks}</div></section>`;
+    return `<section class="card exercise-block lesson-audio-playlist ${isSingleTrack ? "single-track" : ""}" aria-label="Listening audio"><div class="lesson-audio-playlist-heading"><span class="lesson-content-kicker">${Utils.escape(block.kicker || "Audio")}</span><h2>${Utils.escape(audioLabel)}</h2></div><div class="lesson-audio-track-list">${tracks}</div></section>`;
   }
 
   function renderSectionHeading(block) {
