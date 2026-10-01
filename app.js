@@ -948,8 +948,31 @@
     return typeof option === "object" ? String(option.label ?? option.value ?? "") : String(option);
   }
 
+
   function originalQuestionPrompt(question) {
     return String(question.question || question.prompt || question.title || "").trim();
+  }
+
+  function splitLeadingNumber(text) {
+    const source = String(text || "").trim();
+    const match = source.match(/^(\d+)(?:[.)])?\s*(.*)$/);
+    if (!match) return { number: "", text: source };
+    return { number: match[1], text: String(match[2] || "").trim() };
+  }
+
+  function extractInlinePromptMeta(parts) {
+    const safeParts = Array.isArray(parts) ? [...parts] : [];
+    if (!safeParts.length || typeof safeParts[0] !== "string") return { number: "", parts: safeParts };
+    const match = String(safeParts[0]).match(/^(\s*)(\d+)(?:[.)])?\s+(.*)$/s);
+    if (!match) return { number: "", parts: safeParts };
+    safeParts[0] = `${match[1]}${match[3]}`;
+    return { number: match[2], parts: safeParts };
+  }
+
+  function renderExerciseGroupHeading(title, instruction = "") {
+    const heading = splitLeadingNumber(title);
+    if (!heading.text && !heading.number && !instruction) return "";
+    return `<header class="lesson-exercise-group-heading">${heading.number ? `<span class="lesson-exercise-number" aria-hidden="true">${Utils.escape(heading.number)}</span>` : ""}<div class="lesson-exercise-group-copy">${heading.text ? `<h2>${Utils.escape(heading.text)}</h2>` : ""}${instruction ? `<p>${Utils.escape(instruction)}</p>` : ""}</div></header>`;
   }
 
   function renderQuestion(question, number, answer, checked, locked, allAnswers = {}) {
@@ -958,7 +981,12 @@
     const stateClass = result ? (result.correct ? "is-correct" : "is-incorrect") : "";
     const prompt = originalQuestionPrompt(question);
     const hasInlineParts = Array.isArray(question.inlineParts) && question.inlineParts.length > 0;
-    const promptHtml = hasInlineParts ? renderQuestionInlinePrompt(question, allAnswers, checked, locked, allAnswers) : Utils.escape(prompt);
+    const inlineMeta = hasInlineParts ? extractInlinePromptMeta(question.inlineParts) : { number: "", parts: [] };
+    const promptMeta = hasInlineParts ? { number: inlineMeta.number, text: "" } : splitLeadingNumber(prompt);
+    const visibleNumber = promptMeta.number || "";
+    const promptHtml = hasInlineParts
+      ? renderQuestionInlinePrompt({ ...question, inlineParts: inlineMeta.parts }, allAnswers, checked, locked, allAnswers)
+      : Utils.escape(promptMeta.text || prompt);
     const contextHtml = question.context ? `<p class="question-context">${Utils.escape(question.context)}</p>` : "";
     const frameHtml = question.frame ? `<div class="question-frame">${Utils.escape(question.frame)}</div>` : "";
     let control = "";
@@ -1026,7 +1054,10 @@
     const resultHtml = result ? `<div class="result-label ${result.correct ? "correct" : "incorrect"}"><span aria-hidden="true">${result.correct ? "✓" : "✕"}</span><span><strong>${result.correct ? "Correct" : "Check this answer"}.</strong>${result.explanation ? ` ${Utils.escape(result.explanation)}` : ""}</span></div>` : "";
     const answerHtml = control ? `<div class="question-answer">${control}</div>` : "";
     const inlineClass = hasInlineParts ? "has-inline-answer" : "";
-    return `<article class="card question-card ${stateClass} ${inlineClass}" data-question-card="${id}"><div class="question-heading"><div class="question-text">${promptHtml}</div>${contextHtml}${frameHtml}</div>${answerHtml}${resultHtml}</article>`;
+    const headingHtml = (visibleNumber || promptHtml || contextHtml || frameHtml)
+      ? `<div class="question-heading ${visibleNumber ? "has-number" : ""}">${visibleNumber ? `<span class="question-number">${Utils.escape(visibleNumber)}</span>` : ""}<div class="question-copy">${promptHtml ? `<div class="question-text">${promptHtml}</div>` : ""}${contextHtml}${frameHtml}</div></div>`
+      : "";
+    return `<article class="card question-card ${stateClass} ${inlineClass}" data-question-card="${id}">${headingHtml}${answerHtml}${resultHtml}</article>`;
   }
 
   function renderContentParagraph(item) {
@@ -1045,7 +1076,11 @@
 
   function renderContentHeading(block) {
     if (!block.title) return "";
-    return `<div class="lesson-content-heading"><span class="lesson-content-kicker">${Utils.escape(block.kicker || "Study material")}</span><h2>${Utils.escape(block.title)}</h2></div>`;
+    const heading = splitLeadingNumber(block.title);
+    const titleHtml = heading.number
+      ? `<div class="lesson-numbered-heading"><span class="lesson-exercise-number" aria-hidden="true">${Utils.escape(heading.number)}</span><h2>${Utils.escape(heading.text || block.title)}</h2></div>`
+      : `<h2>${Utils.escape(block.title)}</h2>`;
+    return `<div class="lesson-content-heading"><span class="lesson-content-kicker">${Utils.escape(block.kicker || "Study material")}</span>${titleHtml}</div>`;
   }
 
   function renderEmphasizedText(text, emphasis) {
@@ -1382,11 +1417,11 @@
             return renderStatementListBlock(block, progress.answers, checked, locked);
           }
           const answerWordBank = renderAnswerWordBank(block, progress.answers);
-          return `<section class="exercise-block">${block.title ? `<h2>${Utils.escape(block.title)}</h2>` : ""}${block.instruction ? `<p class="instruction">${Utils.escape(block.instruction)}</p>` : ""}${answerWordBank}${block.questions.map((question) => { questionNumber += 1; return renderQuestion({ ...question, parentTitle: block.title }, questionNumber, progress.answers[question.id], checked, locked, progress.answers); }).join("")}</section>`;
+          return `<section class="exercise-block lesson-exercise-group">${renderExerciseGroupHeading(block.title, block.instruction)}${answerWordBank}${block.questions.map((question) => { questionNumber += 1; return renderQuestion({ ...question, parentTitle: block.title }, questionNumber, progress.answers[question.id], checked, locked, progress.answers); }).join("")}</section>`;
         }
         if (["single-choice", "multiple-choice", "true-false", "text-input", "matching", "ordering", "open-answer", "pronunciation"].includes(block.type)) {
           questionNumber += 1;
-          return `<section class="exercise-block">${renderQuestion(block, questionNumber, progress.answers[block.id], checked, locked, progress.answers)}</section>`;
+          return `<section class="exercise-block lesson-exercise-group">${renderExerciseGroupHeading(block.title, block.instruction)}${renderQuestion(block, questionNumber, progress.answers[block.id], checked, locked, progress.answers)}</section>`;
         }
         return "";
       }).join("");
