@@ -863,6 +863,17 @@
       "paragraphs": []
     },
     {
+      "type": "audio-playlist",
+      "kicker": "Audio",
+      "audioLabel": "01",
+      "tracks": [
+        {
+          "title": "Prepare Level 4 · Workbook 01",
+          "src": "audio/PREPARE2_L4_WB_001.mp3"
+        }
+      ]
+    },
+    {
       "type": "question-group",
       "title": "3. Listen again and choose the correct answers.",
       "questions": [

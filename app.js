@@ -1081,7 +1081,8 @@
 
   function renderAudioPlaylistBlock(block) {
     const tracks = Utils.asArray(block.tracks).map((track, index) => `<article class="lesson-audio-track"><div class="lesson-audio-track-heading"><span class="lesson-audio-number">${index + 1}</span><h3>${Utils.escape(track.title || `Audio ${index + 1}`)}</h3></div><audio class="media-player" controls preload="metadata" src="${Utils.escape(track.src)}">Your browser cannot play this audio.</audio></article>`).join("");
-    return `<section class="card exercise-block lesson-audio-playlist" aria-label="Listening audio"><div class="lesson-audio-playlist-heading"><span class="lesson-content-kicker">Audio</span><h2>2.1</h2></div><div class="lesson-audio-track-list">${tracks}</div></section>`;
+    const audioLabel = String(block.audioLabel || block.label || "2.1");
+    return `<section class="card exercise-block lesson-audio-playlist" aria-label="Listening audio"><div class="lesson-audio-playlist-heading"><span class="lesson-content-kicker">${Utils.escape(block.kicker || "Audio")}</span><h2>${Utils.escape(audioLabel)}</h2></div><div class="lesson-audio-track-list">${tracks}</div></section>`;
   }
 
   function renderSectionHeading(block) {
