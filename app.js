@@ -842,7 +842,7 @@
     sourceWords.forEach((word, index) => {
       const key = Utils.normaliseText(word);
       const expected = normalisedCategorySet(categoryMap[key] || []);
-      const selected = normalisedCategorySet(actual[String(index)] || []);
+      const selected = normalisedCategorySet(actual[key] || actual[String(index)] || []);
       const correct = expected.size > 0 && expected.size === selected.size && [...expected].every((item) => selected.has(item));
       if (correct) earned += 1;
       rowStats[index] = { correct, expected: expected.size, selected: selected.size };
@@ -855,7 +855,10 @@
     const sourceWords = Utils.asArray(answers?.[question.sourceQuestionId]);
     const actual = answers?.[question.id];
     if (!sourceWords.length || !actual || typeof actual !== "object") return false;
-    return sourceWords.every((word, index) => String(word || "").trim() && Utils.asArray(actual[String(index)]).length > 0);
+    return sourceWords.every((word, index) => {
+      const key = Utils.normaliseText(word);
+      return String(word || "").trim() && Utils.asArray(actual[key] || actual[String(index)]).length > 0;
+    });
   }
 
   function answerWordsFromSource(sourceId, answers) {
@@ -1333,31 +1336,112 @@
     return `<section class="card exercise-block prefix-columns-card ${stateClass}" data-question-card="${escapedId}">${renderContentHeading(block)}<div class="lesson-content-body">${bank}<div class="prefix-columns-grid">${columns}</div>${resultHtml}</div></section>`;
   }
 
+  function wordSquareSelectionKey(id) {
+    return `${id}__selections`;
+  }
+
+  function wordSquarePath(grid, start, end) {
+    if (!start || !end) return [];
+    const rowDelta = Number(end.row) - Number(start.row);
+    const colDelta = Number(end.col) - Number(start.col);
+    let rowStep = 0;
+    let colStep = 0;
+    let length = 0;
+    if (rowDelta === 0 && colDelta > 0) {
+      colStep = 1;
+      length = colDelta + 1;
+    } else if (colDelta === 0 && rowDelta > 0) {
+      rowStep = 1;
+      length = rowDelta + 1;
+    } else if (rowDelta > 0 && rowDelta === colDelta) {
+      rowStep = 1;
+      colStep = 1;
+      length = rowDelta + 1;
+    } else {
+      return [];
+    }
+    const cells = [];
+    for (let index = 0; index < length; index += 1) {
+      const row = Number(start.row) + rowStep * index;
+      const col = Number(start.col) + colStep * index;
+      if (!grid[row] || grid[row][col] == null) return [];
+      cells.push({ row, col });
+    }
+    return cells;
+  }
+
+  function wordSquareWordFromCells(grid, cells) {
+    return cells.map((cell) => String(grid?.[cell.row]?.[cell.col] || "")).join("");
+  }
+
+  function findWordSquarePath(grid, word) {
+    const target = Utils.normaliseText(word);
+    if (!target) return [];
+    const directions = [[0, 1], [1, 0], [1, 1]];
+    for (let row = 0; row < grid.length; row += 1) {
+      for (let col = 0; col < Utils.asArray(grid[row]).length; col += 1) {
+        for (const [rowStep, colStep] of directions) {
+          const cells = [];
+          let candidate = "";
+          for (let index = 0; index < target.length; index += 1) {
+            const nextRow = row + rowStep * index;
+            const nextCol = col + colStep * index;
+            if (!grid[nextRow] || grid[nextRow][nextCol] == null) break;
+            cells.push({ row: nextRow, col: nextCol });
+            candidate += String(grid[nextRow][nextCol]);
+          }
+          if (Utils.normaliseText(candidate) === target) return cells;
+        }
+      }
+    }
+    return [];
+  }
+
+  function wordSquareSelections(block, answers) {
+    const id = String(block.id);
+    const grid = Utils.asArray(block.grid);
+    const saved = Utils.asArray(answers?.[wordSquareSelectionKey(id)]).filter((selection) => selection && Array.isArray(selection.cells));
+    if (saved.length) return saved;
+    return Utils.asArray(answers?.[id]).map((word) => ({ word: String(word || ""), cells: findWordSquarePath(grid, word) })).filter((selection) => selection.word && selection.cells.length);
+  }
+
   function renderWordSquareBlock(block, answers, checked, locked) {
     const id = String(block.id);
-    const current = Utils.asArray(answers[id]);
+    const current = Utils.asArray(answers[id]).map(String).filter(Boolean);
+    const selections = wordSquareSelections(block, answers);
+    const selectedCells = new Set(selections.flatMap((selection) => Utils.asArray(selection.cells).map((cell) => `${cell.row}:${cell.col}`)));
     const result = checked?.[id];
-    const grid = Utils.asArray(block.grid).map((row) => `<div class="word-square-row">${Utils.asArray(row).map((letter) => `<span>${Utils.escape(letter)}</span>`).join("")}</div>`).join("");
+    const grid = Utils.asArray(block.grid).map((row, rowIndex) => `<div class="word-square-row">${Utils.asArray(row).map((letter, colIndex) => {
+      const key = `${rowIndex}:${colIndex}`;
+      return `<button type="button" class="word-square-cell ${selectedCells.has(key) ? "is-selected" : ""}" data-word-square-cell data-word-square-id="${Utils.escape(id)}" data-row="${rowIndex}" data-col="${colIndex}" ${locked ? "disabled" : ""} aria-label="${Utils.escape(letter)}">${Utils.escape(letter)}</button>`;
+    }).join("")}</div>`).join("");
     const count = Number(block.expectedCount || Utils.asArray(block.correctAnswer).length || 12);
-    const inputs = Array.from({ length: count }, (_, index) => `<label class="word-square-answer"><span class="sr-only">Found sport ${index + 1}</span><input class="text-answer" type="text" data-question-id="${Utils.escape(id)}" data-word-index="${index}" value="${Utils.escape(current[index] || "")}" ${locked ? "readonly" : ""} autocomplete="off"></label>`).join("");
+    const foundWords = current.length
+      ? `<div class="word-square-found" aria-label="Selected sports">${current.map((word, index) => `<span class="word-square-found-chip">${Utils.escape(word)}${locked ? "" : `<button type="button" data-word-square-remove data-word-square-id="${Utils.escape(id)}" data-word-index="${index}" aria-label="Remove ${Utils.escape(word)}">×</button>`}</span>`).join("")}</div>`
+      : "";
+    const counter = `<div class="word-square-counter"><strong>${current.length}</strong><span>/ ${count}</span></div>`;
     const resultHtml = result ? `<div class="result-label ${result.correct ? "correct" : "incorrect"}"><span aria-hidden="true">${result.correct ? "✓" : "✕"}</span><span><strong>${result.correct ? "Correct" : "Check your words"}.</strong> ${Number(result.earned || 0)} of ${Number(result.points || count)} sports found.</span></div>` : "";
-    return `<section class="card exercise-block lesson-content-card word-square-card" data-question-card="${Utils.escape(id)}">${renderContentHeading(block)}<div class="lesson-content-body"><div class="word-square-wrap" aria-label="Sports word square">${grid}</div><div class="word-square-answers">${inputs}</div>${resultHtml}</div></section>`;
+    return `<section class="card exercise-block lesson-content-card word-square-card" data-question-card="${Utils.escape(id)}">${renderContentHeading(block)}<div class="lesson-content-body"><div class="word-square-toolbar">${counter}${foundWords}</div><div class="word-square-wrap" data-word-square-wrap="${Utils.escape(id)}" aria-label="Sports word square">${grid}</div>${resultHtml}</div></section>`;
   }
 
   function renderSportsTableBlock(block, answers, checked, locked) {
     const id = String(block.id);
-    const sourceWords = Utils.asArray(answers?.[block.sourceQuestionId]);
+    const sourceWords = Utils.asArray(answers?.[block.sourceQuestionId]).map(String).filter(Boolean);
     const current = answers[id] && typeof answers[id] === "object" ? answers[id] : {};
     const result = checked?.[id];
     const categories = Utils.asArray(block.categories);
-    const head = categories.map((category) => `<th>${Utils.escape(category.label)}</th>`).join("");
-    const rows = sourceWords.map((word, index) => {
-      const selected = new Set(Utils.asArray(current[String(index)]).map(String));
-      const rowState = result?.rowStats?.[index] ? (result.rowStats[index].correct ? "is-correct" : "is-incorrect") : "";
-      return `<tr class="${rowState}"><th scope="row">${Utils.escape(word || `Word ${index + 1}`)}</th>${categories.map((category) => `<td><label class="sports-category-check"><input type="checkbox" data-question-id="${Utils.escape(id)}" data-sport-index="${index}" value="${Utils.escape(category.value)}" ${selected.has(String(category.value)) ? "checked" : ""} ${locked ? "disabled" : ""}><span class="sr-only">${Utils.escape(category.label)} for ${Utils.escape(word || `word ${index + 1}`)}</span></label></td>`).join("")}</tr>`;
+    const columns = categories.map((category) => {
+      const items = sourceWords.map((word, index) => {
+        const wordKey = Utils.normaliseText(word);
+        const selected = new Set(Utils.asArray(current[wordKey] || current[String(index)]).map(String));
+        const rowStat = result?.rowStats?.[index];
+        const stateClass = rowStat ? (rowStat.correct ? "is-correct" : "is-incorrect") : "";
+        return `<label class="sports-category-word ${stateClass}"><input type="checkbox" data-question-id="${Utils.escape(id)}" data-sport-index="${index}" data-sport-key="${Utils.escape(wordKey)}" value="${Utils.escape(category.value)}" ${selected.has(String(category.value)) ? "checked" : ""} ${locked ? "disabled" : ""}><span>${Utils.escape(word)}</span></label>`;
+      }).join("");
+      return `<section class="sports-category-column"><h3>${Utils.escape(category.label)}</h3><div class="sports-category-words">${items}</div></section>`;
     }).join("");
     const resultHtml = result ? `<div class="result-label ${result.correct ? "correct" : "incorrect"}"><span aria-hidden="true">${result.correct ? "✓" : "✕"}</span><span><strong>${result.correct ? "Correct" : "Check the table"}.</strong> ${Number(result.earned || 0)} of ${Number(result.points || sourceWords.length)} sports classified correctly.</span></div>` : "";
-    return `<section class="card exercise-block lesson-content-card sports-table-card" data-question-card="${Utils.escape(id)}">${renderContentHeading(block)}<div class="lesson-content-body"><div class="sports-table-scroll"><table class="sports-table"><thead><tr><th>Sport</th>${head}</tr></thead><tbody>${rows}</tbody></table></div>${resultHtml}</div></section>`;
+    return `<section class="card exercise-block lesson-content-card sports-table-card" data-question-card="${Utils.escape(id)}">${renderContentHeading(block)}<div class="lesson-content-body"><div class="sports-category-board">${columns}</div>${resultHtml}</div></section>`;
   }
 
   function renderArticlePart(part, questionMap, answers, checked, locked) {
@@ -1572,15 +1656,11 @@
       const question = questions.find((item) => item.id === id);
       if (!question) return;
       if (question.type === "single-choice" || question.type === "true-false") progress.answers[id] = element.value;
-      else if (question.type === "word-square") {
-        const count = Number(question.expectedCount || Utils.asArray(question.correctAnswer).length || 12);
-        const values = Array.from({ length: count }, (_, index) => document.querySelector(`[data-question-id="${CSS.escape(id)}"][data-word-index="${index}"]`)?.value || "");
-        progress.answers[id] = values;
-      }
       else if (question.type === "sports-table") {
         progress.answers[id] = progress.answers[id] && typeof progress.answers[id] === "object" ? progress.answers[id] : {};
         const sportIndex = String(element.dataset.sportIndex || "0");
-        progress.answers[id][sportIndex] = [...document.querySelectorAll(`input[data-question-id="${CSS.escape(id)}"][data-sport-index="${CSS.escape(sportIndex)}"]:checked`)].map((item) => item.value);
+        const sportKey = String(element.dataset.sportKey || sportIndex);
+        progress.answers[id][sportKey] = [...document.querySelectorAll(`input[data-question-id="${CSS.escape(id)}"][data-sport-key="${CSS.escape(sportKey)}"]:checked`)].map((item) => item.value);
       }
       else if (question.type === "multiple-choice") progress.answers[id] = [...document.querySelectorAll(`input[data-question-id="${CSS.escape(id)}"]:checked`)].map((item) => item.value);
       else if (question.type === "prefix-columns") {
@@ -1612,12 +1692,116 @@
     }, 500);
 
     const bindLessonEvents = () => {
+      document.querySelectorAll("[data-word-square-wrap]").forEach((wrapper) => {
+        const id = String(wrapper.dataset.wordSquareWrap || "");
+        const question = questions.find((item) => item.id === id && item.type === "word-square");
+        if (!question || locked) return;
+        const grid = Utils.asArray(question.grid);
+        let pointerId = null;
+        let start = null;
+        let end = null;
+
+        const cellFromPoint = (clientX, clientY) => document.elementFromPoint(clientX, clientY)?.closest?.(`[data-word-square-cell][data-word-square-id="${CSS.escape(id)}"]`);
+        const clearPreview = () => wrapper.querySelectorAll(".word-square-cell.is-preview").forEach((cell) => cell.classList.remove("is-preview"));
+        const preview = () => {
+          clearPreview();
+          const cells = wordSquarePath(grid, start, end);
+          cells.forEach((cell) => wrapper.querySelector(`[data-word-square-cell][data-row="${cell.row}"][data-col="${cell.col}"]`)?.classList.add("is-preview"));
+        };
+        const saveSelection = () => {
+          const cells = wordSquarePath(grid, start, end);
+          clearPreview();
+          if (cells.length < 2) return;
+          const word = wordSquareWordFromCells(grid, cells);
+          const words = Utils.asArray(progress.answers[id]).map(String).filter(Boolean);
+          const selectionsKey = wordSquareSelectionKey(id);
+          const selections = wordSquareSelections(question, progress.answers);
+          const existingIndex = words.findIndex((item) => Utils.normaliseText(item) === Utils.normaliseText(word));
+          if (existingIndex >= 0) {
+            words.splice(existingIndex, 1);
+            selections.splice(existingIndex, 1);
+          } else if (words.length < Number(question.expectedCount || Utils.asArray(question.correctAnswer).length || 12)) {
+            words.push(word);
+            selections.push({ word, cells });
+          }
+          progress.answers[id] = words;
+          progress.answers[selectionsKey] = selections;
+          if (progress.answers.__meta?.checkDetails) {
+            const recalculated = calculateLessonResult(questions, progress.answers);
+            progress.score_correct = recalculated.correct;
+            progress.score_total = recalculated.total;
+            progress.score_percent = recalculated.percent;
+            progress.answers.__meta.checkDetails = recalculated.details;
+          }
+          progress.status = "draft";
+          saveDraft();
+          render();
+        };
+
+        wrapper.addEventListener("pointerdown", (event) => {
+          const cell = event.target.closest?.("[data-word-square-cell]");
+          if (!cell) return;
+          event.preventDefault();
+          pointerId = event.pointerId;
+          start = { row: Number(cell.dataset.row), col: Number(cell.dataset.col) };
+          end = start;
+          wrapper.setPointerCapture?.(pointerId);
+          preview();
+        });
+        wrapper.addEventListener("pointermove", (event) => {
+          if (pointerId == null || event.pointerId !== pointerId) return;
+          event.preventDefault();
+          const cell = cellFromPoint(event.clientX, event.clientY);
+          if (!cell) return;
+          end = { row: Number(cell.dataset.row), col: Number(cell.dataset.col) };
+          preview();
+        });
+        wrapper.addEventListener("pointerup", (event) => {
+          if (pointerId == null || event.pointerId !== pointerId) return;
+          event.preventDefault();
+          const cell = cellFromPoint(event.clientX, event.clientY);
+          if (cell) end = { row: Number(cell.dataset.row), col: Number(cell.dataset.col) };
+          wrapper.releasePointerCapture?.(pointerId);
+          pointerId = null;
+          saveSelection();
+        });
+        wrapper.addEventListener("pointercancel", () => {
+          pointerId = null;
+          clearPreview();
+        });
+      });
+
+      document.querySelectorAll("[data-word-square-remove]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const id = String(button.dataset.wordSquareId || "");
+          const index = Number(button.dataset.wordIndex);
+          const question = questions.find((item) => item.id === id && item.type === "word-square");
+          if (!question || !Number.isInteger(index)) return;
+          const words = Utils.asArray(progress.answers[id]).map(String).filter(Boolean);
+          const selectionsKey = wordSquareSelectionKey(id);
+          const selections = wordSquareSelections(question, progress.answers);
+          words.splice(index, 1);
+          selections.splice(index, 1);
+          progress.answers[id] = words;
+          progress.answers[selectionsKey] = selections;
+          if (progress.answers.__meta?.checkDetails) {
+            const recalculated = calculateLessonResult(questions, progress.answers);
+            progress.score_correct = recalculated.correct;
+            progress.score_total = recalculated.total;
+            progress.score_percent = recalculated.percent;
+            progress.answers.__meta.checkDetails = recalculated.details;
+          }
+          progress.status = "draft";
+          saveDraft();
+          render();
+        });
+      });
+
       document.querySelectorAll("[data-question-id]").forEach((element) => {
         const question = questions.find((item) => item.id === element.dataset.questionId);
         const liveInput = ((element.tagName === "INPUT" && element.type === "text") || element.tagName === "TEXTAREA") && question?.type !== "word-square";
         element.addEventListener(liveInput ? "input" : "change", () => {
           extractAnswer(element);
-          if (question?.type === "word-square") render();
         });
       });
       document.querySelectorAll("[data-tick-question-id]").forEach((element) => {
