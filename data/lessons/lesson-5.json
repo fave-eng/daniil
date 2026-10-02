@@ -1,0 +1,1208 @@
+{
+  "id": "lesson-5",
+  "number": 5,
+  "title": "Champions",
+  "subtitle": "Prepare Level 4 · Unit 4 · Sports, reading and past continuous",
+  "status": "published",
+  "vocabularyTopicId": "vocab-lesson-5",
+  "grammarIds": [
+    "grammar-past-continuous"
+  ],
+  "blocks": [
+    {
+      "type": "section-heading",
+      "kicker": "Vocabulary",
+      "title": "Sports"
+    },
+    {
+      "type": "word-square",
+      "id": "sports1-square",
+      "kicker": "Vocabulary",
+      "title": "1. Find 12 sports words in the word square (→ ↓↘).",
+      "expectedCount": 12,
+      "grid": [
+        [
+          "x",
+          "v",
+          "o",
+          "l",
+          "l",
+          "e",
+          "y",
+          "b",
+          "a",
+          "l",
+          "l"
+        ],
+        [
+          "w",
+          "m",
+          "a",
+          "t",
+          "h",
+          "l",
+          "e",
+          "t",
+          "i",
+          "c",
+          "s"
+        ],
+        [
+          "d",
+          "h",
+          "s",
+          "u",
+          "r",
+          "f",
+          "i",
+          "n",
+          "g",
+          "s",
+          "g"
+        ],
+        [
+          "w",
+          "i",
+          "n",
+          "d",
+          "s",
+          "u",
+          "r",
+          "f",
+          "i",
+          "n",
+          "g"
+        ],
+        [
+          "u",
+          "s",
+          "w",
+          "i",
+          "m",
+          "m",
+          "i",
+          "n",
+          "g",
+          "r",
+          "a"
+        ],
+        [
+          "r",
+          "c",
+          "l",
+          "i",
+          "m",
+          "b",
+          "i",
+          "n",
+          "g",
+          "u",
+          "b"
+        ],
+        [
+          "j",
+          "o",
+          "g",
+          "g",
+          "i",
+          "n",
+          "g",
+          "m",
+          "k",
+          "g",
+          "o"
+        ],
+        [
+          "i",
+          "t",
+          "e",
+          "n",
+          "n",
+          "i",
+          "s",
+          "i",
+          "q",
+          "b",
+          "x"
+        ],
+        [
+          "f",
+          "t",
+          "e",
+          "l",
+          "h",
+          "n",
+          "w",
+          "u",
+          "a",
+          "y",
+          "i"
+        ],
+        [
+          "g",
+          "y",
+          "m",
+          "n",
+          "a",
+          "s",
+          "t",
+          "i",
+          "c",
+          "s",
+          "n"
+        ],
+        [
+          "w",
+          "p",
+          "t",
+          "e",
+          "c",
+          "y",
+          "c",
+          "l",
+          "i",
+          "n",
+          "g"
+        ]
+      ],
+      "correctAnswer": [
+        "volleyball",
+        "athletics",
+        "surfing",
+        "windsurfing",
+        "swimming",
+        "climbing",
+        "jogging",
+        "tennis",
+        "gymnastics",
+        "cycling",
+        "rugby",
+        "boxing"
+      ]
+    },
+    {
+      "type": "sports-table",
+      "id": "sports2-table",
+      "kicker": "Vocabulary",
+      "title": "2. Complete the table with the sports from Exercise 1. Some may go into more than one category.",
+      "sourceQuestionId": "sports1-square",
+      "points": 12,
+      "dependsOn": {
+        "questionId": "sports1-square",
+        "minItems": 12,
+        "message": "Complete Exercise 1 first."
+      },
+      "categories": [
+        {
+          "value": "water",
+          "label": "In/on water"
+        },
+        {
+          "value": "indoors",
+          "label": "Usually indoors"
+        },
+        {
+          "value": "outdoors",
+          "label": "Usually outdoors"
+        }
+      ],
+      "categoryMap": {
+        "volleyball": [
+          "indoors"
+        ],
+        "athletics": [
+          "outdoors"
+        ],
+        "surfing": [
+          "water",
+          "outdoors"
+        ],
+        "windsurfing": [
+          "water",
+          "outdoors"
+        ],
+        "swimming": [
+          "water",
+          "indoors"
+        ],
+        "climbing": [
+          "outdoors"
+        ],
+        "jogging": [
+          "outdoors"
+        ],
+        "tennis": [
+          "outdoors"
+        ],
+        "gymnastics": [
+          "indoors"
+        ],
+        "cycling": [
+          "outdoors"
+        ],
+        "rugby": [
+          "outdoors"
+        ],
+        "boxing": [
+          "indoors"
+        ]
+      }
+    },
+    {
+      "type": "section-heading",
+      "kicker": "Reading",
+      "title": "The amazing health benefits of snowboarding"
+    },
+    {
+      "type": "article-reading",
+      "kicker": "Reading",
+      "title": "The amazing health benefits of snowboarding",
+      "article": {
+        "eyebrow": "The amazing",
+        "title": "health benefits of snowboarding",
+        "lead": "Snowboarding is an exciting outdoor activity and is becoming very popular among teenagers. Here, we find out how it can help you to become more healthy and enjoy life more.",
+        "paragraphs": [
+          [
+            "Taking chances is a great way to help you to have confidence in yourself – even if you don’t get it right the first time. That’s why snowboarding is a fantastic way to learn and develop a new interest. I met Kathy Champion, 15, on Mont Blanc, where she explained why snowboarding is a great ",
+            {
+              "text": "benefit",
+              "highlight": true
+            },
+            " for teens."
+          ],
+          [
+            "Kathy started snowboarding at a young age. At only nine years old, she was snowboarding with her dad in Scotland and she continues to love it to this day. (1) ",
+            {
+              "questionId": "read2-1"
+            },
+            " ‘Being in the mountains for hours every day made me feel so healthy and alive,’ she says. It helped her to understand how her body works because she learned ",
+            {
+              "text": "techniques",
+              "highlight": true
+            },
+            " to help her to ride the snowboard properly. (2) ",
+            {
+              "questionId": "read2-2"
+            },
+            " ‘Snowboarding taught me to believe in myself, even when I was worried about ",
+            "hurting",
+            " myself.’ Did she ",
+            {
+              "text": "get hurt",
+              "highlight": true
+            },
+            "? ‘Yes, once or twice, nothing serious,’ she says."
+          ],
+          [
+            "(3) ",
+            {
+              "questionId": "read2-3"
+            },
+            " ‘It made me want to ",
+            {
+              "text": "succeed",
+              "highlight": true
+            },
+            " even more and get to the bottom of the mountain!’"
+          ],
+          [
+            "(4) ",
+            {
+              "questionId": "read2-4"
+            },
+            " ‘It keeps you very fit, very positive, but it also helps you to make new friends,’ she says. Kathy believes that doing an extreme sport also introduces you to a new and positive community. ‘To do extreme sports you need to have support from people who understand what you’re doing and are there to help you improve.’ And she thinks the feel-good part of snowboarding can also help teenagers keep out of trouble. ‘Some people I know from school laugh at me when I tell them how great I feel after snowboarding. (5) ",
+            {
+              "questionId": "read2-5"
+            },
+            "’ So, what is Kathy’s ",
+            {
+              "text": "advice",
+              "highlight": true
+            },
+            "? ‘Get a snowboard, get healthy – and enjoy life!’"
+          ]
+        ]
+      },
+      "questions": [
+        {
+          "id": "read1-title",
+          "type": "single-choice",
+          "question": "Which is the best title?",
+          "options": [
+            {
+              "value": "1",
+              "label": "1 How to stay healthy in your teens"
+            },
+            {
+              "value": "2",
+              "label": "2 Snowboarding has great benefits for teens"
+            },
+            {
+              "value": "3",
+              "label": "3 Snowboarding help teens stay out of trouble"
+            }
+          ],
+          "correctAnswer": "2"
+        },
+        {
+          "id": "read2-1",
+          "type": "text-input",
+          "controlType": "select",
+          "question": "Gap 1",
+          "options": [
+            {
+              "value": "A",
+              "label": "A"
+            },
+            {
+              "value": "B",
+              "label": "B"
+            },
+            {
+              "value": "C",
+              "label": "C"
+            },
+            {
+              "value": "D",
+              "label": "D"
+            },
+            {
+              "value": "E",
+              "label": "E"
+            },
+            {
+              "value": "F",
+              "label": "F"
+            },
+            {
+              "value": "G",
+              "label": "G"
+            },
+            {
+              "value": "H",
+              "label": "H"
+            }
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "id": "read2-2",
+          "type": "text-input",
+          "controlType": "select",
+          "question": "Gap 2",
+          "options": [
+            {
+              "value": "A",
+              "label": "A"
+            },
+            {
+              "value": "B",
+              "label": "B"
+            },
+            {
+              "value": "C",
+              "label": "C"
+            },
+            {
+              "value": "D",
+              "label": "D"
+            },
+            {
+              "value": "E",
+              "label": "E"
+            },
+            {
+              "value": "F",
+              "label": "F"
+            },
+            {
+              "value": "G",
+              "label": "G"
+            },
+            {
+              "value": "H",
+              "label": "H"
+            }
+          ],
+          "correctAnswer": "F"
+        },
+        {
+          "id": "read2-3",
+          "type": "text-input",
+          "controlType": "select",
+          "question": "Gap 3",
+          "options": [
+            {
+              "value": "A",
+              "label": "A"
+            },
+            {
+              "value": "B",
+              "label": "B"
+            },
+            {
+              "value": "C",
+              "label": "C"
+            },
+            {
+              "value": "D",
+              "label": "D"
+            },
+            {
+              "value": "E",
+              "label": "E"
+            },
+            {
+              "value": "F",
+              "label": "F"
+            },
+            {
+              "value": "G",
+              "label": "G"
+            },
+            {
+              "value": "H",
+              "label": "H"
+            }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": "read2-4",
+          "type": "text-input",
+          "controlType": "select",
+          "question": "Gap 4",
+          "options": [
+            {
+              "value": "A",
+              "label": "A"
+            },
+            {
+              "value": "B",
+              "label": "B"
+            },
+            {
+              "value": "C",
+              "label": "C"
+            },
+            {
+              "value": "D",
+              "label": "D"
+            },
+            {
+              "value": "E",
+              "label": "E"
+            },
+            {
+              "value": "F",
+              "label": "F"
+            },
+            {
+              "value": "G",
+              "label": "G"
+            },
+            {
+              "value": "H",
+              "label": "H"
+            }
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "id": "read2-5",
+          "type": "text-input",
+          "controlType": "select",
+          "question": "Gap 5",
+          "options": [
+            {
+              "value": "A",
+              "label": "A"
+            },
+            {
+              "value": "B",
+              "label": "B"
+            },
+            {
+              "value": "C",
+              "label": "C"
+            },
+            {
+              "value": "D",
+              "label": "D"
+            },
+            {
+              "value": "E",
+              "label": "E"
+            },
+            {
+              "value": "F",
+              "label": "F"
+            },
+            {
+              "value": "G",
+              "label": "G"
+            },
+            {
+              "value": "H",
+              "label": "H"
+            }
+          ],
+          "correctAnswer": "G"
+        },
+        {
+          "id": "read3-match",
+          "type": "matching",
+          "variant": "response-expressions",
+          "compactOptionLabels": true,
+          "scorePerPair": true,
+          "question": "",
+          "pairs": [
+            {
+              "value": "1",
+              "label": "1 achieve something you want to do"
+            },
+            {
+              "value": "2",
+              "label": "2 something someone tells you to help you"
+            },
+            {
+              "value": "3",
+              "label": "3 ways of doing something well"
+            },
+            {
+              "value": "4",
+              "label": "4 feel pain because of an accident"
+            },
+            {
+              "value": "5",
+              "label": "5 an advantage from doing something"
+            }
+          ],
+          "options": [
+            {
+              "value": "succeed",
+              "label": "succeed"
+            },
+            {
+              "value": "advice",
+              "label": "advice"
+            },
+            {
+              "value": "techniques",
+              "label": "techniques"
+            },
+            {
+              "value": "get hurt",
+              "label": "get hurt"
+            },
+            {
+              "value": "benefit",
+              "label": "benefit"
+            }
+          ],
+          "correctAnswer": {
+            "1": "succeed",
+            "2": "advice",
+            "3": "techniques",
+            "4": "get hurt",
+            "5": "benefit"
+          }
+        },
+        {
+          "id": "read4-1",
+          "type": "text-input",
+          "question": "1",
+          "inlineParts": [
+            "1 You have to work very hard to ",
+            {
+              "questionId": "read4-1"
+            },
+            "."
+          ],
+          "correctAnswer": "succeed"
+        },
+        {
+          "id": "read4-2",
+          "type": "text-input",
+          "question": "2",
+          "inlineParts": [
+            "2 I never fall off my bike and ",
+            {
+              "questionId": "read4-2"
+            },
+            "."
+          ],
+          "correctAnswer": "get hurt"
+        },
+        {
+          "id": "read4-3",
+          "type": "text-input",
+          "question": "3",
+          "inlineParts": [
+            "3 The ",
+            {
+              "questionId": "read4-3"
+            },
+            " of doing a new sport is that you learn new skills."
+          ],
+          "correctAnswer": "benefit"
+        },
+        {
+          "id": "read4-4",
+          "type": "text-input",
+          "question": "4",
+          "inlineParts": [
+            "4 I surf every day and have learned the best ",
+            {
+              "questionId": "read4-4"
+            },
+            "."
+          ],
+          "correctAnswer": "techniques"
+        },
+        {
+          "id": "read4-5",
+          "type": "text-input",
+          "question": "5",
+          "inlineParts": [
+            "5 My ",
+            {
+              "questionId": "read4-5"
+            },
+            " to you is – start snowboarding now!"
+          ],
+          "correctAnswer": "advice"
+        }
+      ],
+      "tasks": [
+        {
+          "title": "1. You are going to read an article about the benefits of snowboarding. Read the article quickly and tick (✓) the best title.",
+          "questionIds": [
+            "read1-title"
+          ]
+        },
+        {
+          "title": "2. Five sentences have been removed from the article. Choose from sentences A–H the one which fills each gap (1–5). There are three extra sentences which you do not need to use.",
+          "optionBank": [
+            {
+              "value": "A",
+              "label": "A But it didn’t make me stop."
+            },
+            {
+              "value": "B",
+              "label": "B And she believes that every teen needs to experience the health benefits of going snowboarding."
+            },
+            {
+              "value": "C",
+              "label": "C Kathy believes that doing an extreme sport also introduces you to a new and positive community."
+            },
+            {
+              "value": "D",
+              "label": "D She knew she was going to love snowboarding for a long time."
+            },
+            {
+              "value": "E",
+              "label": "E She already understood how to ride a snowboard."
+            },
+            {
+              "value": "F",
+              "label": "F It also made her feel that she could do something very well."
+            },
+            {
+              "value": "G",
+              "label": "G They think that hanging out on the street and doing stupid things is fun – I don’t see how!"
+            },
+            {
+              "value": "H",
+              "label": "H She feels teenagers think it is too dangerous to try snowboarding."
+            }
+          ],
+          "questionIds": []
+        },
+        {
+          "title": "3. Match the highlighted words in the text to their meanings.",
+          "questionIds": [
+            "read3-match"
+          ]
+        },
+        {
+          "title": "4. Complete the sentences with the highlighted words from the text.",
+          "questionIds": [
+            "read4-1",
+            "read4-2",
+            "read4-3",
+            "read4-4",
+            "read4-5"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section-heading",
+      "kicker": "Grammar",
+      "title": "Past continuous"
+    },
+    {
+      "type": "question-group",
+      "title": "1. Complete the sentences with was, were, wasn’t or weren’t.",
+      "questions": [
+        {
+          "id": "pc1-1",
+          "type": "text-input",
+          "question": "1",
+          "inlineParts": [
+            "1 The man ",
+            {
+              "questionId": "pc1-1"
+            },
+            " walking to work because it was a lovely day."
+          ],
+          "correctAnswer": "was",
+          "acceptedAnswers": [
+            "was"
+          ]
+        },
+        {
+          "id": "pc1-2",
+          "type": "text-input",
+          "question": "2",
+          "inlineParts": [
+            "2 What ",
+            {
+              "questionId": "pc1-2"
+            },
+            " you doing last night when I tried to call you?"
+          ],
+          "correctAnswer": "were",
+          "acceptedAnswers": [
+            "were"
+          ]
+        },
+        {
+          "id": "pc1-3",
+          "type": "text-input",
+          "question": "3",
+          "inlineParts": [
+            "3 I ",
+            {
+              "questionId": "pc1-3"
+            },
+            " studying really hard last night."
+          ],
+          "correctAnswer": "was",
+          "acceptedAnswers": [
+            "was"
+          ]
+        },
+        {
+          "id": "pc1-4",
+          "type": "text-input",
+          "question": "4",
+          "inlineParts": [
+            "4 The boys ",
+            {
+              "questionId": "pc1-4"
+            },
+            " playing tennis – it was volleyball!"
+          ],
+          "correctAnswer": "weren't",
+          "acceptedAnswers": [
+            "weren't",
+            "weren’t",
+            "were not"
+          ]
+        },
+        {
+          "id": "pc1-5",
+          "type": "text-input",
+          "question": "5",
+          "inlineParts": [
+            "5 ",
+            {
+              "questionId": "pc1-5"
+            },
+            " you watching TV at 8 pm last night?"
+          ],
+          "correctAnswer": "were",
+          "acceptedAnswers": [
+            "were"
+          ]
+        },
+        {
+          "id": "pc1-6",
+          "type": "text-input",
+          "question": "6",
+          "inlineParts": [
+            "6 What ",
+            {
+              "questionId": "pc1-6"
+            },
+            " your sister doing at lunchtime?"
+          ],
+          "correctAnswer": "was",
+          "acceptedAnswers": [
+            "was"
+          ]
+        },
+        {
+          "id": "pc1-7",
+          "type": "text-input",
+          "question": "7",
+          "inlineParts": [
+            "7 I ",
+            {
+              "questionId": "pc1-7"
+            },
+            " playing on your computer yesterday. I was out on my bike."
+          ],
+          "correctAnswer": "wasn't",
+          "acceptedAnswers": [
+            "wasn't",
+            "wasn’t",
+            "was not"
+          ]
+        },
+        {
+          "id": "pc1-8",
+          "type": "text-input",
+          "question": "8",
+          "inlineParts": [
+            "8 We ",
+            {
+              "questionId": "pc1-8"
+            },
+            " listening to you – can you say it again please?"
+          ],
+          "correctAnswer": "weren't",
+          "acceptedAnswers": [
+            "weren't",
+            "weren’t",
+            "were not"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "question-group",
+      "title": "2. Write the words in the correct order to make sentences.",
+      "questions": [
+        {
+          "id": "pc2-1",
+          "type": "ordering",
+          "question": "1",
+          "items": [
+            "when",
+            "computer",
+            "was",
+            "games",
+            "rang",
+            "phone",
+            "Chris",
+            "the",
+            "playing"
+          ],
+          "correctAnswer": [
+            "Chris",
+            "was",
+            "playing",
+            "computer",
+            "games",
+            "when",
+            "the",
+            "phone",
+            "rang"
+          ]
+        },
+        {
+          "id": "pc2-2",
+          "type": "ordering",
+          "question": "2",
+          "items": [
+            "you",
+            "visiting",
+            "texted",
+            "Were",
+            "I",
+            "grandparents",
+            "you?",
+            "your",
+            "when"
+          ],
+          "correctAnswer": [
+            "Were",
+            "you",
+            "visiting",
+            "your",
+            "grandparents",
+            "when",
+            "I",
+            "texted",
+            "you?"
+          ]
+        },
+        {
+          "id": "pc2-3",
+          "type": "ordering",
+          "question": "3",
+          "items": [
+            "arms",
+            "cat",
+            "I",
+            "when",
+            "from",
+            "it",
+            "jumped",
+            "the",
+            "carrying",
+            "my",
+            "was"
+          ],
+          "correctAnswer": [
+            "I",
+            "was",
+            "carrying",
+            "the",
+            "cat",
+            "when",
+            "it",
+            "jumped",
+            "from",
+            "my",
+            "arms"
+          ]
+        },
+        {
+          "id": "pc2-4",
+          "type": "ordering",
+          "question": "4",
+          "items": [
+            "bedroom",
+            "found",
+            "I",
+            "cleaning",
+            "diary",
+            "was",
+            "my",
+            "when",
+            "old",
+            "my",
+            "I"
+          ],
+          "correctAnswer": [
+            "I",
+            "was",
+            "cleaning",
+            "my",
+            "bedroom",
+            "when",
+            "I",
+            "found",
+            "my",
+            "old",
+            "diary"
+          ]
+        },
+        {
+          "id": "pc2-5",
+          "type": "ordering",
+          "question": "5",
+          "items": [
+            "hockey",
+            "We",
+            "rained",
+            "going",
+            "match",
+            "were",
+            "the",
+            "but",
+            "to",
+            "it",
+            "watch"
+          ],
+          "correctAnswer": [
+            "We",
+            "were",
+            "going",
+            "to",
+            "watch",
+            "the",
+            "hockey",
+            "match",
+            "but",
+            "it",
+            "rained"
+          ]
+        },
+        {
+          "id": "pc2-6",
+          "type": "ordering",
+          "question": "6",
+          "items": [
+            "exams",
+            "music",
+            "while",
+            "listening",
+            "revising",
+            "to",
+            "for",
+            "They",
+            "their",
+            "were"
+          ],
+          "correctAnswer": [
+            "They",
+            "were",
+            "listening",
+            "to",
+            "music",
+            "while",
+            "revising",
+            "for",
+            "their",
+            "exams"
+          ]
+        },
+        {
+          "id": "pc2-7",
+          "type": "ordering",
+          "question": "7",
+          "items": [
+            "talking",
+            "Were",
+            "Peter",
+            "maths",
+            "the",
+            "you",
+            "about",
+            "to",
+            "test?"
+          ],
+          "correctAnswer": [
+            "Were",
+            "you",
+            "talking",
+            "to",
+            "Peter",
+            "about",
+            "the",
+            "maths",
+            "test?"
+          ]
+        },
+        {
+          "id": "pc2-8",
+          "type": "ordering",
+          "question": "8",
+          "items": [
+            "was",
+            "you",
+            "thinking",
+            "called",
+            "you",
+            "when",
+            "I",
+            "about",
+            "just"
+          ],
+          "correctAnswer": [
+            "I",
+            "was",
+            "just",
+            "thinking",
+            "about",
+            "you",
+            "when",
+            "you",
+            "called"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "question-group",
+      "title": "3. Choose the correct sentence in each pair.",
+      "questions": [
+        {
+          "id": "pc3-1",
+          "type": "single-choice",
+          "question": "1",
+          "options": [
+            {
+              "value": "a",
+              "label": "a On her way home, she saw a deer that is standing beside the road eating grass."
+            },
+            {
+              "value": "b",
+              "label": "b On her way home, she saw a deer that was standing beside the road eating grass."
+            }
+          ],
+          "correctAnswer": "b"
+        },
+        {
+          "id": "pc3-2",
+          "type": "single-choice",
+          "question": "2",
+          "options": [
+            {
+              "value": "a",
+              "label": "a I was planing to have a picnic on Saturday."
+            },
+            {
+              "value": "b",
+              "label": "b I was planning to have a picnic on Saturday."
+            }
+          ],
+          "correctAnswer": "b"
+        },
+        {
+          "id": "pc3-3",
+          "type": "single-choice",
+          "question": "3",
+          "options": [
+            {
+              "value": "a",
+              "label": "a He was playing basketball alone."
+            },
+            {
+              "value": "b",
+              "label": "b He was play basketball alone."
+            }
+          ],
+          "correctAnswer": "a"
+        },
+        {
+          "id": "pc3-4",
+          "type": "single-choice",
+          "question": "4",
+          "options": [
+            {
+              "value": "a",
+              "label": "a I first met him at primary school, while we was playing football."
+            },
+            {
+              "value": "b",
+              "label": "b I first met him at primary school, while we were playing football."
+            }
+          ],
+          "correctAnswer": "b"
+        },
+        {
+          "id": "pc3-5",
+          "type": "single-choice",
+          "question": "5",
+          "options": [
+            {
+              "value": "a",
+              "label": "a I was studying at her school until last year, but then I moved."
+            },
+            {
+              "value": "b",
+              "label": "b I was studing at her school until last year, but then I moved."
+            }
+          ],
+          "correctAnswer": "a"
+        }
+      ]
+    }
+  ]
+}

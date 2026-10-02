@@ -555,5 +555,140 @@ window.VOCABULARY_DATA = [
         "exampleEn": "That’s a photo from last year."
       }
     ]
+  },
+  {
+    "id": "vocab-lesson-5",
+    "title": "Champions · Sports and snowboarding",
+    "subtitle": "Vocabulary from Prepare Level 4 Unit 4",
+    "icon": "🏆",
+    "label": "Lesson 5",
+    "linkedLessonId": "lesson-5",
+    "words": [
+      {
+        "en": "volleyball",
+        "ru": "волейбол",
+        "exampleEn": "We sometimes play volleyball in the sports hall."
+      },
+      {
+        "en": "athletics",
+        "ru": "лёгкая атлетика",
+        "exampleEn": "Athletics includes running, jumping and throwing events."
+      },
+      {
+        "en": "surfing",
+        "ru": "сёрфинг",
+        "exampleEn": "Surfing is a popular water sport."
+      },
+      {
+        "en": "windsurfing",
+        "ru": "виндсёрфинг",
+        "exampleEn": "She goes windsurfing on the lake in summer."
+      },
+      {
+        "en": "swimming",
+        "ru": "плавание",
+        "exampleEn": "Swimming is good exercise for the whole body."
+      },
+      {
+        "en": "climbing",
+        "ru": "скалолазание / лазание",
+        "exampleEn": "Climbing can be done indoors or outdoors."
+      },
+      {
+        "en": "jogging",
+        "ru": "бег трусцой",
+        "exampleEn": "He goes jogging in the park every morning."
+      },
+      {
+        "en": "tennis",
+        "ru": "теннис",
+        "exampleEn": "They play tennis at the weekend."
+      },
+      {
+        "en": "gymnastics",
+        "ru": "гимнастика",
+        "exampleEn": "Her sister does gymnastics on Saturdays."
+      },
+      {
+        "en": "cycling",
+        "ru": "езда на велосипеде",
+        "exampleEn": "Cycling is a good way to stay active."
+      },
+      {
+        "en": "rugby",
+        "ru": "регби",
+        "exampleEn": "Rugby is usually played outdoors."
+      },
+      {
+        "en": "boxing",
+        "ru": "бокс",
+        "exampleEn": "Boxing is usually an indoor sport."
+      },
+      {
+        "en": "snowboarding",
+        "ru": "сноубординг",
+        "exampleEn": "Snowboarding is an exciting outdoor activity."
+      },
+      {
+        "en": "benefit",
+        "ru": "польза / преимущество",
+        "exampleEn": "One benefit of sport is better health."
+      },
+      {
+        "en": "technique",
+        "ru": "техника / приём",
+        "exampleEn": "Good technique helps you move safely."
+      },
+      {
+        "en": "get hurt",
+        "ru": "получить травму / ушибиться",
+        "exampleEn": "Wear protection so you do not get hurt."
+      },
+      {
+        "en": "take a chance",
+        "ru": "рискнуть / попробовать, несмотря на риск",
+        "exampleEn": "Sometimes you need to take a chance and try something new."
+      },
+      {
+        "en": "confidence",
+        "ru": "уверенность в себе",
+        "exampleEn": "Learning a new skill can build confidence."
+      },
+      {
+        "en": "develop",
+        "ru": "развивать(ся)",
+        "exampleEn": "Practice helps you develop new skills."
+      },
+      {
+        "en": "fit",
+        "ru": "в хорошей физической форме",
+        "exampleEn": "Regular exercise helps you stay fit."
+      },
+      {
+        "en": "support",
+        "ru": "поддержка",
+        "exampleEn": "Good teammates give each other support."
+      },
+      {
+        "en": "community",
+        "ru": "сообщество",
+        "exampleEn": "A sports club can give you a sense of community."
+      },
+      {
+        "en": "keep out of trouble",
+        "ru": "не попадать в неприятности",
+        "exampleEn": "Sport can help teenagers keep out of trouble."
+      },
+      {
+        "en": "extreme sport",
+        "ru": "экстремальный вид спорта",
+        "exampleEn": "Snowboarding can be an extreme sport."
+      },
+      {
+        "en": "feel alive",
+        "ru": "чувствовать себя полным сил / живым",
+        "exampleEn": "Being in the mountains makes her feel alive."
+      }
+    ]
   }
 ];

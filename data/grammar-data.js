@@ -638,5 +638,332 @@ window.GRAMMAR_DATA = [
         ]
       }
     ]
+  },
+  {
+    "id": "grammar-past-continuous",
+    "number": 3,
+    "order": 3,
+    "status": "published",
+    "title": "Past continuous",
+    "subtitle": "Actions in progress at a particular time in the past",
+    "label": "Lesson 5",
+    "linkedLessonId": "lesson-5",
+    "passScore": 100,
+    "explanation": "Use the past continuous for an action that was in progress at a particular moment in the past. It often gives the background to another, shorter past action. Form it with was/were + verb-ing.",
+    "formula": "Positive: subject + was/were + verb-ing. Negative: subject + wasn’t/weren’t + verb-ing. Question: Was/Were + subject + verb-ing?",
+    "glanceCards": [
+      {
+        "icon": "▶",
+        "label": "Action in progress",
+        "hint": "an activity happening at a past moment",
+        "pattern": "was/were + verb-ing",
+        "example": "I was studying at 8 pm last night."
+      },
+      {
+        "icon": "−",
+        "label": "Negative",
+        "hint": "an action that was not happening",
+        "pattern": "wasn’t/weren’t + verb-ing",
+        "example": "They weren’t playing tennis."
+      },
+      {
+        "icon": "?",
+        "label": "Question",
+        "hint": "ask what was happening",
+        "pattern": "Was/Were + subject + verb-ing?",
+        "example": "Were you watching TV?"
+      },
+      {
+        "icon": "⏱",
+        "label": "Past continuous + past simple",
+        "hint": "longer background action + shorter event",
+        "pattern": "was/were + -ing … when + past simple",
+        "example": "I was cycling when it started to rain."
+      }
+    ],
+    "miniRules": [
+      {
+        "title": "Was or were?",
+        "text": "Use was with I, he, she and it. Use were with you, we and they.",
+        "example": "I was running. · They were running."
+      },
+      {
+        "title": "Negative",
+        "text": "Use wasn’t or weren’t before the -ing form.",
+        "example": "She wasn’t sleeping. · We weren’t waiting."
+      },
+      {
+        "title": "Questions and short answers",
+        "text": "Put was/were before the subject. In short answers, repeat was/were.",
+        "example": "Were you studying? Yes, I was. · Was he sleeping? No, he wasn’t."
+      },
+      {
+        "title": "Spelling the -ing form",
+        "text": "Usually add -ing. Drop final -e before -ing; double the final consonant in some short stressed verbs.",
+        "example": "play → playing · make → making · run → running"
+      },
+      {
+        "title": "Past continuous or past simple?",
+        "text": "Use past continuous for an action already in progress. Use past simple for a shorter completed action or event.",
+        "example": "I was cleaning my room when I found my old diary."
+      }
+    ],
+    "tables": [
+      {
+        "title": "Past continuous forms",
+        "headers": [
+          "Form",
+          "Pattern",
+          "Example"
+        ],
+        "rows": [
+          [
+            "Positive",
+            "subject + was/were + verb-ing",
+            "She was snowboarding."
+          ],
+          [
+            "Negative",
+            "subject + wasn’t/weren’t + verb-ing",
+            "They weren’t playing tennis."
+          ],
+          [
+            "Question",
+            "Was/Were + subject + verb-ing?",
+            "Were you studying?"
+          ],
+          [
+            "Short answer",
+            "Yes, subject + was/were. / No, subject + wasn’t/weren’t.",
+            "Yes, I was. / No, they weren’t."
+          ]
+        ]
+      },
+      {
+        "title": "Which form of be?",
+        "headers": [
+          "Subject",
+          "Positive",
+          "Negative"
+        ],
+        "rows": [
+          [
+            "I / he / she / it",
+            "was",
+            "wasn’t"
+          ],
+          [
+            "you / we / they",
+            "were",
+            "weren’t"
+          ]
+        ]
+      }
+    ],
+    "exampleGroups": [
+      {
+        "title": "Common time phrases",
+        "items": [
+          "at 8 pm last night",
+          "when I called you",
+          "while they were revising",
+          "yesterday at lunchtime"
+        ]
+      }
+    ],
+    "mistakes": [
+      "Don’t forget was/were: I was studying, not I studying.",
+      "Use the -ing form after was/were: They were playing, not They were play.",
+      "Match was/were to the subject: We were listening, not We was listening.",
+      "For a short completed event, use the past simple: The phone rang while Chris was playing computer games."
+    ],
+    "exercises": [
+      {
+        "id": "pc-topic-1",
+        "difficulty": "Easy",
+        "title": "Choose was or were.",
+        "instructions": "Choose the correct auxiliary verb.",
+        "items": [
+          {
+            "id": "1",
+            "input": "single",
+            "prompt": "1 I ___ studying at 9 pm.",
+            "options": [
+              "was",
+              "were"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "2",
+            "input": "single",
+            "prompt": "2 They ___ playing volleyball.",
+            "options": [
+              "was",
+              "were"
+            ],
+            "answer": 1
+          },
+          {
+            "id": "3",
+            "input": "single",
+            "prompt": "3 What ___ your sister doing?",
+            "options": [
+              "was",
+              "were"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "4",
+            "input": "single",
+            "prompt": "4 ___ you watching the match?",
+            "options": [
+              "Was",
+              "Were"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "id": "pc-topic-2",
+        "difficulty": "Medium",
+        "title": "Complete the past continuous form.",
+        "instructions": "Write the correct form of the verb in brackets.",
+        "items": [
+          {
+            "id": "1",
+            "input": "text",
+            "prompt": "1 At 7 pm, I ________ dinner. (make)",
+            "answer": "was making"
+          },
+          {
+            "id": "2",
+            "input": "text",
+            "prompt": "2 The boys ________ basketball. (play)",
+            "answer": "were playing"
+          },
+          {
+            "id": "3",
+            "input": "text",
+            "prompt": "3 She ________ at school yesterday afternoon. (not study)",
+            "answer": "wasn't studying",
+            "acceptedAnswers": [
+              "wasn't studying",
+              "wasn’t studying",
+              "was not studying"
+            ]
+          },
+          {
+            "id": "4",
+            "input": "text",
+            "prompt": "4 We ________ for the bus. (not wait)",
+            "answer": "weren't waiting",
+            "acceptedAnswers": [
+              "weren't waiting",
+              "weren’t waiting",
+              "were not waiting"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pc-topic-3",
+        "difficulty": "Higher challenge",
+        "title": "Choose the correct sentence.",
+        "instructions": "Choose the sentence that is grammatically correct.",
+        "items": [
+          {
+            "id": "1",
+            "input": "single",
+            "prompt": "1",
+            "options": [
+              "She was running when I saw her.",
+              "She were running when I saw her."
+            ],
+            "answer": 0
+          },
+          {
+            "id": "2",
+            "input": "single",
+            "prompt": "2",
+            "options": [
+              "Were you sleeping when I called?",
+              "Did you sleeping when I called?"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "3",
+            "input": "single",
+            "prompt": "3",
+            "options": [
+              "They weren’t watching TV.",
+              "They weren’t watch TV."
+            ],
+            "answer": 0
+          },
+          {
+            "id": "4",
+            "input": "single",
+            "prompt": "4",
+            "options": [
+              "I was cleaning my room when I found the photo.",
+              "I cleaned my room when I was finding the photo."
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      {
+        "id": "pc-topic-4",
+        "difficulty": "Most challenging",
+        "title": "Build the complete sentence.",
+        "instructions": "Use the prompts to write a complete sentence or question.",
+        "items": [
+          {
+            "id": "1",
+            "input": "text",
+            "prompt": "1 Chris / play computer games / when / phone / ring",
+            "answer": "Chris was playing computer games when the phone rang",
+            "acceptedAnswers": [
+              "Chris was playing computer games when the phone rang."
+            ]
+          },
+          {
+            "id": "2",
+            "input": "text",
+            "prompt": "2 what / you / do / at 8 pm last night?",
+            "answer": "What were you doing at 8 pm last night?",
+            "acceptedAnswers": [
+              "What were you doing at 8 pm last night"
+            ]
+          },
+          {
+            "id": "3",
+            "input": "text",
+            "prompt": "3 we / not listen / when / teacher / speak",
+            "answer": "We weren't listening when the teacher spoke",
+            "acceptedAnswers": [
+              "We weren't listening when the teacher spoke.",
+              "We weren’t listening when the teacher spoke",
+              "We weren’t listening when the teacher spoke.",
+              "We were not listening when the teacher spoke",
+              "We were not listening when the teacher spoke."
+            ]
+          },
+          {
+            "id": "4",
+            "input": "text",
+            "prompt": "4 I / carry / cat / when / it / jump / from my arms",
+            "answer": "I was carrying the cat when it jumped from my arms",
+            "acceptedAnswers": [
+              "I was carrying the cat when it jumped from my arms."
+            ]
+          }
+        ]
+      }
+    ]
   }
 ];

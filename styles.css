@@ -5043,3 +5043,189 @@ body.has-bottom-nav .reading-sticky-side {
     padding: 16px;
   }
 }
+
+/* Lesson 5 · Champions */
+.word-square-card .lesson-content-body {
+  display: grid;
+  gap: 20px;
+}
+.word-square-wrap {
+  width: min(100%, 560px);
+  display: grid;
+  gap: 0;
+  padding: 12px;
+  border: 1px solid #dbe4ef;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px rgba(15,23,42,.02);
+}
+.word-square-row {
+  display: grid;
+  grid-template-columns: repeat(11, minmax(0, 1fr));
+}
+.word-square-row span {
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-right: 1px solid #dbe4ef;
+  border-bottom: 1px solid #dbe4ef;
+  color: #0f172a;
+  font-weight: 800;
+  text-transform: lowercase;
+}
+.word-square-row:first-child span { border-top: 1px solid #dbe4ef; }
+.word-square-row span:first-child { border-left: 1px solid #dbe4ef; }
+.word-square-answers {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+.word-square-answer .text-answer {
+  margin: 0;
+  min-height: 44px;
+}
+
+.sports-table-scroll { overflow-x: auto; }
+.sports-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border: 1px solid #dbe4ef;
+  border-radius: 16px;
+  background: #fff;
+}
+.sports-table th,
+.sports-table td {
+  padding: 11px 12px;
+  border-right: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: center;
+  vertical-align: middle;
+}
+.sports-table th:last-child,
+.sports-table td:last-child { border-right: 0; }
+.sports-table tbody tr:last-child th,
+.sports-table tbody tr:last-child td { border-bottom: 0; }
+.sports-table thead th {
+  background: #f8fafc;
+  color: #334155;
+  font-size: .82rem;
+  font-weight: 900;
+}
+.sports-table tbody th {
+  min-width: 145px;
+  text-align: left;
+  color: #0f172a;
+  font-weight: 800;
+}
+.sports-category-check {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  margin: 0 auto;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+.sports-category-check input {
+  width: 18px;
+  height: 18px;
+  accent-color: #4f46e5;
+}
+.sports-table tr.is-correct > * { background: #f0fdf4; }
+.sports-table tr.is-incorrect > * { background: #fff7f7; }
+
+.article-reading-card {
+  grid-template-columns: minmax(360px, 1.04fr) minmax(0, .96fr);
+}
+.article-reading-card .reading-text-card {
+  overflow: auto;
+}
+.study-article {
+  display: grid;
+  gap: 14px;
+}
+.study-article-title {
+  padding: 18px 20px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #111827, #475569);
+  color: #fff;
+}
+.study-article-title span {
+  display: block;
+  margin-bottom: 4px;
+  font-size: .9rem;
+  font-weight: 700;
+  font-style: italic;
+}
+.study-article-title strong {
+  display: block;
+  font-size: clamp(1.65rem, 3vw, 2.5rem);
+  line-height: 1.02;
+}
+.study-article-lead {
+  margin: 0;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: #eef2f7;
+  color: #1e293b;
+  font-weight: 750;
+  line-height: 1.55;
+}
+.study-article-copy {
+  display: grid;
+  gap: 14px;
+}
+.study-article-copy p {
+  margin: 0;
+  color: #263548;
+  line-height: 1.72;
+}
+.study-article-copy .conversation-gap {
+  margin-inline: .22rem;
+}
+.article-option-bank {
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+  border: 1px solid #dbe4ef;
+  border-radius: 16px;
+  background: #f8fafc;
+}
+.article-option {
+  display: grid;
+  grid-template-columns: 32px minmax(0,1fr);
+  gap: 10px;
+  align-items: start;
+  padding: 10px 11px;
+  border-radius: 12px;
+  background: #fff;
+}
+.article-option > span {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: #eef2ff;
+  color: #4338ca;
+  font-size: .8rem;
+  font-weight: 900;
+}
+.article-option p {
+  margin: 3px 0 0;
+  color: #334155;
+  line-height: 1.45;
+}
+
+@media (max-width: 860px) {
+  .article-reading-card { grid-template-columns: 1fr; }
+  .word-square-answers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .word-square-wrap { padding: 7px; }
+  .word-square-row span { font-size: .78rem; }
+  .word-square-answers { grid-template-columns: 1fr 1fr; }
+  .sports-table th, .sports-table td { padding: 9px 8px; }
+}
